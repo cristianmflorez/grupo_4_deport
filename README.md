@@ -4,7 +4,7 @@ Proyecto integrador para el curso Full Stack de Digital House - Grupo 4
 ## Integrantes:
 <ul>
   <li>Biagetti Nehemias</li>  
-  <li>@danielcorrea28</li>  
+  <li>@grupo_4_deport/danielcorrea28</li>  
   <li>Florez Cristian</li>  
   <li>Sepulveda Geraldine</li>  
   <li>Pedraza Martin</li>
