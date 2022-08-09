@@ -4,7 +4,7 @@ Proyecto integrador para el curso Full Stack de Digital House - Grupo 4 [Daniel 
 ## Integrantes:
 <ul>
   <li>Biagetti Nehemias</li>  
-  <li>[Daniel Correa](https://github.com/danielcorrea28)</li>  
+  <li><a href="https://github.com/danielcorrea28">Correa Daniel</a></li>  
   <li>Florez Cristian</li>  
   <li>Sepulveda Geraldine</li>  
   <li>Pedraza Martin</li>
