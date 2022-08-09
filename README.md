@@ -22,4 +22,4 @@ Proyecto integrador para el curso Full Stack de Digital House - Grupo 4
   Nike: https://www.nike.com/xl/
   Adidas: https://www.adidas.co/
   Rebook: https://www.reebok.co/
-  Puma: https://about.puma.com/
+  Puma: https://eu.puma.com/es/es/home
