@@ -1,10 +1,10 @@
 # grupo4_deport
-Proyecto integrador para el curso Full Stack de Digital House - Grupo 4 [Daniel](https://github.com/danielcorrea28)
+Proyecto integrador para el curso Full Stack de Digital House - Grupo 4 
 
 ## Integrantes:
 <ul>
   <li>Biagetti Nehemias</li>  
-  <li>@danielcorrea28</li>  
+  <li>[Daniel Correa](https://github.com/danielcorrea28)</li>  
   <li>Florez Cristian</li>  
   <li>Sepulveda Geraldine</li>  
   <li>Pedraza Martin</li>
