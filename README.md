@@ -1,13 +1,14 @@
 # grupo4_deport
 Proyecto integrador para el curso Full Stack de Digital House - Grupo 4 
 
-## Integrantes:**  
-  Biagetti Nehemias  
-  Correa Daniel  
-  Florez Cristian  
-  Sepulveda Geraldine  
-  Pedraza Martin
- 
+## Integrantes:**
+<ul>
+  <li>Biagetti Nehemias</li>  
+  <li>Correa Daniel</li>  
+  <li>Florez Cristian</li>  
+  <li>Sepulveda Geraldine</li>  
+  <li>Pedraza Martin</li>
+</ul>
 ## **Temática del sitio:**
   Sitio e-comerce enfocado en artículos deportivos para diversas disciplinas.
 
