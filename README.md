@@ -1,5 +1,5 @@
 # grupo4_deport
-Proyecto integrador para el curso Full Stack de Digital House - Grupo 4 [Daniel Correa](https://github.com/danielcorrea28)
+Proyecto integrador para el curso Full Stack de Digital House - Grupo 4 
 
 ## Integrantes:
 <ul>
