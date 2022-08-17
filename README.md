@@ -7,7 +7,7 @@ Proyecto integrador para el curso Full Stack de Digital House - Grupo 4
   <li><a href="https://github.com/danielcorrea28">Correa Daniel</a>: Soy una persona responsable, con altas motivaciones por aprender y me gusta trabajar en equipo.</li> 
   <li>Florez Cristian: de 27 años, psicólogo y estudiante de ingeniería de sistemas. Soy de Colombia y vivo en un pueblo cerca a la ciudad de Medellín</li>  
   <li>Sepulveda Geraldine: Mi nombre es Geraldine Martínez, tengo 27 años, vivo en Bogotá (Colombia), de profesión soy psicóloga; sin embargo, ahora mismo me desempeño como Manual Tester de un aplicativo de salud.</li>  
-  <li>Pedraza Martin</li>
+  <li>Pedraza Martin: 26 años. Estudiante de la tecnicatura superior en programación que busca aprender las últimas tecnologías de desarrollo web para poder trabajar de ellos.</li>
 </ul>
 
 ## Temática del sitio:
