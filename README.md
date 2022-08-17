@@ -19,7 +19,7 @@ Proyecto integrador para el curso Full Stack de Digital House - Grupo 4
 ## Sitios referentes:
   Elegimos los siguientes sitios por estar entre las marcas más importantes para la venta de articulos deportivos a nivel internacional.
   UnderArmour: https://www.underarmour.com/
-  Nike: https://www.nike.com/xl/
+  Umbro: https://tienda.umbro.com.ar/
   Adidas: https://www.adidas.co/
   Rebook: https://www.reebok.co/
   Puma: https://eu.puma.com/es/es/home
