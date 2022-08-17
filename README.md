@@ -1,4 +1,4 @@
-# grupo4_deport
+# grupo_4_deport
 Proyecto integrador para el curso Full Stack de Digital House - Grupo 4 
 
 ## Integrantes:
