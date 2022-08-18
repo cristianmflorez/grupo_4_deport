@@ -25,5 +25,6 @@ Proyecto integrador para el curso Full Stack de Digital House - Grupo 4
   Rebook: https://www.reebok.co/
   Puma: https://eu.puma.com/es/es/home
 
-## Tablero de trabajo: https://trello.com/b/tkrVxRfm/proyecto-integrador-dh
+## Tablero de trabajo: 
+  https://trello.com/b/tkrVxRfm/proyecto-integrador-dh
   
