@@ -1,4 +1,4 @@
-# grupo_4_deport
+# grupo_4_all_sports
 Proyecto integrador para el curso Full Stack de Digital House - Grupo 4 
 
 ## Integrantes:
