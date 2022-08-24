@@ -1,0 +1,19 @@
+{
+  "name": "grupo_4_deport",
+  "version": "1.0.0",
+  "description": "Proyecto integrador curso Full stack DH",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cristianmflorez/grupo_4_deport.git"
+  },
+  "author": "Grupo 4",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cristianmflorez/grupo_4_deport/issues"
+  },
+  "homepage": "https://github.com/cristianmflorez/grupo_4_deport#readme"
+}
