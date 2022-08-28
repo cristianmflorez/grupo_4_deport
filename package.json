@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/cristianmflorez/grupo_4_deport/issues"
   },
-  "homepage": "https://github.com/cristianmflorez/grupo_4_deport#readme"
+  "homepage": "https://github.com/cristianmflorez/grupo_4_deport#readme",
+  "dependencies": {
+    "bootstrap-icons": "^1.9.1"
+  }
 }
