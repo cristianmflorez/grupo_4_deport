@@ -11,4 +11,4 @@ Qué continuar haciendo:
 - Reuniones cortas periódicas
 
 Qué hacer menos o Qué Dejar de hacer:
-- Procastinar
+- Procrastinar
