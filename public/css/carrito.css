@@ -1,0 +1,26 @@
+.shop {
+    height: fit-content;
+}
+
+.product__title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+
+.product__text {
+    font-size: 13px;
+}
+
+.product__price {
+    font-weight: bold;
+}
+
+.products__total-info  {
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.products__total-price  {
+    font-weight: bold;
+}
