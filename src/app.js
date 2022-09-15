@@ -12,11 +12,11 @@ app.set('view engine', 'ejs');
 
 app.use('/', mainRoutes);
 
-app.use('*', errorRoutes);
-
 app.use('/users', usersRoutes);
 
 app.use('/products', productsRoutes);
+
+app.use('*', errorRoutes);
 
 app.use(express.static(path.resolve(__dirname, './public')));
 
