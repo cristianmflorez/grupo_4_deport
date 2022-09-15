@@ -3,10 +3,8 @@ Proyecto integrador para el curso Full Stack de Digital House - Grupo 4
 
 ## Integrantes:
 <ul>
-  <li>Biagetti Nehemias: Mi nombre es Nehemias Biagetti, tengo 25 años, vivo en Córdoba (Argentina), de profesión soy Profesor de Educación Física; ahora mismo estoy trabajando en el club Atlético Barrio Parque como profesor de Básquet de distintas categorías (chicos que van desde los 11 a los 19 años)</li>  
   <li><a href="https://github.com/danielcorrea28">Correa Daniel</a>: Soy Daniel, tengo 22 años, me identifico como una persona responsable, con altas motivaciones por aprender y me gusta trabajar en equipo.</li> 
   <li>Florez Cristian: de 27 años, psicólogo y estudiante de ingeniería de sistemas. Soy de Colombia y vivo en un pueblo cerca a la ciudad de Medellín</li>  
-  <li>Sepulveda Geraldine: Mi nombre es Geraldine Martínez, tengo 27 años, vivo en Bogotá (Colombia), de profesión soy psicóloga; sin embargo, ahora mismo me desempeño como Manual Tester de un aplicativo de salud.</li>  
   <li>Pedraza Martin: 26 años. Estudiante de la tecnicatura superior en programación que busca aprender las últimas tecnologías de desarrollo web para poder trabajar de ellos.</li>
 </ul>
 
