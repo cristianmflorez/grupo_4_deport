@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./../partials/head') %>
+<body>
+    <%- include('./../partials/header') %>
+
+    <%- include('./../partials/nav') %>
+
+    <main class="container">
+        <h2 class="p-3 text-center">Perfil</h2>
+        <form action="" method="post">
+            <div class="mb-3">
+                <label for="correo" class="form-label text-primary"><strong>Correo electronico</strong></label>
+                <input type="email" class="form-control" id="correo" placeholder="test@gmail.com" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="telefono" class="form-label text-primary"><strong>Telefono</strong></label>
+                <input type="tel" class="form-control" id="telefono"pattern="[0-9]{2}-[0-9]{4}-[0-9]{4}" placeholder="11-1234-1234">
+            </div>
+
+            <div class="mb-3">
+                <label for="direccion" class="form-label text-primary""><strong>Direccion</strong></label>
+                <input type="text" class="form-control" id="direccion" minlength="4" placeholder="calle falsa 123">
+            </div>
+
+            <div class="mb-3 d-flex justify-content-between">
+                <a href="/" class="btn btn-secondary col-4">Volver</a>
+                <button type="submit" class="btn btn-secondary col-4">Guardar</button>
+            </div>
+        </form>
+    </main>
+
+    <%- include('./../partials/footer') %>
+</body>
+</html>
