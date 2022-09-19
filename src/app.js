@@ -6,7 +6,6 @@ const port = process.env.PORT || 3005;
 const mainRoutes = require('./routes/mainRoutes');
 const usersRoutes = require('./routes/usersRoutes');
 const productsRoutes = require('./routes/productsRoutes');
-const errorRoutes = require('./routes/errorRoutes');
 
 app.set('view engine', 'ejs');
 
