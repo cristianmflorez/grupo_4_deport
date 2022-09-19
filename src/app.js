@@ -18,7 +18,9 @@ app.use('/users', usersRoutes);
 
 app.use('/products', productsRoutes);
 
-app.use('*', errorRoutes);
+app.use( (req, res, next) => {
+    res.status(404).render('errorPage');
+})
 
 app.listen(port, function(){
     console.log("corriendo en puerto 3005...");
