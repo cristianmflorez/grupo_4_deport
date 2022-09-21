@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%-include( '../partials/head') %>
+<body>
+  <%-include( '../partials/header') %>
+
+  <%-include( '../partials/nav') %>
+
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="ps-4 mt-3">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Futbol</li>
+    </ol>
+  </nav>
+  
+  <p class="ps-4 mt-3 fs-1 fw-bold">Fútbol</p>
+
+  <main class="d-flex justify-content-space-around mx-auto p-3 ps-4">
+
+    <section class="d-none d-md-block p-3 w-25 border border-1 rounded mb-3">
+        <section class="sticky-top">
+            <p class="mt-1 fs-4 fw-bold">Filtros</p>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Tipo de producto
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Sudaderas</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Chaquetas</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Guayos</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Guantes</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Medias</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Balones</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Especificaciones
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+                            </div>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+.   <section class="mx-3 w-75 d-none d-md-block">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 m-auto">
+        <div class="col mb-3">
+          <div class="card h-100 shadow m-1 p-0">
+            <a href="./products/detalle"><img src="/imagenes/guayos1.jpg" class="card-img-top" alt="..."></a>
+            <div class="card-body">
+              <h5 class="card-title">Guayos Acme</h5>
+              <p class="card-text">$12</p>
+              <p class="card-text text-success d-flex justify-content-between">5% OFF <button type="button" class="btn btn-outline-success">Comprar</button></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-3">
+          <div class="card h-100 shadow m-1 p-0">
+            <img src="/imagenes/guantes1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Guantes Kipsta</h5>
+              <p class="card-text">$20</p>
+              <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-3">
+          <div class="card h-100 shadow m-1 p-0">
+            <img src="/imagenes/balon1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Balón Kipsta</h5>
+              <p class="card-text">$60</p>
+              <p class="card-text text-success d-flex justify-content-between">20% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-3">
+          <div class="card h-100 shadow m-1 p-0">
+            <img src="/imagenes/canilleras1.png" class="card-img-top " alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Canilleras Adidas</h5>
+              <p class="card-text">$15</p>
+              <p class="card-text text-success d-flex justify-content-between">10% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col mb-3">
+            <div class="card h-100 shadow m-1 p-0">
+              <img src="/imagenes/guantes2.jpg" class="card-img-top " alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Guantes Best 90</h5>
+                <p class="card-text">$15</p>
+                <p class="card-text text-success d-flex justify-content-between">10% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+              </div>
+            </div>
+        </div>
+
+        <div class="col mb-3">
+            <div class="card h-100 shadow m-1 p-0">
+              <img src="/imagenes/guayos2.jpg" class="card-img-top " alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Guayos Mercurial</h5>
+                <p class="card-text">$15</p>
+                <p class="card-text text-success d-flex justify-content-between">10% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <%-include( '../partials/footer') %>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>
