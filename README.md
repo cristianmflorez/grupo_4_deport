@@ -5,7 +5,7 @@ Proyecto integrador para el curso Full Stack de Digital House - Grupo 4
 <ul>
   <li><a href="https://github.com/danielcorrea28">Correa Daniel</a>: Soy Daniel, tengo 22 años, me identifico como una persona responsable, con altas motivaciones por aprender y me gusta trabajar en equipo.</li> 
   <li>Florez Cristian: de 27 años, psicólogo y estudiante de ingeniería de sistemas. Soy de Colombia y vivo en un pueblo cerca a la ciudad de Medellín</li>  
-  <li>Pedraza Martin: 26 años. Estudiante de la tecnicatura superior en programación que busca aprender las últimas tecnologías de desarrollo web para poder trabajar de ellos.</li>
+  <li><a href="https://www.linkedin.com/in/martin-diego-pedraza/">Pedraza Martin</a>: 26 años. Estudiante de la tecnicatura superior en programación que busca aprender las últimas tecnologías de desarrollo web para poder trabajar de ellos.</li>
 </ul>
 
 ## Temática del sitio:
