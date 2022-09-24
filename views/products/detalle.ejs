@@ -342,7 +342,7 @@
     <section class="d-md-none">
         <h4 class="mb-4">Quizás también le interese...</h4>
         <div id="carouselExampleDark" class="carousel carousel-dark slide d-md-none w-75 mx-auto" data-bs-ride="carousel">
-            <div class="carousel-inner shadow" data-bs-interval="2000" style="max-height: 39rem;">
+            <div class="carousel-inner shadow" data-bs-interval="2000">
               <div class="carousel-item active">
                 <img src="/imagenes/ropa1.jpg" class="card-img-top" alt="visera">
                 <div class="card-body p-3">
@@ -351,7 +351,7 @@
                     <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
                 </div>
               </div>
-              <div class="carousel-item " data-bs-interval="2000">
+              <div class="carousel-item" data-bs-interval="2000">
                 <img src="/imagenes/ropa2.jpg" class="card-img-top" alt="camisas">
                 <div class="card-body p-3">
                     <h5 class="card-title">Zapatos</h5>
@@ -359,7 +359,7 @@
                     <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
                 </div>
               </div>
-              <div class="carousel-item " data-bs-interval="2000">
+              <div class="carousel-item" data-bs-interval="2000">
                 <img src="/imagenes/ropa3.jpg" class="card-img-top" alt="zapatos">
                 <div class="card-body p-3">
                     <h5 class="card-title">Camiseta básica</h5>
@@ -410,7 +410,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Descripción del producto
+                                    Descripción del producto
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -422,7 +422,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Especificaciones
+                                    Especificaciones
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -564,41 +564,186 @@
                 </div>
             </section>
         </div>
-        <div class="row-12 mb-3">
-            <section>
+
+        <!-- Este es el container de la versión md-->
+        <div class="row-12 mb-3 d-lg-none">
+            <section class="container">
                 <h4 class="mb-4">Quizás también le interese...</h4>
-                <div id="carouselExampleDark" class="carousel carousel-dark slide w-75 mx-auto" data-bs-ride="carousel">
+                <div id="carouselExampleDark" class="carousel carousel-dark slide w-100 mx-auto" data-bs-ride="carousel">
                     <div class="carousel-inner shadow" data-bs-interval="2000" style="max-height: 39rem;">
-                      <div class="carousel-item active">
-                        <img src="/imagenes/ropa1.jpg" class="card-img-top" alt="visera">
-                        <div class="card-body p-3">
-                            <h5 class="card-title">Camisetas</h5>
-                            <p class="card-text">$20</p>
-                            <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="/imagenes/ropa1.jpg" class="card-img-top" alt="visera">
+                                    <div class="card-body p-3">
+                                        <h5 class="card-title">Camisetas</h5>
+                                        <p class="card-text">$20</p>
+                                        <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="/imagenes/ropa2.jpg" class="card-img-top" alt="visera">
+                                    <div class="card-body p-3">
+                                        <h5 class="card-title">Camisetas</h5>
+                                        <p class="card-text">$20</p>
+                                        <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+                                    </div>
+                                </div>
+                            </div> 
                         </div>
-                      </div>
-                      <div class="carousel-item " data-bs-interval="2000">
-                        <img src="/imagenes/ropa2.jpg" class="card-img-top" alt="camisas">
-                        <div class="card-body p-3">
-                            <h5 class="card-title">Zapatos</h5>
-                            <p class="card-text">$60</p>
-                            <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="/imagenes/ropa3.jpg" class="card-img-top" alt="visera">
+                                    <div class="card-body p-3">
+                                        <h5 class="card-title">Camisetas</h5>
+                                        <p class="card-text">$20</p>
+                                        <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="/imagenes/ropa2.jpg" class="card-img-top" alt="visera">
+                                    <div class="card-body p-3">
+                                        <h5 class="card-title">Camisetas</h5>
+                                        <p class="card-text">$20</p>
+                                        <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+                                    </div>
+                                </div>
+                            </div> 
                         </div>
-                      </div>
-                      <div class="carousel-item " data-bs-interval="2000">
-                        <img src="/imagenes/ropa3.jpg" class="card-img-top" alt="zapatos">
-                        <div class="card-body p-3">
-                            <h5 class="card-title">Camiseta básica</h5>
-                            <p class="card-text">$15</p>
-                            <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="/imagenes/ropa2.jpg" class="card-img-top" alt="visera">
+                                    <div class="card-body p-3">
+                                        <h5 class="card-title">Camisetas</h5>
+                                        <p class="card-text">$20</p>
+                                        <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="/imagenes/ropa1.jpg" class="card-img-top" alt="visera">
+                                    <div class="card-body p-3">
+                                        <h5 class="card-title">Camisetas</h5>
+                                        <p class="card-text">$20</p>
+                                        <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+                                    </div>
+                                </div>
+                            </div> 
                         </div>
-                      </div>
                     </div>
-                    <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                       <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next " type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Este es el container de la versión lg-->
+        <div class="row-12 mb-3 d-md-none d-lg-block">
+            <section class="container">
+                <h4 class="mb-4">Quizás también le interese...</h4>
+                <div id="carouselExampleDark" class="carousel carousel-dark slide w-100 mx-auto" data-bs-ride="carousel">
+                    <div class="carousel-inner shadow" data-bs-interval="2000" style="max-height: 39rem;">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <img src="/imagenes/ropa1.jpg" class="card-img-top" alt="visera">
+                                    <div class="card-body p-3">
+                                        <h5 class="card-title">Camisetas</h5>
+                                        <p class="card-text">$20</p>
+                                        <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="/imagenes/ropa2.jpg" class="card-img-top" alt="visera">
+                                    <div class="card-body p-3">
+                                        <h5 class="card-title">Camisetas</h5>
+                                        <p class="card-text">$20</p>
+                                        <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="/imagenes/ropa3.jpg" class="card-img-top" alt="visera">
+                                    <div class="card-body p-3">
+                                        <h5 class="card-title">Camisetas</h5>
+                                        <p class="card-text">$20</p>
+                                        <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <img src="/imagenes/ropa3.jpg" class="card-img-top" alt="visera">
+                                    <div class="card-body p-3">
+                                        <h5 class="card-title">Camisetas</h5>
+                                        <p class="card-text">$20</p>
+                                        <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="/imagenes/ropa2.jpg" class="card-img-top" alt="visera">
+                                    <div class="card-body p-3">
+                                        <h5 class="card-title">Camisetas</h5>
+                                        <p class="card-text">$20</p>
+                                        <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="/imagenes/ropa1.jpg" class="card-img-top" alt="visera">
+                                    <div class="card-body p-3">
+                                        <h5 class="card-title">Camisetas</h5>
+                                        <p class="card-text">$20</p>
+                                        <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <img src="/imagenes/ropa2.jpg" class="card-img-top" alt="visera">
+                                    <div class="card-body p-3">
+                                        <h5 class="card-title">Camisetas</h5>
+                                        <p class="card-text">$20</p>
+                                        <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="/imagenes/ropa1.jpg" class="card-img-top" alt="visera">
+                                    <div class="card-body p-3">
+                                        <h5 class="card-title">Camisetas</h5>
+                                        <p class="card-text">$20</p>
+                                        <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="/imagenes/ropa3.jpg" class="card-img-top" alt="visera">
+                                    <div class="card-body p-3">
+                                        <h5 class="card-title">Camisetas</h5>
+                                        <p class="card-text">$20</p>
+                                        <p class="card-text text-success d-flex justify-content-between">15% OFF <button type="button" class="btn btn-outline-success ms-5">Comprar</button></p>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
                       <span class="visually-hidden">Next</span>
                     </button>
