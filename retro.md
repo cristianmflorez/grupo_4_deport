@@ -1,3 +1,5 @@
+SPRINT 2
+
 Qué comenzar a hacer: 
 - Planificar mejor el tiempo de trabajo
 - Comunicarnos más como equipo de trabajo
@@ -12,3 +14,18 @@ Qué continuar haciendo:
 
 Qué hacer menos o Qué Dejar de hacer:
 - Procrastinar
+
+SPRINT 3 
+
+Qué comenzar a hacer:
+- Organizar todos los recursos de la página
+- Organizar los datos en archivos JSON
+
+Qué continuar haciendo:
+- Dividir el trabajo equitativamente
+- Hablar para resolver dudas como equipo
+- Manejo del Trello
+
+Qué hacer menos o Qué Dejar de hacer:
+- Limitarnos a lo que pide el sprint
+
