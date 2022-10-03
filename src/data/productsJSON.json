@@ -1,6 +1,6 @@
 [
     {
-    "id":1,
+    "id":"1",
     "name":"Visera",
     "description":"Estilo simple. Una gorra básica pero estilizada para usar a diario. Viene con una banda interior para el sudor que mantiene tu cabeza fresca y seca. La visera curva y el diseño de bajo perfil le añaden estilo clásico.",
     "specifications":["Algodón","500g","Nacional"],
@@ -9,11 +9,12 @@
     "image":"ropa1.jpg",
     "category":"Tenis",
     "color":"Purple",
-    "type":"Gorras"
+    "type":"Gorras",
+    "deleted":"0"
     },
 
     {
-    "id":2,
+    "id":"2",
     "name":"Guayos Acme",
     "description":"Su diseño en cuero te permite mejorar la potencia y velocidad en la cancha gracias al excelente agarre que estos botines ofrecen.",
     "specifications":["Cuero","200g","Importado"],
@@ -22,11 +23,12 @@
     "image":"guayos1.jpg",
     "category":"Futbol",
     "color":"Black",
-    "type":"Guayos"
+    "type":"Guayos",
+    "deleted":"0"
     },
     
     {
-    "id":3,
+    "id":"3",
     "name":"Guantes Kipsta",
     "description":"Los Guantes Kipsa poseen uno de los mejores coeficientes de adherencia del mercado y garantizan un esfuerzo mínimo por su bajo peso.",
     "specifications":["Tela","100g","Nacional"],
@@ -35,11 +37,12 @@
     "image":"guantes1.jpg",
     "category":"Futbol",
     "color":"Green",
-    "type":"Guantes"
+    "type":"Guantes",
+    "deleted":"0"
     },
 
     {
-    "id":4,
+    "id":"4",
     "name":"Balón Kipsta",
     "description":"Cuenta con un diseño aerodinámico que lo hace el balón ideal para partidos de altas exigencias a nivel competitivo.",
     "specifications":["Cuero sintético","400g","Importado"],
@@ -48,11 +51,12 @@
     "image":"balon1.jpg",
     "category":"Futbol",
     "color":"Green",
-    "type":"Balones"
+    "type":"Balones",
+    "deleted":"0"
     },
 
     {
-    "id":5,
+    "id":"5",
     "name":"Canilleras Adidas",
     "description":"La resistencia de las canilleras Adidas es espectacular, pueden soportar un golpe de hasta 350N.",
     "specifications":["Fibra de carbono","150g","Importado"],
@@ -61,11 +65,12 @@
     "image":"canilleras1.png",
     "category":"Futbol",
     "color":"White",
-    "type":"Canilleras"
+    "type":"Canilleras",
+    "deleted":"0"
     },
 
     {
-    "id":6,
+    "id":"6",
     "name":"Guayos Mercurial",
     "description":"Gracias a su espectacular diseño en botín, estos guayos permiten una facil adaptación y una excelente comodidad para minimizar el cansancio a la hora de jugar.",
     "specifications":["Cuero","180g","Importado"],
@@ -74,6 +79,7 @@
     "image":"guayos2.jpg",
     "category":"Futbol",
     "color":"Gray",
-    "type":"Guayos"
+    "type":"Guayos",
+    "deleted":"0"
     }
 ]
