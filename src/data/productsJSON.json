@@ -1,0 +1,79 @@
+[
+    {
+    "id":1,
+    "name":"Visera",
+    "description":"Estilo simple. Una gorra básica pero estilizada para usar a diario. Viene con una banda interior para el sudor que mantiene tu cabeza fresca y seca. La visera curva y el diseño de bajo perfil le añaden estilo clásico.",
+    "specifications":["Algodón","500g","Nacional"],
+    "price":"$72.52",
+    "discount":"$7.35",
+    "image":"ropa1.jpg",
+    "category":"Tenis",
+    "color":"Purple",
+    "type":"Gorras"
+    },
+
+    {
+    "id":2,
+    "name":"Guayos Acme",
+    "description":"Su diseño en cuero te permite mejorar la potencia y velocidad en la cancha gracias al excelente agarre que estos botines ofrecen.",
+    "specifications":["Cuero","200g","Importado"],
+    "price":"$37.32",
+    "discount":"$17.98",
+    "image":"guayos1.jpg",
+    "category":"Futbol",
+    "color":"Black",
+    "type":"Guayos"
+    },
+    
+    {
+    "id":3,
+    "name":"Guantes Kipsta",
+    "description":"Los Guantes Kipsa poseen uno de los mejores coeficientes de adherencia del mercado y garantizan un esfuerzo mínimo por su bajo peso.",
+    "specifications":["Tela","100g","Nacional"],
+    "price":"$65.83",
+    "discount":"$7.20",
+    "image":"guantes1.jpg",
+    "category":"Futbol",
+    "color":"Green",
+    "type":"Guantes"
+    },
+
+    {
+    "id":4,
+    "name":"Balón Kipsta",
+    "description":"Cuenta con un diseño aerodinámico que lo hace el balón ideal para partidos de altas exigencias a nivel competitivo.",
+    "specifications":["Cuero sintético","400g","Importado"],
+    "price":"$25.44",
+    "discount":"$0.73",
+    "image":"balon1.jpg",
+    "category":"Futbol",
+    "color":"Green",
+    "type":"Balones"
+    },
+
+    {
+    "id":5,
+    "name":"Canilleras Adidas",
+    "description":"La resistencia de las canilleras Adidas es espectacular, pueden soportar un golpe de hasta 350N.",
+    "specifications":["Fibra de carbono","150g","Importado"],
+    "price":"$7.37",
+    "discount":"$3.11",
+    "image":"canilleras1.png",
+    "category":"Futbol",
+    "color":"White",
+    "type":"Canilleras"
+    },
+
+    {
+    "id":6,
+    "name":"Guayos Mercurial",
+    "description":"Gracias a su espectacular diseño en botín, estos guayos permiten una facil adaptación y una excelente comodidad para minimizar el cansancio a la hora de jugar.",
+    "specifications":["Cuero","180g","Importado"],
+    "price":"$95.20",
+    "discount":"$5.39",
+    "image":"guayos2.jpg",
+    "category":"Futbol",
+    "color":"Gray",
+    "type":"Guayos"
+    }
+]
