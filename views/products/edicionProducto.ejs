@@ -60,7 +60,10 @@
         <div class="mb-3 d-flex justify-content-between flex-column flex-md-row">
           <button class="btn btn-secondary col-3 w-auto m-2" type="submit">Editar producto</button>
           <button class="btn btn-secondary col-3 w-auto m-2" type="reset">Cancelar</button>
-          <button class="btn btn-danger col-3 w-auto m-2" type="reset">Eliminar producto</button>
+          <!--Modificar action con tag ejs correspondiente segun form de Edit -->
+          <form action="/products/:id/?_method=delete" method="post">
+            <button type="button" class="btn btn-danger col-3 w-auto m-2">Eliminar producto</button>
+          </form>
         </div>
       </form>
 

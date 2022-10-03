@@ -10,7 +10,7 @@ router.get('/edicionProducto', productsController.edicionProducto);
 
 router.get('/listadoProductos', productsController.listadoProductos);
 
-router.delete('/:id/delete', productsController.delete);
+router.delete('/:id/', productsController.delete);
 
 module.exports = router;
 
