@@ -1,11 +1,11 @@
 const mainController = {
-    home: (req, res) => {
-        res.render('home');
-    },
+	home: (req, res) => {
+		res.render('home');
+	},
 
-    carrito: (req, res) => {
-        res.render('carrito');
-    }
-}
+	carrito: (req, res) => {
+		res.render('carrito');
+	}
+};
 
 module.exports = mainController;

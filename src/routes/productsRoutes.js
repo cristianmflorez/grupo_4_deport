@@ -13,4 +13,3 @@ router.get('/listadoProductos', productsController.listadoProductos);
 router.delete('/:id/', productsController.delete);
 
 module.exports = router;
-
