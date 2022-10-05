@@ -4,10 +4,10 @@
 	<body>
 		<%-include( '../partials/header') %> <%-include( '../partials/nav') %>
 
-		<main class="container">
-			<h2 class="p-3 text-center">Acceder a tu cuenta</h2>
-			<form action="" method="post">
-				<div class="mb-3">
+		<main class="px-5 pb-4 pt-4" style="background-color: #eee;">
+			<h2 class="p-3 text-center mx-auto" style="max-width: 65vw;">Acceder a tu cuenta</h2>
+			<form action="" method="post" >
+				<div class="mb-3 mx-auto" style="max-width: 65vw;">
 					<label for="correo" class="form-label text-primary"
 						><strong>Correo electronico</strong></label
 					>
@@ -20,7 +20,7 @@
 					/>
 				</div>
 
-				<div class="mb-3">
+				<div class="mb-3 mx-auto" style="max-width: 65vw;">
 					<label for="password" class="form-label text-primary"
 						><strong>Contraseña</strong></label
 					>
@@ -32,12 +32,12 @@
 					</div>
 				</div>
 
-				<div class="mb-3 d-flex justify-content-between">
+				<div class="mb-3 mx-auto d-flex justify-content-between" style="max-width: 65vw;">
 					<a href="./registro">Crear cuenta</a>
 					<a href="./password">Olvidé contraseña</a>
 				</div>
 
-				<div class="mb-3 d-flex justify-content-between">
+				<div class="mb-3 mx-auto d-flex justify-content-between" style="max-width: 65vw;">
 					<a href="./../" class="btn btn-secondary col-4">Volver</a>
 					<button type="submit" class="btn btn-secondary col-4">Entrar</button>
 				</div>

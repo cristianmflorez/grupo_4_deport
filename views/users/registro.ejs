@@ -4,13 +4,12 @@
 	<body>
 		<%-include( '../partials/header') %> <%-include( '../partials/nav') %>
 
-		<main class="container">
+		<main class="px-5 pb-4 pt-4" style="background-color: #eee;">
+			<h2 class="p-3 text-center mx-auto" style="max-width: 65vw;">Regístrate</h2>
 			<form action="" method="post">
-				<h2 class="text-center">Registrate</h2>
-
-				<div class="mb-3">
+				<div class="mb-3 mx-auto" style="max-width: 65vw;">
 					<label for="correo" class="form-label text-primary"
-						><strong>Correo electronico</strong></label
+						><strong>Correo electrónico</strong></label
 					>
 					<input
 						type="email"
@@ -21,29 +20,29 @@
 					/>
 				</div>
 
-				<div class="form-check mb-3">
+				<div class="form-check mb-3 mx-auto" style="max-width: 65vw;">
 					<input
 						class="form-check-input"
 						type="checkbox"
 						id="terminos"
 						required
 					/>
-					<label class="form-check-label" for="terminos">
+					<label class="form-check-label mx-auto" style="max-width: 65vw;" for="terminos">
 						Acepto
 						<a
 							id="modal"
 							href="#exampleModal"
 							data-bs-toggle="modal"
 							class="text-decoration-none"
-							><strong class="text-dark">terminos y condiciones</strong></a
+							><strong class="text-dark">términos y condiciones</strong></a
 						>
-						de la pagina
+						de la página
 					</label>
-					<div class="invalid-feedback">Debes aceptar los terminos</div>
+					<div class="invalid-feedback">Debes aceptar los términos</div>
 				</div>
 
 				<div
-					class="modal fade"
+					class="modal fade mx-auto" style="max-width: 65vw;"
 					id="exampleModal"
 					tabindex="-1"
 					aria-labelledby="exampleModalLabel"
@@ -55,7 +54,7 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<h5 class="modal-title" id="exampleModalLabel">
-									Terminos y condiciones
+									Términos y condiciones
 								</h5>
 								<button
 									type="button"
@@ -134,7 +133,7 @@
 					</div>
 				</div>
 
-				<div class="mb-3 d-flex justify-content-between">
+				<div class="mb-3 d-flex justify-content-between mx-auto" style="max-width: 65vw;">
 					<a href="./login" class="btn btn-secondary col-4">Volver</a>
 					<button type="submit" class="btn btn-secondary col-4">
 						Siguiente
