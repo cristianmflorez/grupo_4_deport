@@ -1,7 +1,10 @@
-const products = require('./../data/productsJSON.json');
+const products = require('../data/productsJSON.json');
 const path = require('path');
 const fs = require('fs');
 const { json } = require('express');
+
+//const productsFilePath = path.join(__dirname, '../data/productsJSON.json');
+//const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const productsController = {
 	creacionProducto: (req, res) => {
@@ -17,7 +20,10 @@ const productsController = {
 	},
 
 	listadoProductos: (req, res) => {
-		res.render('./products/listadoProductos');
+		let deporteIngresado = req.params.categoria;
+		//console.log(deporteIngresado)
+		let paraLaVista = products.filter(elemento => elemento.category == deporteIngresado);
+		res.render('./products/listadoProductos', {productos: paraLaVista});
 	},
 
 	delete: (req, res) => {

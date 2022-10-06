@@ -4,7 +4,7 @@
   "description": "Proyecto integrador curso Full stack DH",
   "main": "app.js",
   "scripts": {
-    "start": "node ./src/app.js"
+    "start": "nodemon ./src/app.js"
   },
   "repository": {
     "type": "git",

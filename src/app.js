@@ -10,7 +10,7 @@ const productsRoutes = require('./routes/productsRoutes');
 
 app.set('view engine', 'ejs');
 
-app.use(express.static(path.resolve(__dirname, './../public')));
+app.use(express.static(path.resolve(__dirname, '../public')));
 
 app.use(override('_method'));
 
