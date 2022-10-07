@@ -32,7 +32,7 @@ const productsController = {
 
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "), 'utf-8');
 
-		res.redirect(`/products/detalle/${idProducto}`);
+		res.redirect(`/products/detalle/${nuevoProducto.id}`);
 	},
 
 	detalle: (req, res) => {
