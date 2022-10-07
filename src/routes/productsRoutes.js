@@ -19,8 +19,7 @@ router.get('/listadoProductos/:categoria', productsController.listadoProductos);
 
 //Crear producto
 
-router.get('/creacionProducto', productsController.creacionProducto);
-
+router.get('/creacionProducto', productsController.creacionProducto)
 router.post('/creacionProducto', uploadFile.single('image'), productsController.crear);
 
 //Detalle producto
