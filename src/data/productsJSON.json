@@ -10,7 +10,7 @@
     "category":"tennis",
     "color":"purple",
     "type":"gorras",
-    "deleted":"0"
+    "deleted":0
     },
 
     {
@@ -24,7 +24,7 @@
     "category":"futbol",
     "color":"black",
     "type":"guayos",
-    "deleted":"0"
+    "deleted":0
     },
     
     {
@@ -38,7 +38,7 @@
     "category":"futbol",
     "color":"green",
     "type":"guantes",
-    "deleted":"0"
+    "deleted":0
     },
 
     {
@@ -52,7 +52,7 @@
     "category":"futbol",
     "color":"green",
     "type":"balones",
-    "deleted":"0"
+    "deleted":0
     },
 
     {
@@ -66,7 +66,7 @@
     "category":"futbol",
     "color":"white",
     "type":"canilleras",
-    "deleted":"0"
+    "deleted":0
     },
 
     {
@@ -80,7 +80,7 @@
     "category":"futbol",
     "color":"gray",
     "type":"guayos",
-    "deleted":"0"
+    "deleted":0
     },
 
     {
@@ -94,7 +94,7 @@
     "category":"basketball",
     "color":"orange",
     "type":"balones",
-    "deleted":"0"
+    "deleted":0
     },
 
     {
@@ -108,7 +108,7 @@
     "category":"basketball",
     "color":"yellow",
     "type":"others",
-    "deleted":"0"
+    "deleted":0
     },
 
     {
@@ -122,7 +122,7 @@
     "category":"basketball",
     "color":"red",
     "type":"others",
-    "deleted":"0"
+    "deleted":0
     },
 
     {
@@ -136,7 +136,7 @@
     "category":"basketball",
     "color":"yellow",
     "type":"jerseys",
-    "deleted":"0"
+    "deleted":0
     },
 
     {
@@ -150,7 +150,7 @@
     "category":"basketball",
     "color":"blue",
     "type":"jerseys",
-    "deleted":"0"
+    "deleted":0
     },
 
     {
@@ -164,7 +164,7 @@
     "category":"basketball",
     "color":"green",
     "type":"jerseys",
-    "deleted":"0"
+    "deleted":0
     },
 
     {
@@ -178,7 +178,7 @@
     "category":"basketball",
     "color":"red",
     "type":"zapatillas",
-    "deleted":"0"
+    "deleted":0
     },
 
     {
@@ -192,6 +192,6 @@
     "category":"basketball",
     "color":"black",
     "type":"balones",
-    "deleted":"0"
+    "deleted":0
     }
 ]
