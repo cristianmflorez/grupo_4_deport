@@ -32,7 +32,7 @@ const productsController = {
 
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "), 'utf-8');
 
-		res.redirect('/');
+		res.redirect(`/products/detalle/${idProducto}`);
 	},
 
 	detalle: (req, res) => {
@@ -70,7 +70,9 @@ const productsController = {
 
 				p.name=datos.name,
 				p.description=datos.description,
-				p.specifications=datos.specifications,
+				p.specifications[0]=datos.material,
+				p.specifications[1]=datos.weight,
+				p.specifications[2]=datos.origin,
 				p.price=parseInt(datos.price),
 				p.discount=parseInt(datos.discount),
 				p.category=datos.category,
@@ -87,7 +89,7 @@ const productsController = {
 					fs.unlinkSync(__dirname+'/../../public/imagenes/'+imagenAntigua);
 				}
 
-				res.redirect('/');
+				res.redirect(`/products/detalle/${idProducto}`);
 
 				break;
 			}

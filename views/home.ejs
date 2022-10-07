@@ -68,30 +68,33 @@
 
 				<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 p-3 m-auto">
 					
-					<% for (producto of products){
-						if(producto.deleted==0){ %>
+					<% 	let cantidad = 7;
+						for (let i=0; i<=cantidad;i++){
+							if(products[i].deleted==0){ %>
 
-							<div class="col mt-3">
-								<div class="card h-100 shadow m-1 p-0">
-									<a href="/products/detalle/<%=producto.id%>"
-										><img src="/imagenes/<%=producto.image%>" class="card-img-top" alt="..."
-									/></a>
-									<div class="card-body">
-										<h5 class="card-title"><%=producto.name%></h5>
-										<p class="card-text">$<%=producto.price%></p>
-										<p
-											class="card-text text-success d-flex justify-content-between"
-										>
-										<%=producto.discount%>% OFF
-											<button type="button" class="btn btn-outline-success">
-												Comprar
-											</button>
-										</p>
+								<div class="col mt-3">
+									<div class="card h-100 shadow m-1 p-0 d-flex justify-content-between">
+										<a href="/products/detalle/<%=products[i].id%>"
+											><img src="/imagenes/<%=products[i].image%>" class="card-img-top" alt="..."
+										/></a>
+										<div class="card-body" style="max-height: 150px;">
+											<h5 class="card-title"><%=products[i].name%></h5>
+											<p class="card-text">$<%=products[i].price%></p>
+											<p
+												class="card-text text-success d-flex justify-content-between"
+											>
+											<%=products[i].discount%>% OFF
+												<button type="button" class="btn btn-outline-success">
+													Comprar
+												</button>
+											</p>
+										</div>
 									</div>
 								</div>
-							</div>
 
-						<% } %>
+							<% }else{
+								cantidad++;
+							} %>
 
 					<% } %>
 					

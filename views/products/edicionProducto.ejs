@@ -72,6 +72,7 @@
 							name="material"
 							class="form-control"
 							id="materialArticle"
+							value="<%=producto.specifications[0]%>"
 							required
 						/>
 					</div>
@@ -79,13 +80,14 @@
 					<div>
 						<div>
 							<label for="weightArticle" class="form-label text-primary">
-								<strong>Peso (gr)</strong>
+								<strong>Peso</strong>
 							</label>
 							<input
 								type="text"
 								name="weight"
 								class="form-control"
 								id="weightArticle"
+								value="<%=producto.specifications[1]%>"
 								required
 							/>
 						</div>
@@ -100,6 +102,7 @@
 							name="origin"
 							class="form-control"
 							id="originArticle"
+							value="<%=producto.specifications[2]%>"
 							required
 						/>
 					</div>
