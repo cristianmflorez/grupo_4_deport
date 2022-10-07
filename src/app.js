@@ -14,6 +14,10 @@ app.use(express.static(path.resolve(__dirname, '../public')));
 
 app.use(override('_method'));
 
+app.use(express.urlencoded({extended : false}));
+
+app.use(express.json());
+
 app.use('/', mainRoutes);
 
 app.use('/users', usersRoutes);
