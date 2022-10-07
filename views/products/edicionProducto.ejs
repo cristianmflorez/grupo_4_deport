@@ -5,8 +5,8 @@
 		<%-include( '../partials/header') %> <%-include( '../partials/nav') %>
 
 		<main class="d-flex justify-content-around mx-auto">
-			<form class="w-75" action="" method="post">
-				<h2 class="p-3 text-center">Editar producto</h2>
+			<form class="w-75" action="<%=producto.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+				<h2 class="p-3 text-center">Editar: <%=producto.name%></h2>
 
 				<div class="mb-3">
 					<label for="titleArticle" class="form-label text-primary"
@@ -14,81 +14,120 @@
 					>
 					<input
 						type="text"
+						name="name"
 						class="form-control"
 						id="titleArticle"
-						placeholder=""
+						value="<%=producto.name%>"
 						required
-					/>
+					>
 				</div>
 
-				<div class="mb-3">
-					<label for="titleArticle" class="form-label text-primary"
-						><strong>Precio $</strong></label
-					>
+				<div class="mb-3 d-flex justify-content-between flex-column flex-sm-row">
+					<div>
+						<label for="priceArticle" class="form-label text-primary">
+							<strong>Precio $</strong>
+						</label>
 					<input
 						type="number"
+						name="price"
 						class="form-control"
-						id="titleArticle"
-						placeholder=""
+						id="priceArticle"
+						value="<%=producto.price%>"
 						required
-					/>
+						/>
+					</div>
+					<div>
+						<label for="nameArticle" class="form-label text-primary">
+							<strong>Descuento %</strong>
+						</label>
+						<input
+							type="number"
+							name="discount"
+							class="form-control"
+							id="nameArticle"
+							value="<%=producto.discount%>"
+							required
+						/>
+					</div>
 				</div>
 
 				<div class="mb-3">
-					<label for="validationTextarea" class="form-label text-primary"
-						><strong>Descripción</strong></label
-					>
+					<label for="descriptionTextarea" class="form-label text-primary">
+						<strong>Descripción</strong>
+					</label>
 					<textarea
 						class="form-control"
-						id="validationTextarea"
-						placeholder=""
-						required
-					></textarea>
+						name="description"
+						id="descriptionTextarea"
+						required><%=producto.description%></textarea>
 				</div>
 
 				<div class="mb-3">
-					<label for="" class="form-label text-primary"
-						><strong>Deporte</strong></label
-					>
-					<select class="form-select" required aria-label="select example">
-						<option value="">Selecciona un deporte</option>
-						<option value="1">Futbol</option>
-						<option value="2">Basketball</option>
-						<option value="3">tenis</option>
-						<option value="4">Voleyball</option>
-						<option value="5">Natación</option>
-						<option value="6">Otros</option>
-					</select>
-				</div>
-
-				<div class="mb-3">
-					<label for="" class="form-label text-primary"
-						><strong>Categoría</strong></label
-					>
-					<select class="form-select" required aria-label="select example">
-						<option value="">Selecciona una categoría</option>
-						<option value="1">Vestuario</option>
-						<option value="2">Zapatillas</option>
-						<option value="3">Implementos</option>
-						>
-					</select>
-				</div>
-
-				<div class="mb-3">
-					<label for="" class="form-label text-primary"
-						><strong>Fotografía</strong></label
-					>
-					<input
-						type="file"
+					<label for="especificationsTextarea" class="form-label text-primary">
+						<strong>Especificaciones</strong>
+					</label>
+					<textarea
 						class="form-control"
-						aria-label="file example"
+						name="specifications"
+						id="especificationsTextarea"><%=producto.specifications%></textarea>
+						
+				</div>
+
+				<div class="mb-3 d-flex justify-content-between flex-column flex-md-row">
+					<div>
+						<label for="" class="form-label text-primary">
+							<strong>Categoría</strong>
+						</label>
+						<select class="form-select" name="category" required aria-label="select example">
+							<option value="">Selecciona un deporte</option>
+							<option value="Futbol">Futbol</option>
+							<option value="Basketball">Basketball</option>
+							<option value="tenis">tenis</option>
+							<option value="Voleyball">Voleyball</option>
+							<option value="Natación">Natación</option>
+							<option value="Otros">Otros</option>
+						</select>
+					</div>
+					<div>
+						<label for="" class="form-label text-primary">
+							<strong>Tipo</strong>
+						</label>
+						<select class="form-select" name="type" required aria-label="select example">
+							<option value="">Selecciona una categoría</option>
+							<option value="Vestuario">Vestuario</option>
+							<option value="Zapatillas">Zapatillas</option>
+							<option value="Implementos">Implementos</option>
+						</select>
+					</div>
+					
+				</div>
+
+				<div class="mb-3">
+					<label for="colorArticle" class="form-label text-primary">
+						<strong>Color</strong>
+					</label>
+					<input
+						type="text"
+						name="color"
+						class="form-control"
+						id="colorArticle"
+						value="<%=producto.color%>"
 						required
 					/>
 				</div>
 
-				<div
-					class="mb-3 d-flex justify-content-between flex-column flex-md-row"
-				>
+				<div class="mb-3">
+					<label for="" class="form-label text-primary">
+						<strong>Imagen (opcional)</strong></label>
+					<input
+						type="file"
+						name="image"
+						class="form-control"
+						aria-label="file example"
+					/>
+				</div>
+
+				<div class="mb-3 d-flex justify-content-between flex-column flex-md-row mt-5 mb-5">
 					<button class="btn btn-secondary col-3 w-auto m-2" type="submit">
 						Editar producto
 					</button>
