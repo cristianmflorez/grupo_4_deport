@@ -81,5 +81,117 @@
     "color":"gray",
     "type":"guayos",
     "deleted":"0"
+    },
+
+    {
+    "id":7,
+    "name":"Balón Tarmak",
+    "description":"El material del Tarmak facilita su agarre, lo que lo convierte en una excelente opción para los amantes del basket.",
+    "specifications":["Algo","150g","Importado"],
+    "price":20.87,
+    "discount":15,
+    "image":"balonbasket1.jpg",
+    "category":"basketball",
+    "color":"orange",
+    "type":"balones",
+    "deleted":"0"
+    },
+
+    {
+    "id":8,
+    "name":"Bandas de colores",
+    "description":"Luce como todo un profesional utilizando estas bandas en muñecas o cabeza.",
+    "specifications":["Tela","10g","Nacional"],
+    "price":5,
+    "discount":0,
+    "image":"bandasbasket1.jpg",
+    "category":"basketball",
+    "color":"yellow",
+    "type":"others",
+    "deleted":"0"
+    },
+
+    {
+    "id":9,
+    "name":"Canasta para niños",
+    "description":"Las horas de diversión estan garantizadas para tus hijos con esta canasta de basketball que puedes situar en casi cualquier lugar.",
+    "specifications":["Metal","1000g","Importado"],
+    "price":15.40,
+    "discount":5,
+    "image":"canastabasket1.jpg",
+    "category":"basketball",
+    "color":"red",
+    "type":"others",
+    "deleted":"0"
+    },
+
+    {
+    "id":10,
+    "name":"Jersey Lakers",
+    "description":"A Lebron James le encantaría ver cómo apoyas a los Lakers usando este jersey importado.",
+    "specifications":["Tela","500g","Importado"],
+    "price":20,
+    "discount":3.5,
+    "image":"jerseybasket1.jpg",
+    "category":"basketball",
+    "color":"yellow",
+    "type":"jerseys",
+    "deleted":"0"
+    },
+
+    {
+    "id":11,
+    "name":"Jersey All American",
+    "description":"Un jersey que cualquiern fanático de los All American debería vestir.",
+    "specifications":["Tela","480g","Importado"],
+    "price":22,
+    "discount":3,
+    "image":"jerseybasket2.jpg",
+    "category":"basketball",
+    "color":"blue",
+    "type":"jerseys",
+    "deleted":"0"
+    },
+
+    {
+    "id":12,
+    "name":"Jersey Fairtex",
+    "description":"Jersey original del equipo de basketball FAIRTEX con excelentes acabados.",
+    "specifications":["Tela","30g","Importado"],
+    "price":30,
+    "discount":10,
+    "image":"jerseybasket3.jpg",
+    "category":"basketball",
+    "color":"green",
+    "type":"jerseys",
+    "deleted":"0"
+    },
+
+    {
+    "id":13,
+    "name":"Zapatillas Tarmak",
+    "description":"Lleva tus juegos al siguiente nivel con estas zapatillas tarmak semi-profesionales.",
+    "specifications":["Cuerina","300g","Importado"],
+    "price":50,
+    "discount":20,
+    "image":"zapatillasbasket1.jpg",
+    "category":"basketball",
+    "color":"red",
+    "type":"zapatillas",
+    "deleted":"0"
+    },
+
+    {
+    "id":14,
+    "name":"Balon Senston",
+    "description":"Un balón muy resistente y con un estilo llamativo",
+    "specifications":["Algo","250g","Importado"],
+    "price":40,
+    "discount":8,
+    "image":"balonbasket2.jpg",
+    "category":"basketball",
+    "color":"black",
+    "type":"balones",
+    "deleted":"0"
     }
 ]
