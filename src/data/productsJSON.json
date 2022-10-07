@@ -238,10 +238,10 @@
   "name": "Raqueta Tenis editada",
   "description": "Esta raqueta semi-profesional te hará ganar todos tus juegos.",
   "specifications": [
-    "Algo",
-    "250g",
-    "Importado"
-   ],
+   "Algo",
+   "250g",
+   "Importado"
+  ],
   "price": 50,
   "discount": 12,
   "image": "img_1665151893235_.png",

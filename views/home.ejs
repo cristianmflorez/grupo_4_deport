@@ -67,79 +67,35 @@
 				<h2 class="p-3">Productos destacados</h2>
 
 				<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 p-3 m-auto">
-					<div class="col mt-3">
-						<div class="card h-100 shadow m-1 p-0">
-							<a href="/products/detalle"
-								><img src="/imagenes/ropa1.jpg" class="card-img-top" alt="..."
-							/></a>
-							<div class="card-body">
-								<h5 class="card-title">Visera</h5>
-								<p class="card-text">$12</p>
-								<p
-									class="card-text text-success d-flex justify-content-between"
-								>
-									5% OFF
-									<button type="button" class="btn btn-outline-success">
-										Comprar
-									</button>
-								</p>
-							</div>
-						</div>
-					</div>
+					
+					<% for (producto of products){
+						if(producto.deleted==0){ %>
 
-					<div class="col mt-3">
-						<div class="card h-100 shadow m-1 p-0">
-							<img src="/imagenes/ropa2.jpg" class="card-img-top" alt="..." />
-							<div class="card-body">
-								<h5 class="card-title">Camisetas</h5>
-								<p class="card-text">$20</p>
-								<p
-									class="card-text text-success d-flex justify-content-between"
-								>
-									15% OFF
-									<button type="button" class="btn btn-outline-success ms-5">
-										Comprar
-									</button>
-								</p>
+							<div class="col mt-3">
+								<div class="card h-100 shadow m-1 p-0">
+									<a href="/products/detalle/<%=producto.id%>"
+										><img src="/imagenes/<%=producto.image%>" class="card-img-top" alt="..."
+									/></a>
+									<div class="card-body">
+										<h5 class="card-title"><%=producto.name%></h5>
+										<p class="card-text">$<%=producto.price%></p>
+										<p
+											class="card-text text-success d-flex justify-content-between"
+										>
+										<%=producto.discount%>% OFF
+											<button type="button" class="btn btn-outline-success">
+												Comprar
+											</button>
+										</p>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
 
-					<div class="col mt-3">
-						<div class="card h-100 shadow m-1 p-0">
-							<img src="/imagenes/ropa3.jpg" class="card-img-top" alt="..." />
-							<div class="card-body">
-								<h5 class="card-title">Zapatos</h5>
-								<p class="card-text">$60</p>
-								<p
-									class="card-text text-success d-flex justify-content-between"
-								>
-									20% OFF
-									<button type="button" class="btn btn-outline-success ms-5">
-										Comprar
-									</button>
-								</p>
-							</div>
-						</div>
-					</div>
+						<% } %>
 
-					<div class="col mt-3">
-						<div class="card h-100 shadow m-1 p-0">
-							<img src="/imagenes/ropa4.jpg" class="card-img-top" alt="..." />
-							<div class="card-body">
-								<h5 class="card-title">Camiseta básica</h5>
-								<p class="card-text">$15</p>
-								<p
-									class="card-text text-success d-flex justify-content-between"
-								>
-									10% OFF
-									<button type="button" class="btn btn-outline-success ms-5">
-										Comprar
-									</button>
-								</p>
-							</div>
-						</div>
-					</div>
+					<% } %>
+					
+
 				</div>
 			</section>
 

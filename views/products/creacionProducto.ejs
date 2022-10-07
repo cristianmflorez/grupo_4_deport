@@ -9,9 +9,9 @@
 				<h2 class="p-3 text-center">Crear producto</h2>
 
 				<div class="mb-3">
-					<label for="titleArticle" class="form-label text-primary"
-						><strong>Nombre/Referencia del artículo</strong></label
-					>
+					<label for="titleArticle" class="form-label text-primary">
+						<strong>Nombre/Referencia del artículo</strong>
+					</label>
 					<input
 						type="text"
 						name="name"
@@ -59,14 +59,47 @@
 						required></textarea>
 				</div>
 
-				<div class="mb-3">
-					<label for="especificationsTextarea" class="form-label text-primary">
-						<strong>Especificaciones</strong>
-					</label>
-					<textarea
-						class="form-control"
-						name="specifications"
-						id="especificationsTextarea"></textarea>
+				<div class="mb-3 d-flex justify-content-between flex-column flex-md-row">
+					<div>
+						<label for="materialArticle" class="form-label text-primary">
+							<strong>Material</strong>
+						</label>
+						<input
+							type="text"
+							name="material"
+							class="form-control"
+							id="materialArticle"
+							required
+						/>
+					</div>
+
+					<div>
+						<div>
+							<label for="weightArticle" class="form-label text-primary">
+								<strong>Peso (gr)</strong>
+							</label>
+							<input
+								type="text"
+								name="weight"
+								class="form-control"
+								id="weightArticle"
+								required
+							/>
+						</div>
+					</div>
+
+					<div>
+						<label for="originArticle" class="form-label text-primary">
+							<strong>Origen</strong>
+						</label>
+						<input
+							type="text"
+							name="origin"
+							class="form-control"
+							id="originArticle"
+							required
+						/>
+					</div>
 				</div>
 
 				<div class="mb-3 d-flex justify-content-between flex-column flex-md-row">
@@ -100,7 +133,7 @@
 
 				<div class="mb-3">
 					<label for="colorArticle" class="form-label text-primary">
-						<strong>Color</strong>
+						<strong>Color (en inglés)</strong>
 					</label>
 					<input
 						type="text"

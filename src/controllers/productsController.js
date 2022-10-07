@@ -17,7 +17,7 @@ const productsController = {
 			id:products[products.length-1].id+1,
     		name:datos.name,
    			description:datos.description,
-    		specifications:datos.specifications,
+    		specifications:[datos.material, datos.weight, datos.origin],
     		price:parseInt(datos.price),
    		 	discount:parseInt(datos.discount),
     		image:req.file.filename,
