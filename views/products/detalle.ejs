@@ -39,21 +39,21 @@
 				>
 					<div class="carousel-item active">
 						<img
-							src="/imagenes/ropa1.jpg"
+							src="/imagenes/<%= producto.image %>"
 							class="d-block w-100"
 							alt="visera_vista_1"
 						/>
 					</div>
 					<div class="carousel-item" data-bs-interval="4000">
 						<img
-							src="/imagenes/ropa2.jpg"
+							src="/imagenes/<%= producto.image %>"
 							class="d-block w-100"
 							alt="visera_vista_2"
 						/>
 					</div>
 					<div class="carousel-item" data-bs-interval="4000">
 						<img
-							src="/imagenes/ropa3.jpg"
+							src="/imagenes/<%= producto.image %>"
 							class="d-block w-100"
 							alt="visera_vista_3"
 						/>
@@ -91,12 +91,12 @@
 					aria-label="breadcrumb"
 				>
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="../">Home</a></li>
-						<li class="breadcrumb-item active" aria-current="page">Caps</li>
+						<li class="breadcrumb-item"><a href="/">Home</a></li>
+						<li class="breadcrumb-item active" aria-current="page"><%= producto.type %></li>
 					</ol>
 				</nav>
 				<div class="d-flex justify-content-left align-items-center mb-3">
-					<p class="my-0 me-3 fs-4 fw-bold">Nombre del producto</p>
+					<p class="my-0 me-3 fs-4 fw-bold"><%= producto.name %></p>
 					<a href="#">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -112,7 +112,7 @@
 						</svg>
 					</a>
 				</div>
-				<p class="fs-5">$ 200.000</p>
+				<p class="fs-5">$<%= producto.price %></p>
 				<div class="text-center mb-3">
 					<ul
 						class="nav justify-content-center align-items-center mx-auto mb-1"
@@ -438,10 +438,7 @@
 							data-bs-parent="#accordionExample"
 						>
 							<div class="accordion-body">
-								<strong>Estilo simple.</strong> Una gorra básica pero estilizada
-								para usar a diario. Viene con una banda interior para el sudor
-								que mantiene tu cabeza fresca y seca. La visera curva y el
-								diseño de bajo perfil le añaden estilo clásico.
+								<%= producto.description %>
 							</div>
 						</div>
 					</div>
@@ -466,9 +463,9 @@
 						>
 							<div class="accordion-body">
 								<ul>
-									<li>Material: Algodón</li>
-									<li>Peso: 500g</li>
-									<li>Procedencia: Nacional</li>
+									<li>Material: <%= producto.specifications[0] %></li>
+									<li>Peso: <%= producto.specifications[1] %></li>
+									<li>Procedencia: <%= producto.specifications[2] %></li>
 								</ul>
 							</div>
 						</div>
@@ -774,11 +771,11 @@
 					<div class="carousel-inner shadow" data-bs-interval="2000">
 						<div class="carousel-item active">
 							<img
-								src="/imagenes/ropa1.jpg"
+								src="/imagenes/img_1665152432474_.png"
 								class="card-img-top"
-								alt="visera"
+								alt="Gorra Nike"
 							/>
-							<div class="card-body p-3">
+							<div class="card-body p-3 border-top" style="background-color: white;">
 								<h5 class="card-title">Camisetas</h5>
 								<p class="card-text">$20</p>
 								<p
@@ -797,8 +794,8 @@
 								class="card-img-top"
 								alt="camisas"
 							/>
-							<div class="card-body p-3">
-								<h5 class="card-title">Zapatos</h5>
+							<div class="card-body p-3 border-top" style="background-color: white;">
+								<h5 class="card-title">Camisetas</h5>
 								<p class="card-text">$60</p>
 								<p
 									class="card-text text-success d-flex justify-content-between"
@@ -816,8 +813,8 @@
 								class="card-img-top"
 								alt="zapatos"
 							/>
-							<div class="card-body p-3">
-								<h5 class="card-title">Camiseta básica</h5>
+							<div class="card-body p-3 border-top" style="background-color: white;">
+								<h5 class="card-title">Zapatos</h5>
 								<p class="card-text">$15</p>
 								<p
 									class="card-text text-success d-flex justify-content-between"
@@ -856,22 +853,22 @@
 			<!-- Esto se muestra después del breakpoint de 768px md-->
 			<section class="mx-3 w-75 d-none d-md-block">
 				<div class="row-12 mb-3">
-					<img src="/imagenes/ropa1.jpg" class="img-thumbnail" alt="visera" />
+					<img src="/imagenes/<%= producto.image %>" class="img-thumbnail" alt="visera" />
 				</div>
 				<div class="row mb-3">
 					<div class="col-md-6">
-						<img src="/imagenes/ropa1.jpg" class="img-thumbnail" alt="visera" />
+						<img src="/imagenes/<%= producto.image %>" class="img-thumbnail" alt="visera" />
 					</div>
 					<div class="col-md-6">
-						<img src="/imagenes/ropa1.jpg" class="img-thumbnail" alt="visera" />
+						<img src="/imagenes/<%= producto.image %>" class="img-thumbnail" alt="visera" />
 					</div>
 				</div>
 				<div class="row mb-3">
 					<div class="col-md-6">
-						<img src="/imagenes/ropa1.jpg" class="img-thumbnail" alt="visera" />
+						<img src="/imagenes/<%= producto.image %>" class="img-thumbnail" alt="visera" />
 					</div>
 					<div class="col-md-6">
-						<img src="/imagenes/ropa1.jpg" class="img-thumbnail" alt="visera" />
+						<img src="/imagenes/<%= producto.image %>" class="img-thumbnail" alt="visera" />
 					</div>
 				</div>
 				<div class="row mb-3">
@@ -898,11 +895,7 @@
 										data-bs-parent="#accordionExample"
 									>
 										<div class="accordion-body">
-											<strong>Estilo simple.</strong> Una gorra básica pero
-											estilizada para usar a diario. Viene con una banda
-											interior para el sudor que mantiene tu cabeza fresca y
-											seca. La visera curva y el diseño de bajo perfil le añaden
-											estilo clásico.
+											<%= producto.description %>
 										</div>
 									</div>
 								</div>
@@ -927,9 +920,9 @@
 									>
 										<div class="accordion-body">
 											<ul>
-												<li>Material: Algodón</li>
-												<li>Peso: 500g</li>
-												<li>Procedencia: Nacional</li>
+												<li>Material: <%= producto.specifications[0] %></li>
+												<li>Peso: <%= producto.specifications[1] %></li>
+												<li>Procedencia: <%= producto.specifications[2] %></li>
 											</ul>
 										</div>
 									</div>
@@ -938,7 +931,7 @@
 						</section>
 					</div>
 					<div class="col-md-6">
-						<img src="/imagenes/ropa1.jpg" class="img-thumbnail" alt="visera" />
+						<img src="/imagenes/<%= producto.image %>" class="img-thumbnail" alt="visera" />
 					</div>
 				</div>
 				<div class="row-12 mb-3">
@@ -1265,11 +1258,11 @@
 									<div class="row">
 										<div class="col-md-6">
 											<img
-												src="/imagenes/ropa1.jpg"
+												src="/imagenes/<%= producto.image %>"
 												class="card-img-top"
 												alt="visera"
 											/>
-											<div class="card-body p-3">
+											<div class="card-body p-3 border-top" style="background-color: white;">
 												<h5 class="card-title">Camisetas</h5>
 												<p class="card-text">$20</p>
 												<p
@@ -1287,60 +1280,11 @@
 										</div>
 										<div class="col-md-6">
 											<img
-												src="/imagenes/ropa2.jpg"
+												src="/imagenes/<%= producto.image %>"
 												class="card-img-top"
 												alt="visera"
 											/>
-											<div class="card-body p-3">
-												<h5 class="card-title">Camisetas</h5>
-												<p class="card-text">$20</p>
-												<p
-													class="card-text text-success d-flex justify-content-between"
-												>
-													15% OFF
-													<button
-														type="button"
-														class="btn btn-outline-success ms-5"
-													>
-														Comprar
-													</button>
-												</p>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="carousel-item">
-									<div class="row">
-										<div class="col-md-6">
-											<img
-												src="/imagenes/ropa3.jpg"
-												class="card-img-top"
-												alt="visera"
-											/>
-											<div class="card-body p-3">
-												<h5 class="card-title">Camisetas</h5>
-												<p class="card-text">$20</p>
-												<p
-													class="card-text text-success d-flex justify-content-between"
-												>
-													15% OFF
-													<button
-														type="button"
-														class="btn btn-outline-success ms-5"
-													>
-														Comprar
-													</button>
-												</p>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<img
-												src="/imagenes/ropa2.jpg"
-												class="card-img-top"
-												alt="visera"
-											/>
-											<div class="card-body p-3">
+											<div class="card-body p-3 border-top" style="background-color: white;">
 												<h5 class="card-title">Camisetas</h5>
 												<p class="card-text">$20</p>
 												<p
@@ -1363,11 +1307,11 @@
 									<div class="row">
 										<div class="col-md-6">
 											<img
-												src="/imagenes/ropa2.jpg"
+												src="/imagenes/<%= producto.image %>"
 												class="card-img-top"
 												alt="visera"
 											/>
-											<div class="card-body p-3">
+											<div class="card-body p-3 border-top" style="background-color: white;">
 												<h5 class="card-title">Camisetas</h5>
 												<p class="card-text">$20</p>
 												<p
@@ -1385,11 +1329,60 @@
 										</div>
 										<div class="col-md-6">
 											<img
-												src="/imagenes/ropa1.jpg"
+												src="/imagenes/<%= producto.image %>"
 												class="card-img-top"
 												alt="visera"
 											/>
-											<div class="card-body p-3">
+											<div class="card-body p-3 border-top" style="background-color: white;">
+												<h5 class="card-title">Camisetas</h5>
+												<p class="card-text">$20</p>
+												<p
+													class="card-text text-success d-flex justify-content-between"
+												>
+													15% OFF
+													<button
+														type="button"
+														class="btn btn-outline-success ms-5"
+													>
+														Comprar
+													</button>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="carousel-item">
+									<div class="row">
+										<div class="col-md-6">
+											<img
+												src="/imagenes/<%= producto.image %>"
+												class="card-img-top"
+												alt="visera"
+											/>
+											<div class="card-body p-3 border-top" style="background-color: white;">
+												<h5 class="card-title">Camisetas</h5>
+												<p class="card-text">$20</p>
+												<p
+													class="card-text text-success d-flex justify-content-between"
+												>
+													15% OFF
+													<button
+														type="button"
+														class="btn btn-outline-success ms-5"
+													>
+														Comprar
+													</button>
+												</p>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<img
+												src="/imagenes/<%= producto.image %>"
+												class="card-img-top"
+												alt="visera"
+											/>
+											<div class="card-body p-3 border-top" style="background-color: white;">
 												<h5 class="card-title">Camisetas</h5>
 												<p class="card-text">$20</p>
 												<p
@@ -1456,10 +1449,10 @@
 											<img
 												src="/imagenes/ropa1.jpg"
 												class="card-img-top"
-												alt="visera"
+												alt=""
 											/>
-											<div class="card-body p-3" style="background-color: white">
-												<h5 class="card-title">Camisetas</h5>
+											<div class="card-body p-3 border-top" style="background-color: white;">
+												<h5 class="card-title">Visera</h5>
 												<p class="card-text">$20</p>
 												<p
 													class="card-text text-success d-flex justify-content-between"
@@ -1478,9 +1471,9 @@
 											<img
 												src="/imagenes/ropa2.jpg"
 												class="card-img-top"
-												alt="visera"
+												alt="camisetas"
 											/>
-											<div class="card-body p-3" style="background-color: white">
+											<div class="card-body p-3 border-top" style="background-color: white;">
 												<h5 class="card-title">Camisetas</h5>
 												<p class="card-text">$20</p>
 												<p
@@ -1500,10 +1493,10 @@
 											<img
 												src="/imagenes/ropa3.jpg"
 												class="card-img-top"
-												alt="visera"
+												alt="zapatos"
 											/>
-											<div class="card-body p-3" style="background-color: white">
-												<h5 class="card-title">Camisetas</h5>
+											<div class="card-body p-3 border-top" style="background-color: white;">
+												<h5 class="card-title">Zapatos</h5>
 												<p class="card-text">$20</p>
 												<p
 													class="card-text text-success d-flex justify-content-between"
@@ -1529,8 +1522,8 @@
 												class="card-img-top"
 												alt="visera"
 											/>
-											<div class="card-body p-3" style="background-color: white">
-												<h5 class="card-title">Camisetas</h5>
+											<div class="card-body p-3 border-top" style="background-color: white;">
+												<h5 class="card-title">Visera</h5>
 												<p class="card-text">$20</p>
 												<p
 													class="card-text text-success d-flex justify-content-between"
@@ -1549,9 +1542,9 @@
 											<img
 												src="/imagenes/ropa2.jpg"
 												class="card-img-top"
-												alt="visera"
+												alt="camisetas"
 											/>
-											<div class="card-body p-3" style="background-color: white">
+											<div class="card-body p-3 border-top" style="background-color: white;">
 												<h5 class="card-title">Camisetas</h5>
 												<p class="card-text">$20</p>
 												<p
@@ -1573,7 +1566,7 @@
 												class="card-img-top"
 												alt="visera"
 											/>
-											<div class="card-body p-3" style="background-color: white">
+											<div class="card-body p-3 border-top" style="background-color: white;">
 												<h5 class="card-title">Camisetas</h5>
 												<p class="card-text">$20</p>
 												<p
@@ -1600,7 +1593,7 @@
 												class="card-img-top"
 												alt="visera"
 											/>
-											<div class="card-body p-3" style="background-color: white">
+											<div class="card-body p-3 border-top" style="background-color: white;">
 												<h5 class="card-title">Camisetas</h5>
 												<p class="card-text">$20</p>
 												<p
@@ -1622,7 +1615,7 @@
 												class="card-img-top"
 												alt="visera"
 											/>
-											<div class="card-body p-3" style="background-color: white">
+											<div class="card-body p-3 border-top" style="background-color: white;">
 												<h5 class="card-title">Camisetas</h5>
 												<p class="card-text">$20</p>
 												<p
@@ -1644,7 +1637,7 @@
 												class="card-img-top"
 												alt="visera"
 											/>
-											<div class="card-body p-3" style="background-color: white">
+											<div class="card-body p-3 border-top" style="background-color: white;">
 												<h5 class="card-title">Camisetas</h5>
 												<p class="card-text">$20</p>
 												<p
@@ -1704,12 +1697,12 @@
 						aria-label="breadcrumb"
 					>
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="../">Home</a></li>
-							<li class="breadcrumb-item active" aria-current="page">Caps</li>
+							<li class="breadcrumb-item"><a href="/">Home</a></li>
+							<li class="breadcrumb-item active" aria-current="page"><%= producto.type %></li>
 						</ol>
 					</nav>
 					<div class="d-flex justify-content-left align-items-center mb-4">
-						<p class="my-0 me-3 fs-4 fw-bold">Nombre del producto</p>
+						<p class="my-0 me-3 fs-4 fw-bold"><%= producto.name %></p>
 						<a href="#">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -1725,7 +1718,7 @@
 							</svg>
 						</a>
 					</div>
-					<p class="fs-4">$ 200.000</p>
+					<p class="fs-4">$<%= producto.price %></p>
 					<div class="text-center mb-4">
 						<ul
 							class="nav justify-content-center align-items-center mx-auto"

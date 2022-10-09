@@ -36,7 +36,25 @@ const productsController = {
 	},
 
 	detalle: (req, res) => {
-		res.render('./products/detalle');
+
+		//res.send(JSON.stringify(products)); para tener en cuenta por si luego queremos ver el JSON que está en el Heroku
+
+		let idProducto = req.params.id;
+
+		let productoBuscado=null;
+
+		for (let o of products){
+			if (o.id == idProducto){
+				productoBuscado = o;
+				break;
+			}
+		}
+
+		if (productoBuscado!=null){
+			res.render('./products/detalle', {producto: productoBuscado});
+		}
+
+		res.send("Producto no encontrado");
 	},
 
 	edicionProducto: (req, res) => {
@@ -120,7 +138,7 @@ const productsController = {
 			JSON.stringify(products, null, ' '),
 			'utf-8'
 		);
-		fs.unlick(__dirname + '/../../public/products/' + deleteImg);
+		fs.unlick(__dirname + '/../../public/products/' + deleteImg);  //creo que está mal escrito
 		res.redirect('/');
 	}
 };
