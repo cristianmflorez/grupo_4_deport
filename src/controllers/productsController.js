@@ -38,8 +38,27 @@ const productsController = {
 
 		//res.send(JSON.stringify(products)); para tener en cuenta por si luego queremos ver el JSON que está en el Heroku
 
-		let idProducto = req.params.id;
+		let rand1 = Math.floor(Math.random()*products.length);
+		let rValue1 = products[rand1];
+		let rand2 = Math.floor(Math.random()*products.length);
+		let rValue2 = products[rand2];
+		let rand3 = Math.floor(Math.random()*products.length);
+		let rValue3 = products[rand3];
+		// console.log(rValue)
 
+		// let bandera = true;
+		// while(bandera){
+		// 	let random = [];
+		// 	random[0] = Math.floor(Math.random()*products.length);
+		// 	random[1] = Math.floor(Math.random()*products.length);
+		// 	random[2] = Math.floor(Math.random()*products.length);
+		// 	if(random[0] != random[1] != random[2]){
+		// 		bandera = false;
+		// 		return random;
+		// 	}
+		// }
+
+		let idProducto = req.params.id;
 		let productoBuscado=null;
 
 		for (let o of products){
@@ -48,11 +67,9 @@ const productsController = {
 				break;
 			}
 		}
-
 		if (productoBuscado!=null){
-			res.render('./products/detalle', {producto: productoBuscado});
+			res.render('./products/detalle', {producto: productoBuscado, random1: rValue1, random2 : rValue2, random3: rValue3});
 		}
-
 		res.send("Producto no encontrado");
 	},
 
