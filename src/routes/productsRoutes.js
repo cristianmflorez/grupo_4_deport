@@ -24,6 +24,6 @@ router.put('/edicionProducto/:id', uploadFile.single('image'), productsControlle
 
 //Eliminar producto
 
-router.delete('/:id/', productsController.delete);
+router.delete('/delete/:id', productsController.delete);
 
 module.exports = router;
