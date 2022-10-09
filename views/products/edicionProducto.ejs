@@ -4,7 +4,7 @@
 	<body>
 		<%-include('../partials/header') %> <%-include('../partials/nav') %>
 
-		<main class="d-flex justify-content-around mx-auto">
+		<main class="d-flex justify-content-around mx-auto flex-wrap">
 			<form class="w-75" action="<%=producto.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
 				<h2 class="p-3 text-center">Editar: <%=producto.name%></h2>
 
@@ -162,20 +162,19 @@
 					/>
 				</div>
 
-				<div class="mb-3 d-flex justify-content-between flex-column flex-md-row mt-5 mb-5">
-					<button class="btn btn-secondary col-3 w-auto m-2" type="submit">
+				<div class="d-flex justify-content-between flex-column flex-md-row mt-5">
+					<button class="btn btn-secondary col-3 w-auto mt-2" type="submit">
 						Editar producto
 					</button>
-					<button class="btn btn-secondary col-3 w-auto m-2" type="reset">
+					<button class="btn btn-secondary col-3 w-auto mt-2" type="reset">
 						Cancelar
 					</button>
-					<!--Modificar action con tag ejs correspondiente segun form de Edit -->
-					<form action="/products/:id/?_method=delete" method="post">
-						<button type="button" class="btn btn-danger col-3 w-auto m-2">
-							Eliminar producto
-						</button>
-					</form>
 				</div>
+			</form>
+			<form action="/products/delete/<%=producto.id%>?_method=delete" method="post" class="w-75 d-flex flex-column flex-md-row">
+				<button type="submit" class="btn btn-danger col-3 w-auto mt-2 mb-5">
+					Eliminar producto
+				</button>
 			</form>
 		</main>
 

@@ -1,4 +1,3 @@
-//const products = require('../data/productsJSON.json');
 const path = require('path');
 const fs = require('fs');
 const { json } = require('express');
@@ -155,7 +154,7 @@ const productsController = {
 			JSON.stringify(products, null, ' '),
 			'utf-8'
 		);
-		fs.unlick(__dirname + '/../../public/products/' + deleteImg);  //creo que está mal escrito
+		fs.unlinkSync(__dirname + '/../../public/imagenes/' + deleteImg);
 		res.redirect('/');
 	}
 };
