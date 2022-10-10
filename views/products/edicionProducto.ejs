@@ -115,12 +115,12 @@
 						</label>
 						<select class="form-select" name="category" required aria-label="select example">
 							<option value="">Selecciona un deporte</option>
-							<option value="futbol">Fútbol</option>
-							<option value="basketball">Basketball</option>
-							<option value="tenis">Tenis</option>
-							<option value="voleyball">Voleyball</option>
-							<option value="natacion">Natación</option>
-							<option value="Otros">Otros</option>
+							<option value="futbol" <%=producto.category=="futbol"? "selected" : ""%>> Fútbol</option>
+							<option value="basketball" <%=producto.category=="basketball"? "selected" : ""%>>Basketball</option>
+							<option value="tenis" <%=producto.category=="tenis"? "selected" : ""%>>Tenis</option>
+							<option value="voleyball" <%=producto.category=="voleyball"? "selected" : ""%>>Voleyball</option>
+							<option value="natacion" <%=producto.category=="natacion"? "selected" : ""%>>Natación</option>
+							<option value="Otros" <%=producto.category=="Otros"? "selected" : ""%>>Otros</option>
 						</select>
 					</div>
 					<div>

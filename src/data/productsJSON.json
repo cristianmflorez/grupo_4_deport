@@ -11,7 +11,7 @@
   "price": 80,
   "discount": 5,
   "image": "img_1665152432474_.png",
-  "category": "futbol",
+  "category": "tenis",
   "color": "black",
   "type": "vestuario",
   "deleted": 0
@@ -251,6 +251,23 @@
   "image": "img_1665151893235_.png",
   "category": "tenis",
   "color": "blue",
+  "type": "implementos",
+  "deleted": 0
+ },
+ {
+  "id": 16,
+  "name": "Balón Volleyball",
+  "description": "Balón semi-profesional",
+  "specifications": [
+   "Cuero",
+   "200g",
+   "Nacional"
+  ],
+  "price": 80,
+  "discount": 3,
+  "image": "img_1665425677995_.jpg",
+  "category": "voleyball",
+  "color": "Yellow",
   "type": "implementos",
   "deleted": 0
  }
