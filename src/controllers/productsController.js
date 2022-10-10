@@ -69,7 +69,7 @@ const productsController = {
 		}
 		if (productoBuscado!=null){
 			res.render('./products/detalle', {producto: productoBuscado, random1: rValue1, random2 : rValue2, random3: rValue3});
-		}
+		}	
 		res.send("Producto no encontrado");
 	},
 

@@ -266,8 +266,25 @@
   "price": 80,
   "discount": 3,
   "image": "img_1665425677995_.jpg",
-  "category": "voleyball",
-  "color": "Yellow",
+  "category": "volleyball",
+  "color": "yellow",
+  "type": "implementos",
+  "deleted": 0
+ },
+ {
+  "id": 17,
+  "name": "Bialetas Genéricas",
+  "description": "Espectaculares bialetas genéricas que cuentan con el área y la extensión ideal para un mayor impulso. ",
+  "specifications": [
+   "Tecnopolímeros",
+   "20",
+   "Nacional"
+  ],
+  "price": 18,
+  "discount": 20,
+  "image": "img_1665426962603_.jpg",
+  "category": "natacion",
+  "color": "black",
   "type": "implementos",
   "deleted": 0
  }
