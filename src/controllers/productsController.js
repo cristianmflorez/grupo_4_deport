@@ -142,6 +142,7 @@ const productsController = {
 	},
 
 	listadoProductos: (req, res) => {
+		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		let deporteIngresado = req.params.categoria;
 		//console.log(deporteIngresado)
 		let paraLaVista = products.filter(
