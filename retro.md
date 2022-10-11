@@ -29,3 +29,16 @@ Qué continuar haciendo:
 Qué hacer menos o Qué Dejar de hacer:
 - Limitarnos a lo que pide el sprint
 
+SPRINT 4
+
+Qué comenzar a hacer:
+- Mejorar comunicacion durante el Sprint y consultar sobre codigo ajeno para realizar cambios
+- Procurar hacer las tareas asignadas lo antes posible para poder hacer tests del codigo
+
+Qué continuar haciendo:
+- Dividir el trabajo equitativamente
+- Hablar para resolver dudas como equipo
+- Manejo del Trello
+
+Qué hacer menos o Qué Dejar de hacer:
+- Trabajar todos en la rama Main

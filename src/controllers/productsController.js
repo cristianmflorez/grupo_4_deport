@@ -10,39 +10,41 @@ const productsController = {
 		res.render('./products/creacionProducto');
 	},
 
-	crear: (req,res) => {
+	crear: (req, res) => {
 		let datos = req.body;
 		let nuevoProducto = {
-			id:products[products.length-1].id+1,
-    		name:datos.name,
-   			description:datos.description,
-    		specifications:[datos.material, datos.weight, datos.origin],
-    		price:parseInt(datos.price),
-   		 	discount:parseInt(datos.discount),
-    		image:req.file.filename,
-    		category:datos.category,
-    		color:datos.color,
-    		type:datos.type,
-    		deleted:0
-
+			id: products[products.length - 1].id + 1,
+			name: datos.name,
+			description: datos.description,
+			specifications: [datos.material, datos.weight, datos.origin],
+			price: parseInt(datos.price),
+			discount: parseInt(datos.discount),
+			image: req.file.filename,
+			category: datos.category,
+			color: datos.color,
+			type: datos.type,
+			deleted: 0
 		};
 
 		products.push(nuevoProducto);
 
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "), 'utf-8');
+		fs.writeFileSync(
+			productsFilePath,
+			JSON.stringify(products, null, ' '),
+			'utf-8'
+		);
 
 		res.redirect(`/products/detalle/${nuevoProducto.id}`);
 	},
 
 	detalle: (req, res) => {
-
 		//res.send(JSON.stringify(products)); para tener en cuenta por si luego queremos ver el JSON que está en el Heroku
 
-		let rand1 = Math.floor(Math.random()*products.length);
+		let rand1 = Math.floor(Math.random() * products.length);
 		let rValue1 = products[rand1];
-		let rand2 = Math.floor(Math.random()*products.length);
+		let rand2 = Math.floor(Math.random() * products.length);
 		let rValue2 = products[rand2];
-		let rand3 = Math.floor(Math.random()*products.length);
+		let rand3 = Math.floor(Math.random() * products.length);
 		let rValue3 = products[rand3];
 		// console.log(rValue)
 
@@ -59,18 +61,23 @@ const productsController = {
 		// }
 
 		let idProducto = req.params.id;
-		let productoBuscado=null;
+		let productoBuscado = null;
 
-		for (let o of products){
-			if (o.id == idProducto){
+		for (let o of products) {
+			if (o.id == idProducto) {
 				productoBuscado = o;
 				break;
 			}
 		}
-		if (productoBuscado!=null){
-			res.render('./products/detalle', {producto: productoBuscado, random1: rValue1, random2 : rValue2, random3: rValue3});
+		if (productoBuscado != null) {
+			res.render('./products/detalle', {
+				producto: productoBuscado,
+				random1: rValue1,
+				random2: rValue2,
+				random3: rValue3
+			});
 		}
-		res.send("Producto no encontrado");
+		res.send('Producto no encontrado');
 	},
 
 	edicionProducto: (req, res) => {
@@ -78,15 +85,15 @@ const productsController = {
 
 		let productobuscado = null;
 
-		for(let p of products){
-			if(p.id==idProducto){
-				productobuscado=p;
+		for (let p of products) {
+			if (p.id == idProducto) {
+				productobuscado = p;
 				break;
 			}
 		}
 
-		if(productobuscado!=null){
-			res.render('./products/edicionProducto', {producto : productobuscado})
+		if (productobuscado != null) {
+			res.render('./products/edicionProducto', { producto: productobuscado });
 		}
 	},
 
@@ -98,29 +105,33 @@ const productsController = {
 		console.log(req.file);
 		console.log(req.body);
 
-		for(let p of products){
-			if(p.id==idProducto){
-				imagenAntigua=p.image;
+		for (let p of products) {
+			if (p.id == idProducto) {
+				imagenAntigua = p.image;
 
-				p.name=datos.name,
-				p.description=datos.description,
-				p.specifications[0]=datos.material,
-				p.specifications[1]=datos.weight,
-				p.specifications[2]=datos.origin,
-				p.price=parseInt(datos.price),
-				p.discount=parseInt(datos.discount),
-				p.category=datos.category,
-				p.color=datos.color,
-				p.type=datos.type,
-				//Operador ternario para editar sin necesidad de imagen
-				p.image=req.file?req.file.filename:p.image,
-				//deleted sigue igual
+				(p.name = datos.name),
+					(p.description = datos.description),
+					(p.specifications[0] = datos.material),
+					(p.specifications[1] = datos.weight),
+					(p.specifications[2] = datos.origin),
+					(p.price = parseInt(datos.price)),
+					(p.discount = parseInt(datos.discount)),
+					(p.category = datos.category),
+					(p.color = datos.color),
+					(p.type = datos.type),
+					//Operador ternario para editar sin necesidad de imagen
+					(p.image = req.file ? req.file.filename : p.image),
+					//deleted sigue igual
 
-				fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "), 'utf-8');
+					fs.writeFileSync(
+						productsFilePath,
+						JSON.stringify(products, null, ' '),
+						'utf-8'
+					);
 
 				//para eliminar imagen antigua
-				if(imagenAntigua!=p.image){
-					fs.unlinkSync(__dirname+'/../../public/imagenes/'+imagenAntigua);
+				if (imagenAntigua != p.image) {
+					fs.unlinkSync(__dirname + '/../../public/imagenes/' + imagenAntigua);
 				}
 
 				res.redirect(`/products/detalle/${idProducto}`);
@@ -128,15 +139,15 @@ const productsController = {
 				break;
 			}
 		}
-
-		
 	},
 
 	listadoProductos: (req, res) => {
 		let deporteIngresado = req.params.categoria;
 		//console.log(deporteIngresado)
-		let paraLaVista = products.filter(elemento => elemento.category == deporteIngresado);
-		res.render('./products/listadoProductos', {productos: paraLaVista});
+		let paraLaVista = products.filter(
+			(elemento) => elemento.category == deporteIngresado
+		);
+		res.render('./products/listadoProductos', { productos: paraLaVista });
 	},
 
 	delete: (req, res) => {
