@@ -62,52 +62,52 @@
 			</button>
 		</div>
 
-		<main class="d-flex justify-content-around mx-auto" style="background-color: #eee">
+		<main
+			class="d-flex justify-content-around mx-auto"
+			style="background-color: #eee"
+		>
 			<section>
-				<div class="mb-1 d-flex justify-content-between flex-column align-items-center flex-md-row mt-3">
-					<h2 class="p-3 w-100">Productos destacados </h2>
+				<div
+					class="mb-1 d-flex justify-content-between flex-column align-items-center flex-md-row mt-3"
+				>
+					<h2 class="p-3 w-100">Productos destacados</h2>
 					<a
-					href="/products/creacionProducto"
-					class="bg-light text-center fw-bold list-group-item list-group-item-action border border-secondary border-2 rounded m-3 p-3 w-auto primary"
+						href="/products/creacionProducto"
+						class="bg-light text-center fw-bold list-group-item list-group-item-action border border-secondary border-2 rounded m-3 p-3 w-auto primary"
 					>
 						Nuevo producto
 					</a>
 				</div>
-				
 
 				<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 p-3 m-auto">
-					
-					<% 	let cantidad = 7;
-						for (let i=0; i<=cantidad;i++){
-							if(products[i].deleted==0){ %>
+					<% let cantidad = 7; for (let i=0; i<=cantidad; i++){%>
 
-								<div class="col mt-3">
-									<div class="card h-100 shadow m-1 p-0 d-flex justify-content-between">
-										<a href="/products/detalle/<%=products[i].id%>"
-											><img src="/imagenes/<%=products[i].image%>" class="card-img-top" alt="..."
-										/></a>
-										<div class="card-body" style="max-height: 150px;">
-											<h5 class="card-title"><%=products[i].name%></h5>
-											<p class="card-text">$<%=products[i].price%></p>
-											<p
-												class="card-text text-success d-flex justify-content-between"
-											>
-											<%=products[i].discount%>% OFF
-												<button type="button" class="btn btn-outline-success">
-													Comprar
-												</button>
-											</p>
-										</div>
-									</div>
-								</div>
-
-							<% }else{
-								cantidad++;
-							} %>
+					<div class="col mt-3">
+						<div
+							class="card h-100 shadow m-1 p-0 d-flex justify-content-between"
+						>
+							<a href="/products/detalle/<%=products[i].id%>"
+								><img
+									src="/imagenes/<%=products[i].image%>"
+									class="card-img-top"
+									alt="..."
+							/></a>
+							<div class="card-body" style="max-height: 150px">
+								<h5 class="card-title"><%=products[i].name%></h5>
+								<p class="card-text">$<%=products[i].price%></p>
+								<p
+									class="card-text text-success d-flex justify-content-between"
+								>
+									<%=products[i].discount%>% OFF
+									<button type="button" class="btn btn-outline-success">
+										Comprar
+									</button>
+								</p>
+							</div>
+						</div>
+					</div>
 
 					<% } %>
-					
-
 				</div>
 			</section>
 

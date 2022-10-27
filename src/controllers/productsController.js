@@ -1,6 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-const { json } = require('express');
 
 const productsFilePath = path.join(__dirname, '../data/productsJSON.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -22,8 +21,7 @@ const productsController = {
 			image: req.file.filename,
 			category: datos.category,
 			color: datos.color,
-			type: datos.type,
-			deleted: 0
+			type: datos.type
 		};
 
 		products.push(nuevoProducto);
@@ -154,16 +152,17 @@ const productsController = {
 	delete: (req, res) => {
 		let idProduct = req.params.id;
 		let deleteImg = '';
+		let newProducts = [];
 		for (let p of products) {
 			if (p.id == idProduct) {
 				deleteImg = p.image;
-				p.deleted = 1;
 				break;
 			}
 		}
+		newProducts = products.filter((p) => p.id != idProduct);
 		fs.writeFileSync(
 			path.join(__dirname, '/../data/productsJSON.json'),
-			JSON.stringify(products, null, ' '),
+			JSON.stringify(newProducts, null, ' '),
 			'utf-8'
 		);
 		fs.unlinkSync(__dirname + '/../../public/imagenes/' + deleteImg);

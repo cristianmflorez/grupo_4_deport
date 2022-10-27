@@ -29,8 +29,7 @@ const usersController = {
 			password: '',
 			address: req.body.direccion,
 			country: req.body.pais,
-			img: 'default.png',
-			deleted: 0
+			img: 'default.png'
 		};
 		users.push(newUser);
 		fs.writeFileSync(
