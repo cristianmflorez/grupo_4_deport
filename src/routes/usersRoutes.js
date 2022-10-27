@@ -13,4 +13,6 @@ router.get('/registro', usersController.registro);
 
 router.post('/registro', usersController.crear);
 
+router.delete('/delete/:id', usersController.delete);
+
 module.exports = router;

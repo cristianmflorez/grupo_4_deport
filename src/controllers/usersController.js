@@ -38,6 +38,27 @@ const usersController = {
 			'utf-8'
 		);
 		res.redirect('/');
+	},
+
+	delete: (req, res) => {
+		let idUser = req.params.id;
+		let newUsers = users.filter((u) => u.id != idUser);
+		let deleteImg = '';
+		for (u in users) {
+			if (u.id == idUser && u.img != 'default.png') {
+				deleteImg = u.img;
+				break;
+			}
+		}
+		fs.writeFileSync(
+			path.join(__dirname, '/../data/users.json'),
+			JSON.stringify(newUsers, null, ' '),
+			'utf-8'
+		);
+		if (deleteImg != '') {
+			fs.unlinkSync(__dirname + '/../../public/imagenes/' + deleteImg);
+		}
+		res.redirect('/');
 	}
 };
 
