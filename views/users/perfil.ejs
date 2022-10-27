@@ -20,7 +20,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="direccion" class="form-label text-primary""><strong>Direccion</strong></label>
+                <label for="direccion" class="form-label text-primary"><strong>Direccion</strong></label>
                 <input type="text" class="form-control" id="direccion" minlength="4" placeholder="calle falsa 123">
             </div>
 
@@ -28,6 +28,13 @@
                 <a href="/" class="btn btn-secondary col-4">Volver</a>
                 <button type="submit" class="btn btn-secondary col-4">Guardar</button>
             </div>
+        </form>
+
+        <!-- Agregar ID con cookie -->
+        <form action="/users/delete/10?_method=delete" method="post" class="mb-3 d-flex justify-content-end">
+            <button type="submit" class="btn btn-danger col-4">
+                Eliminar cuenta
+            </button>
         </form>
     </main>
 

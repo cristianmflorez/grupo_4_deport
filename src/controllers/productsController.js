@@ -129,7 +129,7 @@ const productsController = {
 
 				//para eliminar imagen antigua
 				if (imagenAntigua != p.image) {
-					fs.unlinkSync(__dirname + '/../../public/imagenes/' + imagenAntigua);
+					fs.unlinkSync(__dirname + '/../../public/imagenes/products/' + imagenAntigua);
 				}
 
 				res.redirect(`/products/detalle/${idProducto}`);
@@ -165,7 +165,7 @@ const productsController = {
 			JSON.stringify(newProducts, null, ' '),
 			'utf-8'
 		);
-		fs.unlinkSync(__dirname + '/../../public/imagenes/' + deleteImg);
+		fs.unlinkSync(__dirname + '/../../public/imagenes/products/' + deleteImg);
 		res.redirect('/');
 	}
 };

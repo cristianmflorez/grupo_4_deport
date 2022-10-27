@@ -31,7 +31,6 @@ const usersController = {
 				delete userToLogin.password;
 				req.session.userLogged = userToLogin;
 
-				console.log(req.session.userLogged);
 				return res.redirect('/users/perfil');
 			}
 			//---------------------------------
@@ -42,10 +41,6 @@ const usersController = {
 
 		//si el correo es incorrecto - COMPLEMENTAR CON VALIDACIONES
 		return res.render('./users/login');
-	},
-
-	password: (req, res) => {
-		res.render('./users/password');
 	},
 
 	perfil: (req, res) => {
@@ -62,10 +57,7 @@ const usersController = {
 			email: req.body.correo,
 			name: req.body.nombre,
 			tel: req.body.telefono,
-
-			//falta hashearla
-			password: '',
-
+			password: bcryptjs.hashSync(req.body.password, 12),
 			address: req.body.direccion,
 			country: req.body.pais,
 			img: 'default.png',
@@ -98,7 +90,7 @@ const usersController = {
 			'utf-8'
 		);
 		if (deleteImg != '') {
-			fs.unlinkSync(__dirname + '/../../public/imagenes/' + deleteImg);
+			fs.unlinkSync(__dirname + '/../../public/imagenes/users/' + deleteImg);
 		}
 		res.redirect('/');
 	},
