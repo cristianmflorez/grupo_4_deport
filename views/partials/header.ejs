@@ -12,14 +12,36 @@
 			/>
 		</a>
 		<ul class="list-group list-group-horizontal">
-			<li class="list-group-item border border-0 pt-0">
-				<a
-					href="/users/login"
-					class="list-group-item list-group-item-action border border-0 pt-3"
-				>
-					Ingresar/Registrarse
-				</a>
-			</li>
+			
+				<% if (locals.isLogged) { %>
+					<li class="list-group-item row border border-0 pt-0">
+						<a
+							href="/users/perfil"
+							class="list-group-item list-group-item-action border border-0 pt-3"
+						>
+							My perfil
+						</a>
+					</li>
+					<li class="list-group-item row border border-0 pt-0">
+						<a
+							href="/users/logout"
+							class="list-group-item list-group-item-action border border-0 pt-3"
+						>
+							Cerrar sesión
+						</a>
+					</li>
+				<% } else { %>
+					<li class="list-group-item row border border-0 pt-0">
+						<a
+							href="/users/login"
+							class="list-group-item list-group-item-action border border-0 pt-3"
+						>
+							Ingresar/Registrarse
+						</a>
+					</li>
+					
+				<% } %>
+
 
 			<li class="list-group-item border border-0 pt-2">
 				<select class="form-select" aria-label="Default select example">

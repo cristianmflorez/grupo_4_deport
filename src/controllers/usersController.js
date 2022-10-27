@@ -3,9 +3,45 @@ const path = require('path');
 const fs = require('fs');
 const bcryptjs = require('bcryptjs');
 
+//importar modelo usuarios
+const User = require('../../models/User')
+
 const usersController = {
 	login: (req, res) => {
 		res.render('./users/login');
+	},
+
+	//----AÑADÍ NAME A CAMPOS CORREO Y CONTRASEÑA DEL HTML LOGIN ()
+	loginProcess: (req, res) => {
+		let userToLogin = User.findByField('email', req.body.correo);
+		
+		if(userToLogin) {
+			/*-----cuando esté hasheado el password
+			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+			if (isOkThePassword) {
+				delete userToLogin.password;
+				req.session.userLogged = userToLogin;
+
+				return res.redirect('/users/perfil');
+			} 
+			-------------------*/
+
+			//para borrar cuando esté hasheado
+			if(req.body.password === userToLogin.password){
+				delete userToLogin.password;
+				req.session.userLogged = userToLogin;
+
+				console.log(req.session.userLogged);
+				return res.redirect('/users/perfil');
+			}
+			//---------------------------------
+
+			//si la contraseña es incorrecta - COMPLEMENTAR CON VALIDACIONES
+			return res.render('./users/login');
+		}
+
+		//si el correo es incorrecto - COMPLEMENTAR CON VALIDACIONES
+		return res.render('./users/login');
 	},
 
 	password: (req, res) => {
@@ -26,10 +62,16 @@ const usersController = {
 			email: req.body.correo,
 			name: req.body.nombre,
 			tel: req.body.telefono,
+
+			//falta hashearla
 			password: '',
+
 			address: req.body.direccion,
 			country: req.body.pais,
-			img: 'default.png'
+			img: 'default.png',
+
+			//Campo para definir si es admin o no
+			admin: 0,
 		};
 		users.push(newUser);
 		fs.writeFileSync(
@@ -59,6 +101,11 @@ const usersController = {
 			fs.unlinkSync(__dirname + '/../../public/imagenes/' + deleteImg);
 		}
 		res.redirect('/');
+	},
+
+	logout: (req, res) => {
+		req.session.destroy();
+		return res.redirect('/');
 	}
 };
 
