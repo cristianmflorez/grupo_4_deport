@@ -1,291 +1,206 @@
 [
- {
-  "id": 1,
-  "name": "Gorra Nike",
-  "description": "Estilo simple. Una gorra básica pero estilizada para usar a diario. Viene con una banda interior para el sudor que mantiene tu cabeza fresca y seca. La visera curva y el diseño de bajo perfil le añaden estilo clásico.",
-  "specifications": [
-   "Nailon",
-   "500g",
-   "Importado"
-  ],
-  "price": 80,
-  "discount": 5,
-  "image": "img_1665152432474_.png",
-  "category": "tenis",
-  "color": "black",
-  "type": "vestuario",
-  "deleted": 0
- },
- {
-  "id": 2,
-  "name": "Guayos Acme",
-  "description": "Su diseño en cuero te permite mejorar la potencia y velocidad en la cancha gracias al excelente agarre que estos botines ofrecen.",
-  "specifications": [
-   "Cuero",
-   "200g",
-   "Importado"
-  ],
-  "price": 37.3,
-  "discount": 17.9,
-  "image": "guayos1.jpg",
-  "category": "futbol",
-  "color": "black",
-  "type": "guayos",
-  "deleted": 0
- },
- {
-  "id": 3,
-  "name": "Guantes Kipsta",
-  "description": "Los Guantes Kipsa poseen uno de los mejores coeficientes de adherencia del mercado y garantizan un esfuerzo mínimo por su bajo peso.",
-  "specifications": [
-   "Tela",
-   "100g",
-   "Nacional"
-  ],
-  "price": 65.8,
-  "discount": 7.2,
-  "image": "guantes1.jpg",
-  "category": "futbol",
-  "color": "green",
-  "type": "guantes",
-  "deleted": 0
- },
- {
-  "id": 4,
-  "name": "Balón Kipsta",
-  "description": "Cuenta con un diseño aerodinámico que lo hace el balón ideal para partidos de altas exigencias a nivel competitivo.",
-  "specifications": [
-   "Cuero sintético",
-   "400g",
-   "Importado"
-  ],
-  "price": 25.4,
-  "discount": 0.73,
-  "image": "balon1.jpg",
-  "category": "futbol",
-  "color": "green",
-  "type": "balones",
-  "deleted": 0
- },
- {
-  "id": 5,
-  "name": "Canilleras Adidas",
-  "description": "La resistencia de las canilleras Adidas es espectacular, pueden soportar un golpe de hasta 350N.",
-  "specifications": [
-   "Fibra de carbono",
-   "150g",
-   "Importado"
-  ],
-  "price": 7.37,
-  "discount": 3.11,
-  "image": "canilleras1.png",
-  "category": "futbol",
-  "color": "white",
-  "type": "canilleras",
-  "deleted": 0
- },
- {
-  "id": 6,
-  "name": "Guayos Mercurial",
-  "description": "Gracias a su espectacular diseño en botín, estos guayos permiten una facil adaptación y una excelente comodidad para minimizar el cansancio a la hora de jugar.",
-  "specifications": [
-   "Cuero",
-   "180g",
-   "Importado"
-  ],
-  "price": 95.2,
-  "discount": 5.39,
-  "image": "guayos2.jpg",
-  "category": "futbol",
-  "color": "gray",
-  "type": "guayos",
-  "deleted": 0
- },
- {
-  "id": 7,
-  "name": "Balón Tarmak",
-  "description": "El material del Tarmak facilita su agarre, lo que lo convierte en una excelente opción para los amantes del basket.",
-  "specifications": [
-   "Algo",
-   "150g",
-   "Importado"
-  ],
-  "price": 20.87,
-  "discount": 15,
-  "image": "balonbasket1.jpg",
-  "category": "basketball",
-  "color": "orange",
-  "type": "balones",
-  "deleted": 0
- },
- {
-  "id": 8,
-  "name": "Bandas de colores",
-  "description": "Luce como todo un profesional utilizando estas bandas en muñecas o cabeza.",
-  "specifications": [
-   "Tela",
-   "10g",
-   "Nacional"
-  ],
-  "price": 5,
-  "discount": 0,
-  "image": "bandasbasket1.jpg",
-  "category": "basketball",
-  "color": "yellow",
-  "type": "others",
-  "deleted": 0
- },
- {
-  "id": 9,
-  "name": "Canasta para niños",
-  "description": "Las horas de diversión estan garantizadas para tus hijos con esta canasta de basketball que puedes situar en casi cualquier lugar.",
-  "specifications": [
-   "Metal",
-   "1000g",
-   "Importado"
-  ],
-  "price": 15.4,
-  "discount": 5,
-  "image": "canastabasket1.jpg",
-  "category": "basketball",
-  "color": "red",
-  "type": "others",
-  "deleted": 0
- },
- {
-  "id": 10,
-  "name": "Jersey Lakers",
-  "description": "A Lebron James le encantaría ver cómo apoyas a los Lakers usando este jersey importado.",
-  "specifications": [
-   "Tela",
-   "500g",
-   "Importado"
-  ],
-  "price": 20,
-  "discount": 3.5,
-  "image": "jerseybasket1.jpg",
-  "category": "basketball",
-  "color": "yellow",
-  "type": "jerseys",
-  "deleted": 0
- },
- {
-  "id": 11,
-  "name": "Jersey All American",
-  "description": "Un jersey que cualquiern fanático de los All American debería vestir.",
-  "specifications": [
-   "Tela",
-   "480g",
-   "Importado"
-  ],
-  "price": 22,
-  "discount": 3,
-  "image": "jerseybasket2.jpg",
-  "category": "basketball",
-  "color": "blue",
-  "type": "jerseys",
-  "deleted": 0
- },
- {
-  "id": 12,
-  "name": "Jersey Fairtex",
-  "description": "Jersey original del equipo de basketball FAIRTEX con excelentes acabados.",
-  "specifications": [
-   "Tela",
-   "30g",
-   "Importado"
-  ],
-  "price": 30,
-  "discount": 10,
-  "image": "jerseybasket3.jpg",
-  "category": "basketball",
-  "color": "green",
-  "type": "jerseys",
-  "deleted": 0
- },
- {
-  "id": 13,
-  "name": "Zapatillas Tarmak",
-  "description": "Lleva tus juegos al siguiente nivel con estas zapatillas tarmak semi-profesionales.",
-  "specifications": [
-   "Cuerina",
-   "300g",
-   "Importado"
-  ],
-  "price": 50,
-  "discount": 20,
-  "image": "zapatillasbasket1.jpg",
-  "category": "basketball",
-  "color": "red",
-  "type": "zapatillas",
-  "deleted": 0
- },
- {
-  "id": 14,
-  "name": "Balon Senston",
-  "description": "Un balón muy resistente y con un estilo llamativo",
-  "specifications": [
-   "Algo",
-   "250g",
-   "Importado"
-  ],
-  "price": 40,
-  "discount": 8,
-  "image": "balonbasket2.jpg",
-  "category": "basketball",
-  "color": "black",
-  "type": "balones",
-  "deleted": 0
- },
- {
-  "id": 15,
-  "name": "Raqueta Tenis Editado",
-  "description": "Esta raqueta semi-profesional te hará ganar todos tus juegos.",
-  "specifications": [
-   "Nailon",
-   "500g",
-   "Importado"
-  ],
-  "price": 50,
-  "discount": 12,
-  "image": "img_1665151893235_.png",
-  "category": "tenis",
-  "color": "blue",
-  "type": "implementos",
-  "deleted": 0
- },
- {
-  "id": 16,
-  "name": "Balón Volleyball",
-  "description": "Balón semi-profesional",
-  "specifications": [
-   "Cuero",
-   "200g",
-   "Nacional"
-  ],
-  "price": 80,
-  "discount": 3,
-  "image": "img_1665425677995_.jpg",
-  "category": "volleyball",
-  "color": "yellow",
-  "type": "implementos",
-  "deleted": 0
- },
- {
-  "id": 17,
-  "name": "Bialetas Genéricas",
-  "description": "Espectaculares bialetas genéricas que cuentan con el área y la extensión ideal para un mayor impulso. ",
-  "specifications": [
-   "Tecnopolímeros",
-   "20",
-   "Nacional"
-  ],
-  "price": 18,
-  "discount": 20,
-  "image": "img_1665426962603_.jpg",
-  "category": "natacion",
-  "color": "black",
-  "type": "implementos",
-  "deleted": 0
- }
+	{
+		"id": 1,
+		"name": "Gorra Nike",
+		"description": "Estilo simple. Una gorra básica pero estilizada para usar a diario. Viene con una banda interior para el sudor que mantiene tu cabeza fresca y seca. La visera curva y el diseño de bajo perfil le añaden estilo clásico.",
+		"specifications": ["Nailon", "500g", "Importado"],
+		"price": 80,
+		"discount": 5,
+		"image": "img_1665152432474_.png",
+		"category": "tenis",
+		"color": "black",
+		"type": "vestuario"
+	},
+	{
+		"id": 2,
+		"name": "Guayos Acme",
+		"description": "Su diseño en cuero te permite mejorar la potencia y velocidad en la cancha gracias al excelente agarre que estos botines ofrecen.",
+		"specifications": ["Cuero", "200g", "Importado"],
+		"price": 37.3,
+		"discount": 17.9,
+		"image": "guayos1.jpg",
+		"category": "futbol",
+		"color": "black",
+		"type": "guayos"
+	},
+	{
+		"id": 3,
+		"name": "Guantes Kipsta",
+		"description": "Los Guantes Kipsa poseen uno de los mejores coeficientes de adherencia del mercado y garantizan un esfuerzo mínimo por su bajo peso.",
+		"specifications": ["Tela", "100g", "Nacional"],
+		"price": 65.8,
+		"discount": 7.2,
+		"image": "guantes1.jpg",
+		"category": "futbol",
+		"color": "green",
+		"type": "guantes"
+	},
+	{
+		"id": 4,
+		"name": "Balón Kipsta",
+		"description": "Cuenta con un diseño aerodinámico que lo hace el balón ideal para partidos de altas exigencias a nivel competitivo.",
+		"specifications": ["Cuero sintético", "400g", "Importado"],
+		"price": 25.4,
+		"discount": 0.73,
+		"image": "balon1.jpg",
+		"category": "futbol",
+		"color": "green",
+		"type": "balones"
+	},
+	{
+		"id": 5,
+		"name": "Canilleras Adidas",
+		"description": "La resistencia de las canilleras Adidas es espectacular, pueden soportar un golpe de hasta 350N.",
+		"specifications": ["Fibra de carbono", "150g", "Importado"],
+		"price": 7.37,
+		"discount": 3.11,
+		"image": "canilleras1.png",
+		"category": "futbol",
+		"color": "white",
+		"type": "canilleras"
+	},
+	{
+		"id": 6,
+		"name": "Guayos Mercurial",
+		"description": "Gracias a su espectacular diseño en botín, estos guayos permiten una facil adaptación y una excelente comodidad para minimizar el cansancio a la hora de jugar.",
+		"specifications": ["Cuero", "180g", "Importado"],
+		"price": 95.2,
+		"discount": 5.39,
+		"image": "guayos2.jpg",
+		"category": "futbol",
+		"color": "gray",
+		"type": "guayos"
+	},
+	{
+		"id": 7,
+		"name": "Balón Tarmak",
+		"description": "El material del Tarmak facilita su agarre, lo que lo convierte en una excelente opción para los amantes del basket.",
+		"specifications": ["Algo", "150g", "Importado"],
+		"price": 20.87,
+		"discount": 15,
+		"image": "balonbasket1.jpg",
+		"category": "basketball",
+		"color": "orange",
+		"type": "balones"
+	},
+	{
+		"id": 8,
+		"name": "Bandas de colores",
+		"description": "Luce como todo un profesional utilizando estas bandas en muñecas o cabeza.",
+		"specifications": ["Tela", "10g", "Nacional"],
+		"price": 5,
+		"discount": 0,
+		"image": "bandasbasket1.jpg",
+		"category": "basketball",
+		"color": "yellow",
+		"type": "others"
+	},
+	{
+		"id": 9,
+		"name": "Canasta para niños",
+		"description": "Las horas de diversión estan garantizadas para tus hijos con esta canasta de basketball que puedes situar en casi cualquier lugar.",
+		"specifications": ["Metal", "1000g", "Importado"],
+		"price": 15.4,
+		"discount": 5,
+		"image": "canastabasket1.jpg",
+		"category": "basketball",
+		"color": "red",
+		"type": "others"
+	},
+	{
+		"id": 10,
+		"name": "Jersey Lakers",
+		"description": "A Lebron James le encantaría ver cómo apoyas a los Lakers usando este jersey importado.",
+		"specifications": ["Tela", "500g", "Importado"],
+		"price": 20,
+		"discount": 3.5,
+		"image": "jerseybasket1.jpg",
+		"category": "basketball",
+		"color": "yellow",
+		"type": "jerseys"
+	},
+	{
+		"id": 11,
+		"name": "Jersey All American",
+		"description": "Un jersey que cualquiern fanático de los All American debería vestir.",
+		"specifications": ["Tela", "480g", "Importado"],
+		"price": 22,
+		"discount": 3,
+		"image": "jerseybasket2.jpg",
+		"category": "basketball",
+		"color": "blue",
+		"type": "jerseys"
+	},
+	{
+		"id": 12,
+		"name": "Jersey Fairtex",
+		"description": "Jersey original del equipo de basketball FAIRTEX con excelentes acabados.",
+		"specifications": ["Tela", "30g", "Importado"],
+		"price": 30,
+		"discount": 10,
+		"image": "jerseybasket3.jpg",
+		"category": "basketball",
+		"color": "green",
+		"type": "jerseys"
+	},
+	{
+		"id": 13,
+		"name": "Zapatillas Tarmak",
+		"description": "Lleva tus juegos al siguiente nivel con estas zapatillas tarmak semi-profesionales.",
+		"specifications": ["Cuerina", "300g", "Importado"],
+		"price": 50,
+		"discount": 20,
+		"image": "zapatillasbasket1.jpg",
+		"category": "basketball",
+		"color": "red",
+		"type": "zapatillas"
+	},
+	{
+		"id": 14,
+		"name": "Balon Senston",
+		"description": "Un balón muy resistente y con un estilo llamativo",
+		"specifications": ["Algo", "250g", "Importado"],
+		"price": 40,
+		"discount": 8,
+		"image": "balonbasket2.jpg",
+		"category": "basketball",
+		"color": "black",
+		"type": "balones"
+	},
+	{
+		"id": 15,
+		"name": "Raqueta Tenis Editado",
+		"description": "Esta raqueta semi-profesional te hará ganar todos tus juegos.",
+		"specifications": ["Nailon", "500g", "Importado"],
+		"price": 50,
+		"discount": 12,
+		"image": "img_1665151893235_.png",
+		"category": "tenis",
+		"color": "blue",
+		"type": "implementos"
+	},
+	{
+		"id": 16,
+		"name": "Balón Volleyball",
+		"description": "Balón semi-profesional",
+		"specifications": ["Cuero", "200g", "Nacional"],
+		"price": 80,
+		"discount": 3,
+		"image": "img_1665425677995_.jpg",
+		"category": "volleyball",
+		"color": "yellow",
+		"type": "implementos"
+	},
+	{
+		"id": 17,
+		"name": "Bialetas Genéricas",
+		"description": "Espectaculares bialetas genéricas que cuentan con el área y la extensión ideal para un mayor impulso. ",
+		"specifications": ["Tecnopolímeros", "20", "Nacional"],
+		"price": 18,
+		"discount": 20,
+		"image": "img_1665426962603_.jpg",
+		"category": "natacion",
+		"color": "black",
+		"type": "implementos"
+	}
 ]
