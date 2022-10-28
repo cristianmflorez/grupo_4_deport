@@ -129,9 +129,9 @@
 						</label>
 						<select class="form-select" name="type" required aria-label="select example">
 							<option value="">Selecciona una categoría</option>
-							<option value="vestuario">Vestuario</option>
-							<option value="zapatillas">Zapatillas</option>
-							<option value="implementos">Implementos</option>
+							<option value="vestuario" <%=producto.type=="vestuario"? "selected" : ""%>>Vestuario</option>
+							<option value="zapatillas" <%=producto.type=="zapatillas"? "selected" : ""%>>Zapatillas</option>
+							<option value="implementos" <%=producto.type=="implementos"? "selected" : ""%>>Implementos</option>
 						</select>
 					</div>
 					
