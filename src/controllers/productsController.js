@@ -100,32 +100,29 @@ const productsController = {
 		let datos = req.body;
 		let imagenAntigua;
 
-		console.log(req.file);
-		console.log(req.body);
-
 		for (let p of products) {
 			if (p.id == idProducto) {
 				imagenAntigua = p.image;
 
 				(p.name = datos.name),
-					(p.description = datos.description),
-					(p.specifications[0] = datos.material),
-					(p.specifications[1] = datos.weight),
-					(p.specifications[2] = datos.origin),
-					(p.price = parseInt(datos.price)),
-					(p.discount = parseInt(datos.discount)),
-					(p.category = datos.category),
-					(p.color = datos.color),
-					(p.type = datos.type),
-					//Operador ternario para editar sin necesidad de imagen
-					(p.image = req.file ? req.file.filename : p.image),
-					//deleted sigue igual
+				(p.description = datos.description),
+				(p.specifications[0] = datos.material),
+				(p.specifications[1] = datos.weight),
+				(p.specifications[2] = datos.origin),
+				(p.price = parseInt(datos.price)),
+				(p.discount = parseInt(datos.discount)),
+				(p.category = datos.category),
+				(p.color = datos.color),
+				(p.type = datos.type),
+				//Operador ternario para editar sin necesidad de imagen
+				(p.image = req.file ? req.file.filename : p.image),
+				//deleted sigue igual
 
-					fs.writeFileSync(
-						productsFilePath,
-						JSON.stringify(products, null, ' '),
-						'utf-8'
-					);
+				fs.writeFileSync(
+					productsFilePath,
+					JSON.stringify(products, null, ' '),
+					'utf-8'
+				);
 
 				//para eliminar imagen antigua
 				if (imagenAntigua != p.image) {

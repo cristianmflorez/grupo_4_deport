@@ -13,6 +13,8 @@ router.post('/login', usersController.loginProcess);
 
 router.get('/perfil', authMiddleware, usersController.perfil);
 
+router.put('/perfil/:id', usersController.editar);
+
 router.get('/registro', guestMiddleware, usersController.registro);
 
 router.post('/registro', usersController.crear);

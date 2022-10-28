@@ -9,7 +9,8 @@
 		"image": "img_1665152432474_.png",
 		"category": "tenis",
 		"color": "black",
-		"type": "vestuario"
+		"type": "vestuario",
+		"pais": "Bolivia"
 	},
 	{
 		"id": 2,
@@ -21,7 +22,8 @@
 		"image": "guayos1.jpg",
 		"category": "futbol",
 		"color": "black",
-		"type": "guayos"
+		"type": "guayos",
+		"pais": "Peru"
 	},
 	{
 		"id": 3,
@@ -33,7 +35,8 @@
 		"image": "guantes1.jpg",
 		"category": "futbol",
 		"color": "green",
-		"type": "guantes"
+		"type": "guantes",
+		"pais": "Peru"
 	},
 	{
 		"id": 4,
@@ -45,7 +48,8 @@
 		"image": "balon1.jpg",
 		"category": "futbol",
 		"color": "green",
-		"type": "balones"
+		"type": "balones",
+		"pais": "Argentina"
 	},
 	{
 		"id": 5,
@@ -57,7 +61,8 @@
 		"image": "canilleras1.png",
 		"category": "futbol",
 		"color": "white",
-		"type": "canilleras"
+		"type": "canilleras",
+		"pais": "Argentina"
 	},
 	{
 		"id": 6,
@@ -69,7 +74,8 @@
 		"image": "guayos2.jpg",
 		"category": "futbol",
 		"color": "gray",
-		"type": "guayos"
+		"type": "guayos",
+		"pais": "Paraguay"
 	},
 	{
 		"id": 7,
@@ -81,7 +87,8 @@
 		"image": "balonbasket1.jpg",
 		"category": "basketball",
 		"color": "orange",
-		"type": "balones"
+		"type": "balones",
+		"pais": "Paraguay"
 	},
 	{
 		"id": 8,
@@ -93,7 +100,8 @@
 		"image": "bandasbasket1.jpg",
 		"category": "basketball",
 		"color": "yellow",
-		"type": "others"
+		"type": "others",
+		"pais": "Brazil"
 	},
 	{
 		"id": 9,
@@ -105,7 +113,8 @@
 		"image": "canastabasket1.jpg",
 		"category": "basketball",
 		"color": "red",
-		"type": "others"
+		"type": "others",
+		"pais": "Brazil"
 	},
 	{
 		"id": 10,
@@ -117,7 +126,8 @@
 		"image": "jerseybasket1.jpg",
 		"category": "basketball",
 		"color": "yellow",
-		"type": "jerseys"
+		"type": "jerseys",
+		"pais": "Chile"
 	},
 	{
 		"id": 11,
@@ -129,7 +139,8 @@
 		"image": "jerseybasket2.jpg",
 		"category": "basketball",
 		"color": "blue",
-		"type": "jerseys"
+		"type": "jerseys",
+		"pais": "Chile"
 	},
 	{
 		"id": 12,
@@ -141,7 +152,8 @@
 		"image": "jerseybasket3.jpg",
 		"category": "basketball",
 		"color": "green",
-		"type": "jerseys"
+		"type": "jerseys",
+		"pais": "Uruguay"
 	},
 	{
 		"id": 13,
@@ -153,7 +165,8 @@
 		"image": "zapatillasbasket1.jpg",
 		"category": "basketball",
 		"color": "red",
-		"type": "zapatillas"
+		"type": "zapatillas",
+		"pais": "Uruguay"
 	},
 	{
 		"id": 14,
@@ -165,7 +178,8 @@
 		"image": "balonbasket2.jpg",
 		"category": "basketball",
 		"color": "black",
-		"type": "balones"
+		"type": "balones",
+		"pais": "Ecuador"
 	},
 	{
 		"id": 15,
@@ -177,7 +191,8 @@
 		"image": "img_1665151893235_.png",
 		"category": "tenis",
 		"color": "blue",
-		"type": "implementos"
+		"type": "implementos",
+		"pais": "Ecuador"
 	},
 	{
 		"id": 16,
@@ -189,7 +204,8 @@
 		"image": "img_1665425677995_.jpg",
 		"category": "volleyball",
 		"color": "yellow",
-		"type": "implementos"
+		"type": "implementos",
+		"pais": "Colombia"
 	},
 	{
 		"id": 17,
@@ -201,6 +217,7 @@
 		"image": "img_1665426962603_.jpg",
 		"category": "natacion",
 		"color": "black",
-		"type": "implementos"
+		"type": "implementos",
+		"pais": "Colombia"
 	}
 ]

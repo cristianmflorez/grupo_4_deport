@@ -1,7 +1,6 @@
 const productsController = require('../controllers/productsController');
 const express = require('express');
 const router = express.Router();
-const path = require('path')
 const uploadFile = require('./../middleware/multerProducts');
 
 router.get('/listadoProductos/:categoria', productsController.listadoProductos);

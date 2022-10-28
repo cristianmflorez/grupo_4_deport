@@ -4,7 +4,8 @@ const fs = require('fs');
 const bcryptjs = require('bcryptjs');
 
 //importar modelo usuarios
-const User = require('../../models/User')
+const User = require('../../models/User');
+const { localsName } = require('ejs');
 
 const usersController = {
 	login: (req, res) => {
@@ -14,8 +15,8 @@ const usersController = {
 	//----AÑADÍ NAME A CAMPOS CORREO Y CONTRASEÑA DEL HTML LOGIN ()
 	loginProcess: (req, res) => {
 		let userToLogin = User.findByField('email', req.body.correo);
-		
-		if(userToLogin) {
+
+		if (userToLogin) {
 			/*-----cuando esté hasheado el password
 			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
 			if (isOkThePassword) {
@@ -27,7 +28,7 @@ const usersController = {
 			-------------------*/
 
 			//para borrar cuando esté hasheado
-			if(req.body.password === userToLogin.password){
+			if (req.body.password === userToLogin.password) {
 				delete userToLogin.password;
 				req.session.userLogged = userToLogin;
 
@@ -47,6 +48,26 @@ const usersController = {
 		res.render('./users/perfil');
 	},
 
+	editar: (req, res) => {
+		for (const u of users) {
+			if (u.id == req.params.id) {
+				u.name = req.body.nombre;
+				u.email = req.body.correo;
+				u.tel = req.body.telefono;
+				u.address = req.body.direccion;
+				u.country = req.body.pais;
+				break;
+			}
+		}
+		fs.writeFileSync(
+			path.join(__dirname, './../data/users.json'),
+			JSON.stringify(users, null, ' '),
+			'utf-8'
+		);
+
+		res.redirect('/users/perfil');
+	},
+
 	registro: (req, res) => {
 		res.render('./users/registro');
 	},
@@ -63,7 +84,7 @@ const usersController = {
 			img: 'default.png',
 
 			//Campo para definir si es admin o no
-			admin: 0,
+			admin: 0
 		};
 		users.push(newUser);
 		fs.writeFileSync(

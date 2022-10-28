@@ -1,14 +1,14 @@
 [
  {
   "id": 1,
-  "email": "mpoletto0@nationalgeographic.com",
-  "name": "Malvin",
-  "tel": "4839767236",
-  "password": "jdLU1G",
-  "address": "77474 Badeau Trail",
-  "country": "Brazil",
+  "email": "admin@allsports.com",
+  "name": "Malvin      ",
+  "tel": "4839767236      ",
+  "password": "1234",
+  "address": "77474 Badeau Trail      ",
+  "country": "Argentina",
   "img": "default.png",
-  "admin": 0
+  "admin": 1
  },
  {
   "id": 2,
