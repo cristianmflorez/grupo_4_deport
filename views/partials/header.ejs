@@ -12,36 +12,43 @@
 			/>
 		</a>
 		<ul class="list-group list-group-horizontal">
-			
-				<% if (locals.isLogged) { %>
-					<li class="list-group-item row border border-0 pt-0">
-						<a
-							href="/users/perfil"
-							class="list-group-item list-group-item-action border border-0 pt-3"
-						>
-							Mi perfil
+			<% if (locals.isLogged) { %>
+			<li class="btn-group border border-0 py-2">
+				<button
+					type="button"
+					class="btn dropdown-toggle"
+					data-bs-toggle="dropdown"
+					aria-expanded="false"
+				>
+					<%= locals.userLogged.name %>
+				</button>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="/users/perfil" class="dropdown-item"> Mi perfil </a>
+					</li>
+					<% if (locals.userLogged.admin) { %>
+					<li>
+						<a href="/products/creacionProducto" class="dropdown-item">
+							Nuevo producto
 						</a>
 					</li>
-					<li class="list-group-item row border border-0 pt-0">
-						<a
-							href="/users/logout"
-							class="list-group-item list-group-item-action border border-0 pt-3"
-						>
-							Cerrar sesión
-						</a>
+					<% } %>
+					<li><hr class="dropdown-divider" /></li>
+					<li>
+						<a href="/users/logout" class="dropdown-item"> Cerrar sesión </a>
 					</li>
-				<% } else { %>
-					<li class="list-group-item row border border-0 pt-0">
-						<a
-							href="/users/login"
-							class="list-group-item list-group-item-action border border-0 pt-3"
-						>
-							Ingresar/Registrarse
-						</a>
-					</li>
-					
-				<% } %>
-
+				</ul>
+			</li>
+			<% } else { %>
+			<li class="list-group-item row border border-0 pt-0">
+				<a
+					href="/users/login"
+					class="list-group-item list-group-item-action border border-0 pt-3"
+				>
+					Ingresar/Registrarse
+				</a>
+			</li>
+			<% } %>
 
 			<li class="list-group-item border border-0 pt-2">
 				<select class="form-select" aria-label="Default select example">

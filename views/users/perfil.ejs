@@ -6,7 +6,25 @@
 
 		<main class="container">
 			<h2 class="p-3 text-center">Perfil</h2>
-			<form action="/users/perfil/<%= locals.userLogged.id %>?_method=put" method="post">
+			<form action="/users/perfil/<%= locals.userLogged.id %>?_method=put" method="post" enctype="multipart/form-data">
+				<% if (locals.userLogged) { %>
+					<div class="mb-3">
+						<img src="/imagenes/users/<%= locals.userLogged.img %>" alt="imagen de perfil" class="img-thumbnail w-25 h-25">
+					</div>
+					<div class="mb-3">
+						<label for="imagen" class="form-label text-primary">
+							<strong>Imagen (opcional)</strong>
+						</label>
+						<input
+							id="imagen"
+							type="file"
+							name="imagen"
+							class="form-control"
+							aria-label="file example"
+						/>
+					</div>
+				<% } %>
+
                 <div class="mb-3">
 					<label for="nombre" class="form-label text-primary"
 						><strong>Nombre completo</strong></label

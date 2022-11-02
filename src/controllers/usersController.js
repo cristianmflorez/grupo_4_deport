@@ -32,7 +32,7 @@ const usersController = {
 				delete userToLogin.password;
 				req.session.userLogged = userToLogin;
 
-				return res.redirect('/users/perfil');
+				return res.redirect('/');
 			}
 			//---------------------------------
 
@@ -49,23 +49,36 @@ const usersController = {
 	},
 
 	editar: (req, res) => {
+		let imagenAntigua;
+		let idUser = req.params.id;
 		for (const u of users) {
-			if (u.id == req.params.id) {
+			if(u.id == idUser){
+				imagenAntigua = u.img;
+	
 				u.name = req.body.nombre;
 				u.email = req.body.correo;
 				u.tel = req.body.telefono;
 				u.address = req.body.direccion;
 				u.country = req.body.pais;
-				break;
+				u.img = req.file ? req.file.filename : u.img;	
 			}
 		}
+
 		fs.writeFileSync(
 			path.join(__dirname, './../data/users.json'),
 			JSON.stringify(users, null, ' '),
 			'utf-8'
 		);
 
-		res.redirect('/users/perfil');
+		if (imagenAntigua && imagenAntigua != 'default.png') {
+			fs.unlinkSync(
+				__dirname + '/../../public/imagenes/users/' + imagenAntigua
+			);
+		}
+
+		req.session.userLogged = User.findByPk(idUser);
+
+		res.redirect('/');
 	},
 
 	registro: (req, res) => {

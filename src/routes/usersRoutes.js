@@ -13,7 +13,7 @@ router.post('/login', usersController.loginProcess);
 
 router.get('/perfil', authMiddleware, usersController.perfil);
 
-router.put('/perfil/:id', usersController.editar);
+router.put('/perfil/:id', uploadFile.single('imagen'), usersController.editar);
 
 router.get('/registro', guestMiddleware, usersController.registro);
 
