@@ -32,6 +32,10 @@ const usersController = {
 				delete userToLogin.password;
 				req.session.userLogged = userToLogin;
 
+				if(req.body.remember_user) {
+					res.cookie('userEmail', req.body.email, {maxAge: 60*60*24*30 }) //30 dias
+				}
+
 				return res.redirect('/');
 			}
 			//---------------------------------
@@ -130,6 +134,7 @@ const usersController = {
 	},
 
 	logout: (req, res) => {
+		res.clearCookie('userEmail');
 		req.session.destroy();
 		return res.redirect('/');
 	}
