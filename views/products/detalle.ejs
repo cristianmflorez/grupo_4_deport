@@ -114,10 +114,11 @@
 							</svg>
 						</a>
 					</div>
-
-					<button>
-						<a href="/products/edicionProducto/<%= producto.id %>" class="text-decoration-none text-dark"><i class="fa-solid fa-pen-to-square"></i></a>
-					</button>
+					<% if ((locals.isLogged) && (locals.userLogged.admin==1)) { %>
+						<button>
+							<a href="/products/edicionProducto/<%= producto.id %>" class="text-decoration-none text-dark"><i class="fa-solid fa-pen-to-square"></i></a>
+						</button>
+					<% } %>
 				</div>
 
 				<p class="fs-5">$<%= producto.price %></p>
@@ -1728,10 +1729,11 @@
 								</svg>
 							</a>
 						</div>
-
-						<button class="bg-white">
-							<a href="/products/edicionProducto/<%= producto.id %>" class="text-decoration-none text-dark"><i class="fa-solid fa-pen-to-square"></i></a>
-						</button>
+						<% if ((locals.isLogged) && (locals.userLogged.admin==1)) { %>
+							<button class="bg-white">
+								<a href="/products/edicionProducto/<%= producto.id %>" class="text-decoration-none text-dark"><i class="fa-solid fa-pen-to-square"></i></a>
+							</button>
+						<% } %>
 					</div>
 	
 					<p class="fs-4">$<%= producto.price %></p>

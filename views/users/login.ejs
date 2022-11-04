@@ -9,16 +9,21 @@
 			<form action="" method="post" >
 				<div class="mb-3 mx-auto" style="max-width: 65vw;">
 					<label for="correo" class="form-label text-primary"
-						><strong>Correo electronico</strong></label
+						><strong>Correo electrónico</strong></label
 					>
 					<input
-						type="email"
-						class="form-control"
+						type="text"
+						class="form-control <%= (locals.errors && errors.correo) ? 'is-invalid' : null %>"
 						id="correo"
 						placeholder="test@gmail.com"
 						name="correo" 
-						required
+						value="<%= locals.oldData && oldData.correo ? oldData.correo : null %>"
 					/>
+					<% if (locals.errors && errors.correo) { %>
+						<p style="color: red">
+							<%= errors.correo.msg %> 
+						</p>
+					<% } %>
 				</div>
 
 				<div class="mb-3 mx-auto" style="max-width: 65vw;">
@@ -28,14 +33,19 @@
 					<div class="input-group">
 						<input 
 							type="password" 
-							class="form-control" 
+							class="form-control <%= (locals.errors && errors.password) ? 'is-invalid' : null %>" 
 							id="password" 
 							name="password"
-							/>
+						/>
 						<button class="btn btn-outline-dark" type="button">
 							<i class="bi bi-eye"></i>
 						</button>
 					</div>
+					<% if (locals.errors && errors.password) { %>
+						<p style="color: red">
+							<%= errors.password.msg %> 
+						</p>
+					<% } %>
 				</div>
 
 				<div class="mb-3 mx-auto d-flex justify-content-between" style="max-width: 65vw;">

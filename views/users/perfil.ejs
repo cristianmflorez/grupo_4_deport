@@ -13,76 +13,113 @@
 					>
 					<input
 						type="text"
-						class="form-control"
+						class="form-control <%= (locals.errors && errors.nombre) ? 'is-invalid' : null %>"
 						id="nombre"
                         <% if (locals.userLogged) { %>
                             value="<%= locals.userLogged.name %> "
                         <% } else { %>  
-                            placeholder="Nombre Apellido"
+                            value="<%= locals.oldData && oldData.nombre ? oldData.nombre : null %>"
                         <% } %>
 						name="nombre"
 					/>
+					<% if (locals.errors && errors.nombre) { %>
+						<p style="color: red">
+							<%= errors.nombre.msg %> 
+						</p>
+					<% } %>
 				</div>
 
 				<div class="mb-3">
 					<label for="correo" class="form-label text-primary"
-						><strong>Correo electronico</strong></label
+						><strong>Correo electrónico</strong></label
 					>
 					<input
-						type="email"
-						class="form-control"
+						type="text"
+						class="form-control <%= (locals.errors && errors.correo) ? 'is-invalid' : null %>"
 						id="correo"
                         <% if (locals.userLogged) { %>
                             value="<%= locals.userLogged.email %> "
                         <% } else { %>  
-						    placeholder="test@gmail.com"
+						    value="<%= locals.oldData && oldData.correo ? oldData.correo : null %>"
                         <% } %>
                         name="correo"
 						required
 					/>
+					<% if (locals.errors && errors.correo) { %>
+						<p style="color: red">
+							<%= errors.correo.msg %> 
+						</p>
+					<% } %>
 				</div>
 
 				<div class="mb-3">
 					<label for="telefono" class="form-label text-primary"
-						><strong>Telefono</strong></label
+						><strong>Teléfono</strong></label
 					>
 					<input
 						type="tel"
-						class="form-control"
+						class="form-control <%= (locals.errors && errors.telefono) ? 'is-invalid' : null %>"
 						id="telefono"
                         <% if (locals.userLogged) { %>
                             value="<%= locals.userLogged.tel %> "
                         <% } else { %>
-						    placeholder="11-1234-1234"
+						    value="<%= locals.oldData && oldData.telefono ? oldData.telefono : null %>"
                         <% } %> 
                         name="telefono"
 					/>
+					<% if (locals.errors && errors.telefono) { %>
+						<p style="color: red">
+							<%= errors.telefono.msg %> 
+						</p>
+					<% } %>
 				</div>
 
 				<div class="mb-3">
 					<label for="direccion" class="form-label text-primary"
-						><strong>Direccion</strong></label
+						><strong>Dirección</strong></label
 					>
 					<input
 						type="text"
-						class="form-control"
+						class="form-control <%= (locals.errors && errors.direccion) ? 'is-invalid' : null %>"
 						id="direccion"
 						minlength="4"
                         <% if (locals.userLogged) { %>
                             value="<%= locals.userLogged.address %> "
                         <% } else { %>
-						    placeholder="calle falsa 123"
+						    value="<%= locals.oldData && oldData.direccion ? oldData.direccion : null %>"
                         <% } %> 
                         name="direccion"
 					/>
+					<% if (locals.errors && errors.direccion) { %>
+						<p style="color: red">
+							<%= errors.direccion.msg %> 
+						</p>
+					<% } %>
+				</div>
+
+				<div class="mb-3">
+					<label for="avatar" class="form-label text-primary"
+						><strong>Avatar</strong></label
+					>
+					<input
+						type="file"
+						class="form-control"
+						id="avatar"
+						name="avatar"
+					/>
+					<% if (locals.errors && errors.avatar) { %>
+						<p style="color: red">
+							<%= errors.avatar.msg %> 
+						</p>
+					<% } %>
 				</div>
 
                 <div class="mb-3">
 					<label for="correo" class="form-label text-primary"
-						><strong>Pais</strong></label
+						><strong>País</strong></label
 					>
 					<select
-						class="form-select"
+						class="form-select <%= (locals.errors && errors.pais) ? 'is-invalid' : null %>"
 						aria-label="Default select example"
 						name="pais"
 					>

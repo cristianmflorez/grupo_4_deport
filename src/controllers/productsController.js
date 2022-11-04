@@ -3,6 +3,7 @@ const fs = require('fs');
 
 const productsFilePath = path.join(__dirname, '../data/productsJSON.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const { validationResult } = require('express-validator');
 
 const productsController = {
 	creacionProducto: (req, res) => {
@@ -10,29 +11,35 @@ const productsController = {
 	},
 
 	crear: (req, res) => {
-		let datos = req.body;
-		let nuevoProducto = {
-			id: products[products.length - 1].id + 1,
-			name: datos.name,
-			description: datos.description,
-			specifications: [datos.material, datos.weight, datos.origin],
-			price: parseInt(datos.price),
-			discount: parseInt(datos.discount),
-			image: req.file.filename,
-			category: datos.category,
-			color: datos.color,
-			type: datos.type
-		};
+		let errors = validationResult(req);
+		if(errors.isEmpty()){ 
+			let datos = req.body;
+			let nuevoProducto = {
+				id: products[products.length - 1].id + 1,
+				name: datos.name,
+				description: datos.description,
+				specifications: [datos.material, datos.weight, datos.origin],
+				price: parseInt(datos.price),
+				discount: parseInt(datos.discount),
+				image: req.file.filename,
+				category: datos.category,
+				color: datos.color,
+				type: datos.type,
+				pais: datos.pais
+			};
 
-		products.push(nuevoProducto);
+			products.push(nuevoProducto);
 
-		fs.writeFileSync(
-			productsFilePath,
-			JSON.stringify(products, null, ' '),
-			'utf-8'
-		);
+			fs.writeFileSync(
+				productsFilePath,
+				JSON.stringify(products, null, ' '),
+				'utf-8'
+			);
 
-		res.redirect(`/products/detalle/${nuevoProducto.id}`);
+			res.redirect(`/products/detalle/${nuevoProducto.id}`);
+		} else{
+			res.render('./products/creacionProducto', {errors: errors.mapped(), oldData: req.body});
+		}
 	},
 
 	detalle: (req, res) => {
@@ -114,6 +121,7 @@ const productsController = {
 				(p.category = datos.category),
 				(p.color = datos.color),
 				(p.type = datos.type),
+				(p.pais = datos.pais),
 				//Operador ternario para editar sin necesidad de imagen
 				(p.image = req.file ? req.file.filename : p.image),
 				//deleted sigue igual
@@ -139,7 +147,6 @@ const productsController = {
 	listadoProductos: (req, res) => {
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		let deporteIngresado = req.params.categoria;
-		//console.log(deporteIngresado)
 		let paraLaVista = products.filter(
 			(elemento) => elemento.category == deporteIngresado
 		);

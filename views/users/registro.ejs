@@ -8,18 +8,24 @@
 			<h2 class="p-3 text-center mx-auto" style="max-width: 65vw">
 				Regístrate
 			</h2>
-			<form action="/users/registro" method="post">
+			<form action="/users/registro" method="POST" enctype="multipart/form-data">
 				<div class="mb-3 mx-auto" style="max-width: 65vw">
 					<label for="nombre" class="form-label text-primary"
 						><strong>Nombre completo</strong></label
 					>
 					<input
 						type="text"
-						class="form-control"
+						class="form-control <%= (locals.errors && errors.nombre) ? 'is-invalid' : null %>"
 						id="nombre"
 						placeholder="Nombre Apellido"
 						name="nombre"
+						value="<%= locals.oldData && oldData.nombre ? oldData.nombre : null %>"
 					/>
+					<% if (locals.errors && errors.nombre) { %>
+						<p style="color: red">
+							<%= errors.nombre.msg %> 
+						</p>
+					<% } %>
 				</div>
 
 				<div class="mb-3 mx-auto" style="max-width: 65vw">
@@ -27,12 +33,18 @@
 						><strong>Correo electrónico</strong></label
 					>
 					<input
-						type="email"
-						class="form-control"
+						type="text"
+						class="form-control <%= (locals.errors && errors.correo) ? 'is-invalid' : null %>"
 						id="correo"
 						placeholder="test@gmail.com"
 						name="correo"
+						value="<%= locals.oldData && oldData.correo ? oldData.correo : null %>"
 					/>
+					<% if (locals.errors && errors.correo) { %>
+						<p style="color: red">
+							<%= errors.correo.msg %> 
+						</p>
+					<% } %>
 				</div>
 
 				<div class="mb-3 mx-auto" style="max-width: 65vw">
@@ -41,10 +53,16 @@
 					>
 					<input
 						type="password"
-						class="form-control"
+						class="form-control <%= (locals.errors && errors.password) ? 'is-invalid' : null %>"
 						id="password"
 						name="password"
+						value="<%= locals.oldData && oldData.password ? oldData.password : null %>"
 					/>
+					<% if (locals.errors && errors.password) { %>
+						<p style="color: red">
+							<%= errors.password.msg %> 
+						</p>
+					<% } %>
 				</div>			
 
 				<div class="mb-3 mx-auto" style="max-width: 65vw">
@@ -53,59 +71,98 @@
 					>
 					<input
 						type="password"
-						class="form-control"
+						class="form-control <%= (locals.errors && errors.passwordConfirm) ? 'is-invalid' : null %>"
 						id="passwordConfirm"
 						name="passwordConfirm"
+						value="<%= locals.oldData && oldData.passwordConfirm ? oldData.passwordConfirm : null %>"
 					/>
+					<% if (locals.errors && errors.passwordConfirm) { %>
+						<p style="color: red">
+							<%= errors.passwordConfirm.msg %> 
+						</p>
+					<% } %>
 				</div>
 
 				<div class="mb-3 mx-auto" style="max-width: 65vw">
 					<label for="telefono" class="form-label text-primary"
-						><strong>Telefono</strong></label
+						><strong>Teléfono</strong></label
 					>
 					<input
 						type="tel"
-						class="form-control"
+						class="form-control <%= (locals.errors && errors.telefono) ? 'is-invalid' : null %>"
 						id="telefono"
 						placeholder="1112341234"
 						name="telefono"
+						value="<%= locals.oldData && oldData.telefono ? oldData.telefono : null %>"
 					/>
+					<% if (locals.errors && errors.telefono) { %>
+						<p style="color: red">
+							<%= errors.telefono.msg %> 
+						</p>
+					<% } %>
 				</div>
 
 				<div class="mb-3 mx-auto" style="max-width: 65vw">
 					<label for="direccion" class="form-label text-primary"
-						><strong>Direccion</strong></label
+						><strong>Dirección</strong></label
 					>
 					<input
 						type="text"
-						class="form-control"
+						class="form-control <%= (locals.errors && errors.direccion) ? 'is-invalid' : null %>"
 						id="direccion"
 						placeholder="calle 123, ciudad"
 						name="direccion"
+						value="<%= locals.oldData && oldData.direccion ? oldData.direccion : null %>"
 					/>
+					<% if (locals.errors && errors.direccion) { %>
+						<p style="color: red">
+							<%= errors.direccion.msg %> 
+						</p>
+					<% } %>
 				</div>
 
 				<div class="mb-3 mx-auto" style="max-width: 65vw">
-					<label for="correo" class="form-label text-primary"
-						><strong>Pais</strong></label
+					<label for="avatar" class="form-label text-primary"
+						><strong>Avatar</strong></label
+					>
+					<input
+						type="file"
+						class="form-control"
+						id="avatar"
+						name="avatar"
+					/>
+					<% if (locals.errors && errors.avatar) { %>
+						<p style="color: red">
+							<%= errors.avatar.msg %> 
+						</p>
+					<% } %>
+				</div>
+
+				<div class="mb-3 mx-auto" style="max-width: 65vw">
+					<label for="pais" class="form-label text-primary"
+						><strong>País</strong></label
 					>
 					<select
-						class="form-select"
+						class="form-select <%= (locals.errors && errors.pais) ? 'is-invalid' : null %>"
 						aria-label="Default select example"
 						name="pais"
+						id="pais"
 					>
 						<option disabled selected>Tu ubicación</option>
-						<option value="Argentina">Argentina</option>
-						<option value="Bolivia">Bolivia</option>
-						<option value="Brazil">Brasil</option>
-						<option value="Chile">Chile</option>
-						<option value="Colombia">Colombia</option>
-						<option value="Ecuador">Ecuador</option>
-						<option value="Paraguay">Paraguay</option>
-						<option value="Peru">Perú</option>
-						<option value="Uruguay">Uruguay</option>
-						<option value="Venezuela">Venezuela</option>
+						<% let paises = ['Argentina', 'Bolivia', ' Brazil', 'Chile', 'Colombia', 'Ecuador', 'Paraguay', 'Peru', 'Uruguay', 'Venezuela'] %> 
+						<% for (const p of paises) { %>
+							<option
+								value="<%= p %>"
+								<%= locals.oldData && (p === oldData.pais) ? 'selected' : null %> 
+							> <%= p  %> 
+							</option>
+						<% } %>  
 					</select>
+					<% if (locals.errors && errors.pais) { %>
+						<p style="color: red">
+							<%= errors.pais.msg %> 
+						</p>
+					<% } %>
 				</div>
 
 				<div class="form-check mb-3 mx-auto" style="max-width: 65vw">

@@ -2,10 +2,10 @@
  {
   "id": 1,
   "email": "admin@allsports.com",
-  "name": "Malvin      ",
-  "tel": "4839767236      ",
+  "name": "Malvin",
+  "tel": "4839767236",
   "password": "1234",
-  "address": "77474 Badeau Trail      ",
+  "address": "77474 Badeau Trail",
   "country": "Argentina",
   "img": "default.png",
   "admin": 1
