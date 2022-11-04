@@ -6,7 +6,30 @@
 
 		<main class="container">
 			<h2 class="p-3 text-center">Perfil</h2>
-			<form action="/users/perfil/<%= locals.userLogged.id %>?_method=put" method="post">
+			<form action="/users/perfil/<%= locals.userLogged.id %>?_method=put" method="post" enctype="multipart/form-data">
+				<% if (locals.userLogged) { %>
+					<div class="mb-3 text-center">
+						<img src="/imagenes/users/<%= locals.userLogged.img %>" alt="imagen de perfil" class="img-thumbnail w-25 h-25">
+					</div>
+					<div class="mb-3 w-25 mx-auto">
+						<label for="avatar" class="form-label text-primary">
+							<strong>Imagen (opcional)</strong>
+						</label>
+						<input
+							id="avatar"
+							type="file"
+							name="avatar"
+							class="form-control"
+							aria-label="file example"
+						/>
+						<% if (locals.errors && errors.avatar) { %>
+							<p style="color: red">
+								<%= errors.avatar.msg %> 
+							</p>
+						<% } %>
+					</div>
+				<% } %>
+
                 <div class="mb-3">
 					<label for="nombre" class="form-label text-primary"
 						><strong>Nombre completo</strong></label
@@ -93,23 +116,6 @@
 					<% if (locals.errors && errors.direccion) { %>
 						<p style="color: red">
 							<%= errors.direccion.msg %> 
-						</p>
-					<% } %>
-				</div>
-
-				<div class="mb-3">
-					<label for="avatar" class="form-label text-primary"
-						><strong>Avatar</strong></label
-					>
-					<input
-						type="file"
-						class="form-control"
-						id="avatar"
-						name="avatar"
-					/>
-					<% if (locals.errors && errors.avatar) { %>
-						<p style="color: red">
-							<%= errors.avatar.msg %> 
 						</p>
 					<% } %>
 				</div>

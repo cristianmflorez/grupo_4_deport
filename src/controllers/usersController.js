@@ -71,16 +71,19 @@ const usersController = {
 	},
 
 	editar: (req, res) => {
+		let imagenAntigua;
+		let idUser = req.params.id;
 		let errors = validationResult(req);
 		if(errors.isEmpty()){ //si no hay errores
 			for (const u of users) {
-				if (u.id == req.params.id) {
+				if (u.id == idUser) {
+					imagenAntigua = u.img;
 					u.name = req.body.nombre;
 					u.email = req.body.correo;
 					u.tel = req.body.telefono;
 					u.address = req.body.direccion;
 					u.country = req.body.pais;
-					u.img = req.file.filename;
+					u.img = req.file ? req.file.filename : u.img;
 					break;
 				}
 			}
@@ -90,12 +93,19 @@ const usersController = {
 				'utf-8'
 			);
 	
-			res.redirect('./users/perfil');
+			if (imagenAntigua && imagenAntigua != 'default.png') { //DSC: No sé por qué se compara dos veces el imagenAntigua
+				fs.unlinkSync(
+					__dirname + '/../../public/imagenes/users/' + imagenAntigua
+				);
+			}
+	
+			req.session.userLogged = User.findByPk(idUser);
+	
+			res.redirect('/');
 		}
 		else {
 			res.render('./users/perfil', {errors: errors.mapped(), oldData: req.body});
 		}
-
 	},
 
 	registro: (req, res) => {
@@ -153,6 +163,7 @@ const usersController = {
 	},
 
 	logout: (req, res) => {
+		res.clearCookie('userEmail');
 		req.session.destroy();
 		return res.redirect('/');
 	}

@@ -2,7 +2,7 @@
  {
   "id": 1,
   "email": "admin@allsports.com",
-  "name": "Malvin",
+  "name": "Admin",
   "tel": "4839767236",
   "password": "1234",
   "address": "77474 Badeau Trail",
@@ -13,10 +13,10 @@
  {
   "id": 2,
   "email": "espeirs1@mtv.com",
-  "name": "Emmeline",
-  "tel": "4791314657",
-  "password": "qM8Ty2s",
-  "address": "615 Menomonie Road",
+  "name": "Emmeline ",
+  "tel": "4791314657 ",
+  "password": "1234",
+  "address": "615 Menomonie Road ",
   "country": "Colombia",
   "img": "default.png",
   "admin": 0
