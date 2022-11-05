@@ -16,14 +16,14 @@ const productsController = {
 			let datos = req.body;
 			let nuevoProducto = {
 				id: products[products.length - 1].id + 1,
-				name: datos.name,
-				description: datos.description,
-				specifications: [datos.material, datos.weight, datos.origin],
-				price: parseInt(datos.price),
-				discount: parseInt(datos.discount),
+				name: datos.name.trim(),
+				description: datos.description.trim(),
+				specifications: [datos.material.trim(), datos.weight.trim(), datos.origin.trim()],
+				price: parseInt(datos.price.trim()),
+				discount: parseInt(datos.discount.trim()),
 				image: req.file.filename,
 				category: datos.category,
-				color: datos.color,
+				color: datos.color.trim(),
 				type: datos.type,
 				pais: datos.pais
 			};
@@ -111,15 +111,15 @@ const productsController = {
 			if (p.id == idProducto) {
 				imagenAntigua = p.image;
 
-				(p.name = datos.name),
-				(p.description = datos.description),
-				(p.specifications[0] = datos.material),
-				(p.specifications[1] = datos.weight),
-				(p.specifications[2] = datos.origin),
-				(p.price = parseInt(datos.price)),
-				(p.discount = parseInt(datos.discount)),
+				(p.name = datos.name.trim()),
+				(p.description = datos.description.trim()),
+				(p.specifications[0] = datos.material.trim()),
+				(p.specifications[1] = datos.weight.trim()),
+				(p.specifications[2] = datos.origin.trim()),
+				(p.price = parseInt(datos.price.trim())),
+				(p.discount = parseInt(datos.discount.trim())),
 				(p.category = datos.category),
-				(p.color = datos.color),
+				(p.color = datos.color.trim()),
 				(p.type = datos.type),
 				(p.pais = datos.pais),
 				//Operador ternario para editar sin necesidad de imagen

@@ -15,13 +15,13 @@ const usersController = {
 	},
 
 	loginProcess: (req, res) => {
-		let userToLogin = User.findByField('email', req.body.correo);
+		let userToLogin = User.findByField('email', req.body.correo.trim());
 		let errors = validationResult(req);
 		if(errors.isEmpty()){
 			if (userToLogin) {
 				if(userToLogin.email === users[0].email){ //cuando ingresa el admin
 					//Cuando no esté hasheado el password
-					if (req.body.password === userToLogin.password) {
+					if (req.body.password.trim() === userToLogin.password) {
 						delete userToLogin.password;
 						req.session.userLogged = userToLogin;
 
@@ -40,7 +40,7 @@ const usersController = {
 					
 				} else{ //Cuando ingresa cualquier otro usuario
 					//Cuando esté hasheado el password 
-					let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+					let isOkThePassword = bcryptjs.compareSync(req.body.password.trim(), userToLogin.password);
 					if (isOkThePassword) { 
 						delete userToLogin.password;
 						req.session.userLogged = userToLogin;
@@ -78,11 +78,11 @@ const usersController = {
 			for (const u of users) {
 				if (u.id == idUser) {
 					imagenAntigua = u.img;
-					u.name = req.body.nombre;
-					u.email = req.body.correo;
-					u.tel = req.body.telefono;
-					u.address = req.body.direccion;
-					u.country = req.body.pais;
+					u.name = req.body.nombre.trim();
+					u.email = req.body.correo.trim();
+					u.tel = req.body.telefono.trim();
+					u.address = req.body.direccion.trim();
+					u.country = req.body.pais.trim();
 					u.img = req.file ? req.file.filename : u.img;
 					break;
 				}
@@ -117,12 +117,12 @@ const usersController = {
 		if(errors.isEmpty()){ 
 			let newUser = {
 				id: users[users.length - 1].id + 1,
-				email: req.body.correo,
-				name: req.body.nombre,
-				tel: req.body.telefono,
-				password: bcryptjs.hashSync(req.body.password, 12),
-				address: req.body.direccion,
-				country: req.body.pais,
+				email: req.body.correo.trim(),
+				name: req.body.nombre.trim(),
+				tel: req.body.telefono.trim(),
+				password: bcryptjs.hashSync(req.body.password.trim(), 12),
+				address: req.body.direccion.trim(),
+				country: req.body.pais.trim(),
 				img: req.file.filename, 
 	
 				//Campo para definir si es admin o no
