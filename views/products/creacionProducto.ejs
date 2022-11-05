@@ -71,8 +71,8 @@
 						class="form-control <%= (locals.errors && errors.description) ? 'is-invalid' : null %>"
 						name="description"
 						id="description"
-						value="<%= locals.oldData && oldData.description ? oldData.description : null %>"
-					></textarea>
+					><%= locals.oldData && oldData.description ? oldData.description : null %>
+					</textarea>
 					<% if (locals.errors && errors.description) { %>
 						<p style="color: red">
 							<%= errors.description.msg %> 
@@ -151,11 +151,12 @@
 						>
 							<option disabled selected>Selecciona un deporte</option>
 							<% let deportes = ['Fútbol', 'Basketball', 'Tenis', 'Volleyball', 'Natación', 'Otros'] %> 
-							<% for (const d of deportes) { %>
+							<% let deportesBackend = ['futbol', 'basketball', 'tenis', 'volleyball', 'natacion', 'otros'] %> 
+							<% for (let i=0; i<deportes.length; i++) { %>
 								<option
-									value="<%= d %>"
-									<%= locals.oldData && (d === oldData.category) ? 'selected' : null %> 
-								> <%= d  %> 
+									value="<%= deportesBackend[i] %>"
+									<%= locals.oldData && (deportes[i] === oldData.category) ? 'selected' : null %> 
+								> <%= deportes[i] %> 
 								</option>
 							<% } %>  
 						</select>
@@ -176,14 +177,16 @@
 							id="type"
 						>
 							<option disabled selected>Tipo de producto</option>
-							<% let tipos = ['Vestuario', 'Zapatillas', ' Implementos'] %> 
-							<% for (const t of tipos) { %>
+							<% let tipos = ['Vestuario', 'Zapatillas', 'Implementos'] %> 
+							<% let tiposBackend = ['vestuario', 'zapatillas', 'implementos'] %> 
+							<% for (let i=0; i<tipos.length; i++) { %> 
 								<option
-									value="<%= t %>"
-									<%= locals.oldData && (t === oldData.type) ? 'selected' : null %> 
-								> <%= t  %> 
+								value="<%= tiposBackend[i] %>"
+								<%= locals.oldData && (tipos[i] === oldData.type) ? 'selected' : null %> 
+								> <%= tipos[i] %> 
 								</option>
-							<% } %>  
+							<% } %> 
+					
 						</select>
 						<% if (locals.errors && errors.type) { %>
 							<p style="color: red">
@@ -223,12 +226,12 @@
 						id="pais"
 					>
 						<option disabled selected>Disponible en...</option>
-						<% let paises = ['Argentina', 'Bolivia', ' Brasil', 'Chile', 'Colombia', 'Ecuador', 'Paraguay', 'Peru', 'Uruguay', 'Venezuela'] %> 
+						<% let paises = ['Argentina', 'Bolivia', 'Brasil', 'Chile', 'Colombia', 'Ecuador', 'Paraguay', 'Peru', 'Uruguay', 'Venezuela'] %> 
 						<% for (const p of paises) { %>
 							<option
 								value="<%= p %>"
 								<%= locals.oldData && (p === oldData.pais) ? 'selected' : null %> 
-							> <%= p  %> 
+							> <%= p %> 
 							</option>
 						<% } %>  
 					</select>

@@ -106,41 +106,45 @@ const productsController = {
 		let idProducto = req.params.id;
 		let datos = req.body;
 		let imagenAntigua;
+		let errors = validationResult(req);
+		if(errors.isEmpty()){ 
+			for (let p of products) {
+				if (p.id == idProducto) {
+					imagenAntigua = p.image;
 
-		for (let p of products) {
-			if (p.id == idProducto) {
-				imagenAntigua = p.image;
+					(p.name = datos.name.trim()),
+					(p.description = datos.description.trim()),
+					(p.specifications[0] = datos.material.trim()),
+					(p.specifications[1] = datos.weight.trim()),
+					(p.specifications[2] = datos.origin.trim()),
+					(p.price = parseInt(datos.price.trim())),
+					(p.discount = parseInt(datos.discount.trim())),
+					(p.category = datos.category),
+					(p.color = datos.color.trim()),
+					(p.type = datos.type),
+					(p.pais = datos.pais),
+					//Operador ternario para editar sin necesidad de imagen
+					(p.image = req.file ? req.file.filename : p.image),
+					//deleted sigue igual
 
-				(p.name = datos.name.trim()),
-				(p.description = datos.description.trim()),
-				(p.specifications[0] = datos.material.trim()),
-				(p.specifications[1] = datos.weight.trim()),
-				(p.specifications[2] = datos.origin.trim()),
-				(p.price = parseInt(datos.price.trim())),
-				(p.discount = parseInt(datos.discount.trim())),
-				(p.category = datos.category),
-				(p.color = datos.color.trim()),
-				(p.type = datos.type),
-				(p.pais = datos.pais),
-				//Operador ternario para editar sin necesidad de imagen
-				(p.image = req.file ? req.file.filename : p.image),
-				//deleted sigue igual
+					fs.writeFileSync(
+						productsFilePath,
+						JSON.stringify(products, null, ' '),
+						'utf-8'
+					);
 
-				fs.writeFileSync(
-					productsFilePath,
-					JSON.stringify(products, null, ' '),
-					'utf-8'
-				);
+					//para eliminar imagen antigua
+					if (imagenAntigua != p.image) {
+						fs.unlinkSync(__dirname + '/../../public/imagenes/products/' + imagenAntigua);
+					}
 
-				//para eliminar imagen antigua
-				if (imagenAntigua != p.image) {
-					fs.unlinkSync(__dirname + '/../../public/imagenes/products/' + imagenAntigua);
+					res.redirect(`/products/detalle/${idProducto}`);
+
+					break;
 				}
-
-				res.redirect(`/products/detalle/${idProducto}`);
-
-				break;
 			}
+		}else{
+			res.render('./products/edicionProducto', {errors: errors.mapped(), oldData: req.body, producto: products[idProducto-1] });
 		}
 	},
 

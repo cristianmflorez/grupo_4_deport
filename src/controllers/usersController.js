@@ -93,7 +93,7 @@ const usersController = {
 				'utf-8'
 			);
 	
-			if (imagenAntigua && imagenAntigua != 'default.png') { //DSC: No sé por qué se compara dos veces el imagenAntigua
+			if (imagenAntigua && imagenAntigua != 'default.png') { 
 				fs.unlinkSync(
 					__dirname + '/../../public/imagenes/users/' + imagenAntigua
 				);
@@ -123,7 +123,7 @@ const usersController = {
 				password: bcryptjs.hashSync(req.body.password.trim(), 12),
 				address: req.body.direccion.trim(),
 				country: req.body.pais.trim(),
-				img: req.file.filename, 
+				img: req.file ? req.file.filename : 'default.png', 
 	
 				//Campo para definir si es admin o no
 				admin: 0

@@ -110,8 +110,8 @@
    "150g",
    "Importado"
   ],
-  "price": 20.87,
-  "discount": 15,
+  "price": 25,
+  "discount": 32,
   "image": "balonbasket1.jpg",
   "category": "basketball",
   "color": "orange",
@@ -132,8 +132,8 @@
   "image": "bandasbasket1.jpg",
   "category": "basketball",
   "color": "yellow",
-  "type": "others",
-  "pais": "Brazil"
+  "type": "otros",
+  "pais": "Brasil"
  },
  {
   "id": 9,
@@ -149,8 +149,8 @@
   "image": "canastabasket1.jpg",
   "category": "basketball",
   "color": "red",
-  "type": "others",
-  "pais": "Brazil"
+  "type": "otros",
+  "pais": "Brasil"
  },
  {
   "id": 10,

@@ -30,14 +30,12 @@ const validacionesRegistro = [
     body('avatar').custom((value, { req }) => {
         let file = req.file;
         let acceptedExtensions = ['.jpg', '.png', '.jpeg'];
-        if (!file) {
-            throw new Error('Tienes que cargar una imagen');
-        } else {
+        if (file) {
             let fileExtension = path.extname(file.filename);
             if (!acceptedExtensions.includes(fileExtension)) {
                 throw new Error(`Las extensiones permitidas son ${acceptedExtensions.join(', ')}`);
             }
-        }
+        }       
         return true;
     })
 ];
