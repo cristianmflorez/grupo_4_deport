@@ -155,7 +155,7 @@
 							<% for (let i=0; i<deportes.length; i++) { %>
 								<option
 									value="<%= deportesBackend[i] %>"
-									<%= locals.oldData && (deportes[i] === oldData.category) ? 'selected' : null %> 
+									<%= locals.oldData && (deportesBackend[i] === oldData.category) ? 'selected' : null %> 
 								> <%= deportes[i] %> 
 								</option>
 							<% } %>  
@@ -177,16 +177,15 @@
 							id="type"
 						>
 							<option disabled selected>Tipo de producto</option>
-							<% let tipos = ['Vestuario', 'Zapatillas', 'Implementos'] %> 
-							<% let tiposBackend = ['vestuario', 'zapatillas', 'implementos'] %> 
+							<% let tipos = ['Vestuario', 'Guayos', 'Canilleras', 'Guantes', 'Balones', 'Otros', 'Jerseys', 'Zapatillas', 'Implementos'] %>  
+							<% let tiposBackend = ['vestuario', 'guayos', 'canilleras', 'guantes', 'balones', 'otros', 'jerseys', 'zapatillas', 'implementos'] %> 
 							<% for (let i=0; i<tipos.length; i++) { %> 
 								<option
 								value="<%= tiposBackend[i] %>"
-								<%= locals.oldData && (tipos[i] === oldData.type) ? 'selected' : null %> 
+								<%= locals.oldData && (tiposBackend[i] === oldData.type) ? 'selected' : null %> 
 								> <%= tipos[i] %> 
 								</option>
 							<% } %> 
-					
 						</select>
 						<% if (locals.errors && errors.type) { %>
 							<p style="color: red">

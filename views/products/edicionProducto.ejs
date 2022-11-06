@@ -145,7 +145,7 @@
 							<strong>Categoría</strong>
 						</label>
 						<select 
-							class="form-select" 
+							class="form-select <%= (locals.errors && errors.category) ? 'is-invalid' : null %>" 
 							name="category" 
 							aria-label="select example"
 							id="category"
@@ -161,9 +161,9 @@
 								</option>
 							<% } %> 
 						</select>
-						<% if (locals.errors && errors.type) { %>
+						<% if (locals.errors && errors.category) { %>
 							<p style="color: red">
-								<%= errors.type.msg %> 
+								<%= errors.category.msg %> 
 							</p>
 						<% } %>
 					</div>

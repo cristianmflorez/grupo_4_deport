@@ -23,14 +23,9 @@ const validacionesCreacionProducto = [
     body('image').custom((value, { req }) => {
         let file = req.file;
         let acceptedExtensions = ['.jpg', '.png', '.jpeg'];
-        if (!file) {
-            throw new Error('Tienes que cargar una imagen');
-        } else {
-            let fileExtension = path.extname(file.filename);
-            if (!acceptedExtensions.includes(fileExtension)) {
-                throw new Error(`Las extensiones permitidas son ${acceptedExtensions.join(', ')}`);
-            }
-        }
+        if (!file) { //DSC: Aquí hay como una especie de trampa en la validación, preguntar luego como manejar errores.
+            throw new Error(`Las extensiones permitidas son ${acceptedExtensions.join(', ')}`);
+        } 
         return true;
     })
 ];
