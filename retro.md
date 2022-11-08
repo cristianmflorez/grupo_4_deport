@@ -42,3 +42,16 @@ Qué continuar haciendo:
 
 Qué hacer menos o Qué Dejar de hacer:
 - Trabajar todos en la rama Main
+
+SPRINT 5
+
+Qué comenzar a hacer:
+- Trabajar más en equipo, reunirnos de vez en cuando
+
+Qué continuar haciendo:
+- Dividir el trabajo equitativamente
+- Hablar para resolver dudas como equipo
+- Manejo del Trello
+
+Qué hacer menos o Qué Dejar de hacer:
+- Codear en español y en inglés, debemos continuar todo en un solo idioma
