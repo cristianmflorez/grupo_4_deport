@@ -8,6 +8,8 @@ const User = require('../../models/User');
 const { localsName } = require('ejs');
 
 const { validationResult } = require('express-validator');
+const db = require('../database/models');
+
 
 const usersController = {
 	login: (req, res) => {

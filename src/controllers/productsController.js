@@ -4,6 +4,7 @@ const fs = require('fs');
 const productsFilePath = path.join(__dirname, '../data/productsJSON.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const { validationResult } = require('express-validator');
+const db = require('../database/models');
 
 const productsController = {
 	creacionProducto: (req, res) => {
@@ -148,7 +149,7 @@ const productsController = {
 		}
 	},
 
-	listadoProductos: (req, res) => {
+	listadoProductos: (req, res) => { //Este es con el archivo JSON
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		let deporteIngresado = req.params.categoria;
 		let paraLaVista = products.filter(
@@ -156,6 +157,32 @@ const productsController = {
 		);
 		res.render('./products/listadoProductos', { productos: paraLaVista });
 	},
+
+	// listadoProductos: (req, res) => { //DSC: Este es con la DB, no lo he terminado.
+	// 	let deporteIngresado = req.params.categoria;
+
+	// 	db.categorias.findAll().then((categorias) => {
+	// 		let categoriasDisponibles = [];
+	// 		//console.log(categorias);
+	// 		for(c of categorias){
+	// 			categoriasDisponibles.push(c.nombre);
+	// 		}
+	// 	});
+
+	// 	db.productos.findAll().then((productos) => {
+	// 		let paraLaVista = [];
+	// 		//console.log(productos);
+	// 		for(let i=0; i<productos.length; i++){
+	// 			if(productos[i].Categorias_idCategorias == )
+
+	// 		}
+	// 		for(p of productos){
+	// 			if(p.Categorias_idCategorias == )
+	// 			paraLaVista.push(p.nombre);
+	// 		}
+	// 		res.render('./products/listadoProductos', {productos: paraLaVista}); //DSC: FALTA ACTUALIZAR LA VISTA PARA QUE LOS names COINCIDAN CON LOS QUE TIENE LA TABLA EN LA BASE DE DATOS
+	// 	});
+	// },
 
 	delete: (req, res) => {
 		let idProduct = req.params.id;
