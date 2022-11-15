@@ -11,7 +11,7 @@
 		>
 			<ol class="breadcrumb my-0 pb-3">
 				<li class="breadcrumb-item"><a href="/">Home</a></li>
-				<li class="breadcrumb-item active" aria-current="page"><%= productos[0].category %></li>
+				<li class="breadcrumb-item active" aria-current="page"><%= productos[0].categoria.nombre %></li>
 			</ol>
 		</nav>
 
@@ -20,7 +20,7 @@
 			style="background-color: #eee"
 		>
 			<p class="ps-4 py-3 mb-0 fs-1 fw-bold" style="background-color: #eee">
-				Artículos de <%= productos[0].category %>
+				Artículos de <%= productos[0].categoria.nombre %>
 			</p>
 			<div class="pe-4">
 				<button
@@ -577,17 +577,17 @@
 					<% for (let p of productos) { %> 
 					<div class="col-12 col-sm-6 col-lg-4 mb-3">
 						<div class="card h-100 shadow m-1 p-0 d-flex justify-content-between">
-							<a href="../detalle/<%=	p.id %>"
+							<a href="../detalle/<%=	p.idProductos %>"
 								><img
-									src="/imagenes/products/<%= p.image %>"
+									src="/imagenes/products/<%= p.imagen.nombre %>"
 									class="card-img-top"
-									alt="<%= p.image %>"
+									alt="<%= p.imagen.nombre %>"
 							/></a>
 							<div class="card-body" style="max-height: 150px;">
-								<h5 class="card-title"><%= p.name %></h5>
-								<p class="card-text">$<%= p.price %></p>
+								<h5 class="card-title"><%= p.nombre %></h5>
+								<p class="card-text">$<%= p.precio %></p>
 								<p class="card-text text-success d-flex justify-content-evenly">
-									<%= p.discount %>% OFF
+									<%= p.descuento %>% OFF
 									<button type="button" class="btn btn-outline-success">
 										Comprar
 									</button>

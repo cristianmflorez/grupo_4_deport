@@ -149,40 +149,44 @@ const productsController = {
 		}
 	},
 
-	listadoProductos: (req, res) => { //Este es con el archivo JSON
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-		let deporteIngresado = req.params.categoria;
-		let paraLaVista = products.filter(
-			(elemento) => elemento.category == deporteIngresado
-		);
-		res.render('./products/listadoProductos', { productos: paraLaVista });
-	},
-
-	// listadoProductos: (req, res) => { //DSC: Este es con la DB, no lo he terminado.
+	// listadoProductos: (req, res) => { //Este es con el archivo JSON
+	// 	const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 	// 	let deporteIngresado = req.params.categoria;
-
-	// 	db.categorias.findAll().then((categorias) => {
-	// 		let categoriasDisponibles = [];
-	// 		//console.log(categorias);
-	// 		for(c of categorias){
-	// 			categoriasDisponibles.push(c.nombre);
-	// 		}
-	// 	});
-
-	// 	db.productos.findAll().then((productos) => {
-	// 		let paraLaVista = [];
-	// 		//console.log(productos);
-	// 		for(let i=0; i<productos.length; i++){
-	// 			if(productos[i].Categorias_idCategorias == )
-
-	// 		}
-	// 		for(p of productos){
-	// 			if(p.Categorias_idCategorias == )
-	// 			paraLaVista.push(p.nombre);
-	// 		}
-	// 		res.render('./products/listadoProductos', {productos: paraLaVista}); //DSC: FALTA ACTUALIZAR LA VISTA PARA QUE LOS names COINCIDAN CON LOS QUE TIENE LA TABLA EN LA BASE DE DATOS
-	// 	});
+	// 	let paraLaVista = products.filter(
+	// 		(elemento) => elemento.category == deporteIngresado
+	// 	);
+	// 	res.render('./products/listadoProductos', { productos: paraLaVista });
 	// },
+
+	listadoProductos: (req, res) => { //Esto es con la DB
+		let deporteIngresado = req.params.categoria;
+		//console.log(deporteIngresado);
+		let categoriaParaLaVista = {};
+		db.Categoria.findOne({
+			where: {
+				nombre: deporteIngresado
+			}
+		}).then(categoria => {
+			categoriaParaLaVista = categoria;
+			//console.log(categoriaParaLaVista);
+			return res.send(categoriaParaLaVista);
+		}).catch(error => {
+			return res.send(error);
+		});
+		
+		//DSC: No he terminado
+		// db.Producto.findAll({
+		// 	include: [{association: "categoria"}, {association: "imagen"}],
+		// 	where: {
+		// 		Categorias_idCategorias: categoriaParaLaVista.idCategorias
+		// 	}
+		// }).then(producto => {
+		// 	//return res.send(producto)
+		// 	res.render('./products/listadoProductos', { productos: producto })
+		// }).catch(error => {
+		// 	return res.send(error);
+		// })
+	},
 
 	delete: (req, res) => {
 		let idProduct = req.params.id;
