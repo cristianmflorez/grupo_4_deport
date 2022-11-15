@@ -3,12 +3,13 @@ module.exports = (sequelize, Datatypes) => {
         "Usuario",
         {
             idUsuarios: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
-            email: {type: Datatypes.STRING(100)},
-            telefono: {type: Datatypes.FLOAT},
-            password: {type: Datatypes.STRING(1000)},
+            nombre: {type: Datatypes.STRING(45)},
+            email: {type: Datatypes.STRING(45)},
+            telefono: {type: Datatypes.STRING(45)},
+            password: {type: Datatypes.STRING(300)},
             direccion: {type: Datatypes.STRING(100)},
-            imagen: {type: Datatypes.DATE},
-            admin: {type: Datatypes.DATE},
+            imagen: {type: Datatypes.STRING(100)},
+            admin: {type: Datatypes.BOOLEAN}, //DSC: Toca cambiar el BIT de la base de datos por BOOLEAN
           },
         {
             camelCase: false, 

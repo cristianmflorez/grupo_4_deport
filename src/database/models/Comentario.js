@@ -3,7 +3,7 @@ module.exports = (sequelize, Datatypes) => {
         "Comentario",
         {
             idComentarios: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
-            contenido: {type: Datatypes.STRING(1000)},
+            contenido: {type: Datatypes.TEXT},
             puntuacion: {type: Datatypes.INTEGER},
             fechacomentario: {type: Datatypes.DATE},
         },
