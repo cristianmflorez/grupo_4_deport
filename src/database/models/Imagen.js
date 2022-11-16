@@ -4,6 +4,7 @@ module.exports = (sequelize, Datatypes) => {
         {
             idImagenes: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
             nombre: {type: Datatypes.STRING(45)},
+            Productos_idProductos : {type: Datatypes.INTEGER}
         },
         {
             camelCase: false, 
@@ -16,9 +17,9 @@ module.exports = (sequelize, Datatypes) => {
 
     Imagen.associate = function(modelos){
 
-        Imagen.hasMany(modelos.Producto, {   
+        Imagen.belongsTo(modelos.Producto, {   
             as: "producto",
-            foreignKey: "Imagenes_idImagenes"
+            foreignKey: "Productos_idProductos"
         });
     }
 

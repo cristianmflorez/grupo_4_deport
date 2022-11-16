@@ -5,6 +5,7 @@ const productsFilePath = path.join(__dirname, '../data/productsJSON.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const { validationResult } = require('express-validator');
 const db = require('../database/models');
+const productsService = require('../service/ProductsService');
 
 const productsController = {
 	creacionProducto: (req, res) => {
@@ -13,13 +14,18 @@ const productsController = {
 
 	crear: (req, res) => {
 		let errors = validationResult(req);
-		if(errors.isEmpty()){ 
+		if (errors.isEmpty()) {
+			//TODO: Quitar codigo al subir registros al servidor
 			let datos = req.body;
 			let nuevoProducto = {
 				id: products[products.length - 1].id + 1,
 				name: datos.name.trim(),
 				description: datos.description.trim(),
-				specifications: [datos.material.trim(), datos.weight.trim(), datos.origin.trim()],
+				specifications: [
+					datos.material.trim(),
+					datos.weight.trim(),
+					datos.origin.trim()
+				],
 				price: parseInt(datos.price.trim()),
 				discount: parseInt(datos.discount.trim()),
 				image: req.file.filename,
@@ -28,47 +34,35 @@ const productsController = {
 				type: datos.type,
 				pais: datos.pais
 			};
-
 			products.push(nuevoProducto);
-
 			fs.writeFileSync(
 				productsFilePath,
 				JSON.stringify(products, null, ' '),
 				'utf-8'
 			);
-
 			res.redirect(`/products/detalle/${nuevoProducto.id}`);
-		} else{
-			res.render('./products/creacionProducto', {errors: errors.mapped(), oldData: req.body});
+			//TODO
+
+			// productsService.crearProducto(req.body).then(res.redirect('/'));
+		} else {
+			res.render('./products/creacionProducto', {
+				errors: errors.mapped(),
+				oldData: req.body
+			});
 		}
 	},
 
 	detalle: (req, res) => {
-		//res.send(JSON.stringify(products)); para tener en cuenta por si luego queremos ver el JSON que está en el Heroku
-
 		let rand1 = Math.floor(Math.random() * products.length);
 		let rValue1 = products[rand1];
 		let rand2 = Math.floor(Math.random() * products.length);
 		let rValue2 = products[rand2];
 		let rand3 = Math.floor(Math.random() * products.length);
 		let rValue3 = products[rand3];
-		// console.log(rValue)
 
-		// let bandera = true;
-		// while(bandera){
-		// 	let random = [];
-		// 	random[0] = Math.floor(Math.random()*products.length);
-		// 	random[1] = Math.floor(Math.random()*products.length);
-		// 	random[2] = Math.floor(Math.random()*products.length);
-		// 	if(random[0] != random[1] != random[2]){
-		// 		bandera = false;
-		// 		return random;
-		// 	}
-		// }
-
+		//TODO: Quitar codigo al subir registros al servidor
 		let idProducto = req.params.id;
 		let productoBuscado = null;
-
 		for (let o of products) {
 			if (o.id == idProducto) {
 				productoBuscado = o;
@@ -84,111 +78,126 @@ const productsController = {
 			});
 		}
 		res.send('Producto no encontrado');
+		//TODO
+
+		// productsService.buscarProductoId(req.params.id).then((producto) => {
+		// 	res.render('./products/detalle', {
+		// 		producto: producto,
+		// 		random1: rValue1,
+		// 		random2: rValue2,
+		// 		random3: rValue3
+		// 	});
+		// });
 	},
 
 	edicionProducto: (req, res) => {
+		//TODO: Quitar codigo al subir registros al servidor
 		let idProducto = req.params.id;
-
 		let productobuscado = null;
-
 		for (let p of products) {
 			if (p.id == idProducto) {
 				productobuscado = p;
 				break;
 			}
 		}
-
 		if (productobuscado != null) {
 			res.render('./products/edicionProducto', { producto: productobuscado });
 		}
+		//TODO
+
+		// productsService.buscarProductoId(req.params.id)
+		// 	.then((producto) => {
+		// 		res.render('./products/edicionProducto', { producto });
+		// 	});
 	},
 
+	//! Falta aun...
 	editar: (req, res) => {
 		let idProducto = req.params.id;
 		let datos = req.body;
 		let imagenAntigua;
 		let errors = validationResult(req);
-		if(errors.isEmpty()){ 
+		if (errors.isEmpty()) {
+			//TODO: Quitar codigo al subir registros al servidor
 			for (let p of products) {
 				if (p.id == idProducto) {
 					imagenAntigua = p.image;
-
 					(p.name = datos.name.trim()),
-					(p.description = datos.description.trim()),
-					(p.specifications[0] = datos.material.trim()),
-					(p.specifications[1] = datos.weight.trim()),
-					(p.specifications[2] = datos.origin.trim()),
-					(p.price = parseInt(datos.price.trim())),
-					(p.discount = parseInt(datos.discount.trim())),
-					(p.category = datos.category),
-					(p.color = datos.color.trim()),
-					(p.type = datos.type),
-					(p.pais = datos.pais),
-					//Operador ternario para editar sin necesidad de imagen
-					(p.image = req.file ? req.file.filename : p.image),
-					//deleted sigue igual
-
-					fs.writeFileSync(
-						productsFilePath,
-						JSON.stringify(products, null, ' '),
-						'utf-8'
-					);
-
+						(p.description = datos.description.trim()),
+						(p.specifications[0] = datos.material.trim()),
+						(p.specifications[1] = datos.weight.trim()),
+						(p.specifications[2] = datos.origin.trim()),
+						(p.price = parseInt(datos.price.trim())),
+						(p.discount = parseInt(datos.discount.trim())),
+						(p.category = datos.category),
+						(p.color = datos.color.trim()),
+						(p.type = datos.type),
+						(p.pais = datos.pais),
+						//Operador ternario para editar sin necesidad de imagen
+						(p.image = req.file ? req.file.filename : p.image),
+						//deleted sigue igual
+						fs.writeFileSync(
+							productsFilePath,
+							JSON.stringify(products, null, ' '),
+							'utf-8'
+						);
 					//para eliminar imagen antigua
 					if (imagenAntigua != p.image) {
-						fs.unlinkSync(__dirname + '/../../public/imagenes/products/' + imagenAntigua);
+						fs.unlinkSync(
+							__dirname + '/../../public/imagenes/products/' + imagenAntigua
+						);
 					}
-
 					res.redirect(`/products/detalle/${idProducto}`);
-
 					break;
 				}
 			}
-		}else{
-			res.render('./products/edicionProducto', {errors: errors.mapped(), oldData: req.body, producto: products[idProducto-1] });
+			//TODO
+
+			// if (req.file) {
+			// 	fs.unlinkSync(
+			// 		__dirname +
+			// 			'/../../public/imagenes/products/' +
+			// 			productsService.buscarImagenProducto(req.params.id)
+			// 	);
+			// }
+			// productsService
+			// 	.editarProducto(req.params.id, req.body)
+			// 	.then(res.redirect('/'));
+		} else {
+			res.render('./products/edicionProducto', {
+				errors: errors.mapped(),
+				oldData: req.body,
+				producto: products[idProducto - 1]
+			});
 		}
 	},
 
-	// listadoProductos: (req, res) => { //Este es con el archivo JSON
-	// 	const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-	// 	let deporteIngresado = req.params.categoria;
-	// 	let paraLaVista = products.filter(
-	// 		(elemento) => elemento.category == deporteIngresado
-	// 	);
-	// 	res.render('./products/listadoProductos', { productos: paraLaVista });
-	// },
-
-	listadoProductos: (req, res) => { //Esto es con la DB
+	listadoProductos: (req, res) => {
+		//TODO: Quitar codigo al subir registros al servidor
 		let deporteIngresado = req.params.categoria;
-		//console.log(deporteIngresado);
 		let categoriaParaLaVista = {};
 		db.Categoria.findOne({
 			where: {
 				nombre: deporteIngresado
 			}
-		}).then(categoria => {
-			categoriaParaLaVista = categoria;
-			//console.log(categoriaParaLaVista);
-			return res.send(categoriaParaLaVista);
-		}).catch(error => {
-			return res.send(error);
-		});
-		
-		//DSC: No he terminado
-		// db.Producto.findAll({
-		// 	include: [{association: "categoria"}, {association: "imagen"}],
-		// 	where: {
-		// 		Categorias_idCategorias: categoriaParaLaVista.idCategorias
-		// 	}
-		// }).then(producto => {
-		// 	//return res.send(producto)
-		// 	res.render('./products/listadoProductos', { productos: producto })
-		// }).catch(error => {
-		// 	return res.send(error);
-		// })
+		})
+			.then((categoria) => {
+				categoriaParaLaVista = categoria;
+				return res.send(categoriaParaLaVista);
+			})
+			.catch((error) => {
+				return res.send(error);
+			});
+		//TODO
+
+		// productsService.buscarProductoCategoria(req.params.categoria)
+		// 	.then( (productos) => {
+		// 		res.render('./products/listadoProductos', {productos});
+		// 	})
 	},
 
 	delete: (req, res) => {
+		//TODO: Quitar codigo al subir registros al servidor
 		let idProduct = req.params.id;
 		let deleteImg = '';
 		let newProducts = [];
@@ -206,6 +215,17 @@ const productsController = {
 		);
 		fs.unlinkSync(__dirname + '/../../public/imagenes/products/' + deleteImg);
 		res.redirect('/');
+		//TODO
+
+		// productsService
+		// 	.buscarImagenProducto(req.params.id)
+		// 	.then((imagenVieja) => {
+		// 		fs.unlinkSync(
+		// 			__dirname + '/../../public/imagenes/products/' + imagenVieja
+		// 		);
+		// 	})
+		// 	.then(productsService.borrarProducto(req.params.id))
+		// 	.then(res.redirect('/'));
 	}
 };
 

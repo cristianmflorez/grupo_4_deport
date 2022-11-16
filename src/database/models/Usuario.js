@@ -10,6 +10,7 @@ module.exports = (sequelize, Datatypes) => {
             direccion: {type: Datatypes.STRING(100)},
             imagen: {type: Datatypes.STRING(100)},
             admin: {type: Datatypes.BOOLEAN}, //DSC: Toca cambiar el BIT de la base de datos por BOOLEAN
+            Paises_idPaises: {type: Datatypes.INTEGER}
           },
         {
             camelCase: false, 

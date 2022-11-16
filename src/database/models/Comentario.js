@@ -6,6 +6,8 @@ module.exports = (sequelize, Datatypes) => {
             contenido: {type: Datatypes.TEXT},
             puntuacion: {type: Datatypes.INTEGER},
             fechacomentario: {type: Datatypes.DATE},
+            Productos_idProductos: {type: Datatypes.INTEGER},
+            Usuarios_idUsuarios: {type: Datatypes.INTEGER}
         },
         {
             camelCase: false, 

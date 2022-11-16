@@ -4,6 +4,9 @@ module.exports = (sequelize, Datatypes) => {
         {
             idVentas: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
             cantidad: {type: Datatypes.INTEGER},
+            Productos_idProductos: {type: Datatypes.INTEGER},
+            Usuarios_idUsuarios: {type: Datatypes.INTEGER},
+            DetallesVenta_idDetallesVenta: {type: Datatypes.INTEGER}
         },
         {
             camelCase: false, 

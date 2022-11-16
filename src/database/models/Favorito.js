@@ -3,6 +3,8 @@ module.exports = (sequelize, Datatypes) => {
         "Favorito",
         {
             idFavoritos: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
+            Productos_idProductos: {type: Datatypes.INTEGER},
+            Usuarios_idUsuarios: {type: Datatypes.INTEGER}
         },
         {
             camelCase: false, 
