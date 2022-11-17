@@ -28,6 +28,6 @@ module.exports = (sequelize, Datatypes) => {
 
     };
 
-    return Favorito;
+    return Producto_Pais;
     
 };
