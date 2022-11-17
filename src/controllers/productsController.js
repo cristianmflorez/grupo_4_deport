@@ -5,11 +5,19 @@ const productsFilePath = path.join(__dirname, '../data/productsJSON.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const { validationResult } = require('express-validator');
 const db = require('../database/models');
-const productsService = require('../service/ProductsService');
+const productsService = require('../service/productsService');
 
 const productsController = {
 	creacionProducto: (req, res) => {
 		res.render('./products/creacionProducto');
+
+		// let tablas = productsService.llamarOtrasTablasRelacionada();
+		// res.render('./products/creacionProducto', {
+		// 	paises: tablas[0],
+		// 	colores: tablas[1],
+		// 	categorias: tablas[2],
+		// 	tipos: tablas[3]
+		// });
 	},
 
 	crear: (req, res) => {
@@ -43,7 +51,7 @@ const productsController = {
 			res.redirect(`/products/detalle/${nuevoProducto.id}`);
 			//TODO
 
-			// productsService.crearProducto(req.body).then(res.redirect('/'));
+			// productsService.crearProducto(req.body, req.file.filename).then(res.redirect('/'));
 		} else {
 			res.render('./products/creacionProducto', {
 				errors: errors.mapped(),
@@ -111,7 +119,6 @@ const productsController = {
 		// 	});
 	},
 
-	//! Falta aun...
 	editar: (req, res) => {
 		let idProducto = req.params.id;
 		let datos = req.body;
@@ -153,16 +160,13 @@ const productsController = {
 			}
 			//TODO
 
-			// if (req.file) {
-			// 	fs.unlinkSync(
-			// 		__dirname +
-			// 			'/../../public/imagenes/products/' +
-			// 			productsService.buscarImagenProducto(req.params.id)
-			// 	);
-			// }
-			// productsService
-			// 	.editarProducto(req.params.id, req.body)
-			// 	.then(res.redirect('/'));
+			// fs.unlinkSync(
+			// 	__dirname +
+			// 		'/../../public/imagenes/products/' +
+			// 		productsService.buscarImagenProducto(req.params.id)
+			// );
+			// productsService.editarProducto(req.params.id, req.body, req.body.imagen);
+			// res.redirect('/');
 		} else {
 			res.render('./products/edicionProducto', {
 				errors: errors.mapped(),
@@ -217,15 +221,12 @@ const productsController = {
 		res.redirect('/');
 		//TODO
 
-		// productsService
-		// 	.buscarImagenProducto(req.params.id)
-		// 	.then((imagenVieja) => {
-		// 		fs.unlinkSync(
-		// 			__dirname + '/../../public/imagenes/products/' + imagenVieja
-		// 		);
-		// 	})
-		// 	.then(productsService.borrarProducto(req.params.id))
-		// 	.then(res.redirect('/'));
+		// let imagenVieja = productsService.buscarImagenProducto(req.params.id);
+		// fs.unlinkSync(__dirname + '/../../public/imagenes/products/' + imagenVieja);
+		// setTimeout(() => {
+		// 	productsService.borrarProducto(req.params.id);
+		// }, '1000');
+		// res.redirect('/');
 	}
 };
 

@@ -16,12 +16,9 @@ module.exports = (sequelize, Datatypes) => {
 
     Pais.associate = function(modelos){
 
-        Pais.belongsToMany(modelos.Producto, { //DSC: con esto, no es necesario hacer el archivo .js del modelo de la tabla intermedia "Productos_paises".
+        Pais.hasMany(modelos.Producto_Pais, { 
             as: "producto",
-            through: "productos_paises",   // tabla intermedia
-            foreignKey: "Paises_idPaises1",  // es el FK del modelo en el que estas (en la tabla intermedia de la bd)
-            otherKey: "Productos_idProductos",    // es el FK del otro modelo (en la tabla intermedia de la bd)
-            timestamps: false
+            foreignKey: "Paises_idPaises",
          }); 
 
         Pais.hasMany(modelos.Usuario, {   

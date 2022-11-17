@@ -81,62 +81,21 @@
 					<% } %>
 				</div>
 
-				<div class="mb-3 d-flex justify-content-between flex-column flex-md-row">
-					<div>
-						<label for="material" class="form-label text-primary">
-							<strong>Material</strong>
-						</label>
-						<input
-							type="text"
-							name="material"
-							class="form-control <%= (locals.errors && errors.material) ? 'is-invalid' : null %>"
-							id="material"
-							value="<%= (locals.errors && errors.material) ? oldData.specifications[0] : producto.specifications[0] %>"
-						/>
-						<% if (locals.errors && errors.material) { %>
-							<p style="color: red">
-								<%= errors.material.msg %> 
-							</p>
-						<% } %>
-					</div>
-
-					<div>
-						<div>
-							<label for="weight" class="form-label text-primary">
-								<strong>Peso (kg)</strong>
-							</label>
-							<input
-								type="text"
-								name="weight"
-								class="form-control <%= (locals.errors && errors.weight) ? 'is-invalid' : null %>"
-								id="weight"
-								value="<%= (locals.errors && errors.weight) ? oldData.specifications[1] : producto.specifications[1] %>"
-							/>
-							<% if (locals.errors && errors.weight) { %>
-								<p style="color: red">
-									<%= errors.weight.msg %> 
-								</p>
-							<% } %>
-						</div>
-					</div>
-
-					<div>
-						<label for="origin" class="form-label text-primary">
-							<strong>Origen</strong>
-						</label>
-						<input
-							type="text"
-							name="origin"
-							class="form-control <%= (locals.errors && errors.origin) ? 'is-invalid' : null %>"
-							id="origin"
-							value="<%= (locals.errors && errors.origin) ? oldData.specifications[2] : producto.specifications[2] %>"
-						/>
-						<% if (locals.errors && errors.origin) { %>
-							<p style="color: red">
-								<%= errors.origin.msg %> 
-							</p>
-						<% } %>
-					</div>
+				<div class="mb-3">
+					<label for="specification" class="form-label text-primary">
+						<strong>Especificaciones</strong>
+					</label>
+					<textarea
+						class="form-control <%= (locals.errors && errors.description) ? 'is-invalid' : null %>"
+						name="specification"
+						id="specification"
+					><%= locals.oldData && oldData.description ? oldData.description : null %>
+					</textarea>
+					<% if (locals.errors && errors.description) { %>
+						<p style="color: red">
+							<%= errors.description.msg %> 
+						</p>
+					<% } %>
 				</div>
 
 				<div class="mb-3 d-flex justify-content-between flex-column flex-md-row">
@@ -198,22 +157,66 @@
 					
 				</div>
 
-				<div class="mb-3">
-					<label for="color" class="form-label text-primary">
-						<strong>Color (en inglés)</strong>
-					</label>
-					<input
-						type="text"
-						name="color"
-						class="form-control <%= (locals.errors && errors.color) ? 'is-invalid' : null %>"
-						id="color"
-						value="<%= (locals.errors && errors.color) ? oldData.color : producto.color %>"
-					/>
-					<% if (locals.errors && errors.color) { %>
-						<p style="color: red">
-							<%= errors.color.msg %> 
-						</p>
-					<% } %>
+				<div class="mb-3 d-flex justify-content-between flex-column flex-sm-row">
+					<div>
+						<label for="cantidad" class="form-label text-primary">
+							<strong>Cantidad</strong>
+						</label>
+						<input
+							type="number"
+							name="cantidad"
+							class="form-control <%= (locals.errors && errors.price) ? 'is-invalid' : null %>"
+							id="cantidad"
+							value="<%= locals.oldData && oldData.price ? oldData.price : null %>"
+						/>
+						<% if (locals.errors && errors.price) { %>
+							<p style="color: red">
+								<%= errors.price.msg %> 
+							</p>
+						<% } %>
+					</div>
+					<div>
+						<label for="talla" class="form-label text-primary">
+							<strong>Talla</strong>
+						</label>
+						<input
+							type="number"
+							name="talla"
+							class="form-control <%= (locals.errors && errors.discount) ? 'is-invalid' : null %>"
+							id="talla"
+							value="<%= locals.oldData && oldData.discount ? oldData.discount : null %>"
+						/>
+						<% if (locals.errors && errors.discount) { %>
+							<p style="color: red">
+								<%= errors.discount.msg %> 
+							</p>
+						<% } %>
+					</div>
+					<div>
+						<label for="color" class="form-label text-primary">
+							<strong>Color (en inglés)</strong>
+						</label>
+						<select
+							class="form-select <%= (locals.errors && errors.color) ? 'is-invalid' : null %>"
+							aria-label="Default select example"
+							name="color"
+							id="color"
+						>
+							<option disabled selected>Color del producto...</option>
+							<% //for (const c of colores) { %>
+								<option
+									value="<%=// c.id %>"
+									<%= //locals.oldData && (c.nombre == oldData.pais) ? 'selected' : "" %> 
+								> <%= //c.nombre %> 
+								</option>
+							<%//} %>  
+						</select>
+						<% if (locals.errors && errors.color) { %>
+							<p style="color: red">
+								<%= errors.color.msg %> 
+							</p>
+						<% } %>
+					</div>
 				</div>
 
 				<div class="mb-3">

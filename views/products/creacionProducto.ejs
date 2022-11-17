@@ -80,62 +80,21 @@
 					<% } %>
 				</div>
 
-				<div class="mb-3 d-flex justify-content-between flex-column flex-md-row">
-					<div>
-						<label for="material" class="form-label text-primary">
-							<strong>Material</strong>
-						</label>
-						<input
-							type="text"
-							name="material"
-							class="form-control <%= (locals.errors && errors.material) ? 'is-invalid' : null %>"
-							id="material"
-							value="<%= locals.oldData && oldData.material ? oldData.material : null %>"
-						/>
-						<% if (locals.errors && errors.material) { %>
-							<p style="color: red">
-								<%= errors.material.msg %> 
-							</p>
-						<% } %>
-					</div>
-
-					<div>
-						<div>
-							<label for="weight" class="form-label text-primary">
-								<strong>Peso (Kg)</strong>
-							</label>
-							<input
-								type="text"
-								name="weight"
-								class="form-control <%= (locals.errors && errors.weight) ? 'is-invalid' : null %>"
-								id="weight"
-								value="<%= locals.oldData && oldData.weight ? oldData.weight : null %>"
-							/>
-							<% if (locals.errors && errors.weight) { %>
-								<p style="color: red">
-									<%= errors.weight.msg %> 
-								</p>
-							<% } %>
-						</div>
-					</div>
-
-					<div>
-						<label for="origin" class="form-label text-primary">
-							<strong>Origen</strong>
-						</label>
-						<input
-							type="text"
-							name="origin"
-							class="form-control <%= (locals.errors && errors.origin) ? 'is-invalid' : null %>"
-							id="origin"
-							value="<%= locals.oldData && oldData.origin ? oldData.origin : null %>"
-						/>
-						<% if (locals.errors && errors.origin) { %>
-							<p style="color: red">
-								<%= errors.origin.msg %> 
-							</p>
-						<% } %>
-					</div>
+				<div class="mb-3">
+					<label for="specification" class="form-label text-primary">
+						<strong>Especificaciones</strong>
+					</label>
+					<textarea
+						class="form-control <%= (locals.errors && errors.description) ? 'is-invalid' : null %>"
+						name="specification"
+						id="specification"
+					><%= locals.oldData && oldData.description ? oldData.description : null %>
+					</textarea>
+					<% if (locals.errors && errors.description) { %>
+						<p style="color: red">
+							<%= errors.description.msg %> 
+						</p>
+					<% } %>
 				</div>
 
 				<div class="mb-3 d-flex justify-content-between flex-column flex-md-row">
@@ -150,15 +109,13 @@
 							id="category"
 						>
 							<option disabled selected>Selecciona un deporte</option>
-							<% let deportes = ['Fútbol', 'Basketball', 'Tenis', 'Volleyball', 'Natación', 'Otros'] %> 
-							<% let deportesBackend = ['futbol', 'basketball', 'tenis', 'volleyball', 'natacion', 'otros'] %> 
-							<% for (let i=0; i<deportes.length; i++) { %>
+							<% //for (const c of categorias) { %>
 								<option
-									value="<%= deportesBackend[i] %>"
-									<%= locals.oldData && (deportesBackend[i] === oldData.category) ? 'selected' : null %> 
-								> <%= deportes[i] %> 
+									value="<%=// c.id %>"
+									<%= //locals.oldData && (c.nombre == oldData.category) ? 'selected' : "" %> 
+								> <%= //c.nombre %> 
 								</option>
-							<% } %>  
+							<%//} %>
 						</select>
 						<% if (locals.errors && errors.category) { %>
 							<p style="color: red">
@@ -177,15 +134,13 @@
 							id="type"
 						>
 							<option disabled selected>Tipo de producto</option>
-							<% let tipos = ['Vestuario', 'Guayos', 'Canilleras', 'Guantes', 'Balones', 'Otros', 'Jerseys', 'Zapatillas', 'Implementos'] %>  
-							<% let tiposBackend = ['vestuario', 'guayos', 'canilleras', 'guantes', 'balones', 'otros', 'jerseys', 'zapatillas', 'implementos'] %> 
-							<% for (let i=0; i<tipos.length; i++) { %> 
+							<% //for (const t of tipos) { %>
 								<option
-								value="<%= tiposBackend[i] %>"
-								<%= locals.oldData && (tiposBackend[i] === oldData.type) ? 'selected' : null %> 
-								> <%= tipos[i] %> 
+									value="<%=// t.id %>"
+									<%= //locals.oldData && (t.nombre == oldData.category) ? 'selected' : "" %> 
+								> <%= //t.nombre %> 
 								</option>
-							<% } %> 
+							<%//} %>
 						</select>
 						<% if (locals.errors && errors.type) { %>
 							<p style="color: red">
@@ -196,22 +151,66 @@
 					
 				</div>
 
-				<div class="mb-3">
-					<label for="color" class="form-label text-primary">
-						<strong>Color (en inglés)</strong>
-					</label>
-					<input
-						type="text"
-						name="color"
-						class="form-control <%= (locals.errors && errors.color) ? 'is-invalid' : null %>"
-						id="color"
-						value="<%= locals.oldData && oldData.color ? oldData.color : null %>"
-					/>
-					<% if (locals.errors && errors.color) { %>
-						<p style="color: red">
-							<%= errors.color.msg %> 
-						</p>
-					<% } %>
+				<div class="mb-3 d-flex justify-content-between flex-column flex-sm-row">
+					<div>
+						<label for="cantidad" class="form-label text-primary">
+							<strong>Cantidad</strong>
+						</label>
+						<input
+							type="number"
+							name="cantidad"
+							class="form-control <%= (locals.errors && errors.price) ? 'is-invalid' : null %>"
+							id="cantidad"
+							value="<%= locals.oldData && oldData.price ? oldData.price : null %>"
+						/>
+						<% if (locals.errors && errors.price) { %>
+							<p style="color: red">
+								<%= errors.price.msg %> 
+							</p>
+						<% } %>
+					</div>
+					<div>
+						<label for="talla" class="form-label text-primary">
+							<strong>Talla</strong>
+						</label>
+						<input
+							type="number"
+							name="talla"
+							class="form-control <%= (locals.errors && errors.discount) ? 'is-invalid' : null %>"
+							id="talla"
+							value="<%= locals.oldData && oldData.discount ? oldData.discount : null %>"
+						/>
+						<% if (locals.errors && errors.discount) { %>
+							<p style="color: red">
+								<%= errors.discount.msg %> 
+							</p>
+						<% } %>
+					</div>
+					<div>
+						<label for="color" class="form-label text-primary">
+							<strong>Color (en inglés)</strong>
+						</label>
+						<select
+							class="form-select <%= (locals.errors && errors.color) ? 'is-invalid' : null %>"
+							aria-label="Default select example"
+							name="color"
+							id="color"
+						>
+							<option disabled selected>Color del producto...</option>
+							<% //for (const c of colores) { %>
+								<option
+									value="<%=// c.id %>"
+									<%= //locals.oldData && (c.nombre == oldData.pais) ? 'selected' : "" %> 
+								> <%= //c.nombre %> 
+								</option>
+							<%//} %>  
+						</select>
+						<% if (locals.errors && errors.color) { %>
+							<p style="color: red">
+								<%= errors.color.msg %> 
+							</p>
+						<% } %>
+					</div>
 				</div>
 
 				<div class="mb-3">
@@ -225,14 +224,13 @@
 						id="pais"
 					>
 						<option disabled selected>Disponible en...</option>
-						<% let paises = ['Argentina', 'Bolivia', 'Brasil', 'Chile', 'Colombia', 'Ecuador', 'Paraguay', 'Peru', 'Uruguay', 'Venezuela'] %> 
-						<% for (const p of paises) { %>
+						<% //for (const p of paises) { %>
 							<option
-								value="<%= p %>"
-								<%= locals.oldData && (p === oldData.pais) ? 'selected' : null %> 
-							> <%= p %> 
+								value="<%=// p.id %>"
+								<%= //locals.oldData && (p.nombre == oldData.pais) ? 'selected' : "" %> 
+							> <%= //p.nombre %> 
 							</option>
-						<% } %>  
+						<%//} %>  
 					</select>
 					<% if (locals.errors && errors.pais) { %>
 						<p style="color: red">
@@ -259,10 +257,12 @@
 				</div>
 
 				<div class="mb-3 d-flex justify-content-between flex-column flex-md-row mt-5 mb-5">
-					<button class="btn btn-secondary col-4 w-auto m-2" type="submit">
+					<button class="btn btn-success col-4 w-auto my-2" type="submit">
 						Crear producto
 					</button>
-					<button class="btn btn-secondary col-4 w-auto m-2" type="reset">Cancelar</button>
+					<button class="btn btn-secondary col-4 w-auto my-2" type="reset">
+						Borrar campos
+					</button>
 				</div>
 			</form>
 		</main>

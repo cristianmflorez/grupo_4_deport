@@ -13,6 +13,7 @@ module.exports = (sequelize, Datatypes) => {
 			especificacion: { type: Datatypes.TEXT },
 			descuento: { type: Datatypes.FLOAT },
 			cantidad: { type: Datatypes.INTEGER },
+			imagen: { type: Datatypes.STRING(100) },
 			talla: { type: Datatypes.STRING(20) },
 			Categorias_idCategorias: { type: Datatypes.INTEGER },
 			Tipos_idTipos: { type: Datatypes.INTEGER },
@@ -43,18 +44,9 @@ module.exports = (sequelize, Datatypes) => {
 			foreignKey: 'Tipos_idTipos'
 		});
 
-		Producto.belongsToMany(modelos.Pais, {
-			//DSC: con esto, no es necesario hacer el archivo .js del modelo de la tabla intermedia "Productos_paises".
+		Producto.hasMany(modelos.Producto_Pais, {
 			as: 'pais',
-			through: 'productos_paises', // tabla intermedia
-			foreignKey: 'Productos_idProductos', // es el FK del modelo en el que estas (en la tabla intermedia de la bd)
-			otherKey: 'Paises_idPaises1', // es el FK del otro modelo (en la tabla intermedia de la bd)
-			timestamps: false
-		});
-
-		Producto.hasMany(modelos.Imagen, {
-			as: 'imagen',
-			foreignKey: 'Productos_idProductos'
+			foreignKey: 'Productos_idProductos', 
 		});
 
 		Producto.hasMany(modelos.Favorito, {
