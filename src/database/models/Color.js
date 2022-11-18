@@ -8,7 +8,7 @@ module.exports = (sequelize, Datatypes) => {
         {
             camelCase: false, 
             timestamps: false,
-            tableName: "colores"
+            tableName: "Colores"
         }  
     );
 

@@ -224,13 +224,12 @@
 						id="pais"
 					>
 						<option disabled selected>Disponible en...</option>
-						<% //for (const p of paises) { %>
+						<% for (const p of paises) { %>
 							<option
-								value="<%=// p.id %>"
-								<%= //locals.oldData && (p.nombre == oldData.pais) ? 'selected' : "" %> 
-							> <%= //p.nombre %> 
+								value="<%= p.id %>"
+							> <%= p.nombre %> 
 							</option>
-						<%//} %>  
+						<%} %>  
 					</select>
 					<% if (locals.errors && errors.pais) { %>
 						<p style="color: red">

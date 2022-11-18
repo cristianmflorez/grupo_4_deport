@@ -9,7 +9,7 @@ module.exports = (sequelize, Datatypes) => {
         {
             camelCase: false, 
             timestamps: false,
-            tableName: "favoritos"
+            tableName: "Favoritos"
         }  
     );
 

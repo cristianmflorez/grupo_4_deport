@@ -2,7 +2,7 @@ const db = require('../database/models');
 
 const colorService = {
     llamarTabla: () => {
-		db.Tipo.findAll();
+		db.Color.findAll();
 	}
 }
 

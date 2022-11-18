@@ -6,10 +6,17 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const { validationResult } = require('express-validator');
 const db = require('../database/models');
 const productsService = require('../service/productsService');
+const paisService = require('../service/paisService');
 
 const productsController = {
 	creacionProducto: (req, res) => {
-		res.render('./products/creacionProducto');
+		let paisesVista = paisService.ObtenerTablaPais();
+			console.log(paisesVista);
+
+		// let paisesVista = db.Pais.findAll();
+		// paisesVista.then((datos) => {
+		// 	res.render('./products/creacionProducto', {paises : datos});
+		// });
 
 		// let tablas = productsService.llamarOtrasTablasRelacionada();
 		// res.render('./products/creacionProducto', {
@@ -180,11 +187,7 @@ const productsController = {
 		//TODO: Quitar codigo al subir registros al servidor
 		let deporteIngresado = req.params.categoria;
 		let categoriaParaLaVista = {};
-		db.Categoria.findOne({
-			where: {
-				nombre: deporteIngresado
-			}
-		})
+		db.Categoria.findAll()
 			.then((categoria) => {
 				categoriaParaLaVista = categoria;
 				return res.send(categoriaParaLaVista);

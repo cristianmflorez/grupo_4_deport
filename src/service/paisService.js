@@ -1,9 +1,7 @@
 const db = require('../database/models');
 
-const paisService = {
-	llamarTabla: () => {
-		db.Tipo.findAll();
-	}
-};
+async function ObtenerTablaPais() {
+	db.Pais.findAll();
+}
 
-module.exports = paisService;
+module.exports.ObtenerTablaPais = ObtenerTablaPais;
