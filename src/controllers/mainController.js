@@ -1,12 +1,10 @@
-const path = require('path');
-const fs = require('fs');
-
-const productsFilePath = path.join(__dirname, '../data/productsJSON.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const productsService = require('../service/productsService');
 
 const mainController = {
 	home: (req, res) => {
-		res.render('home', { products: products });
+		productsService.buscarTodosProductos().then((productos) => {
+			res.render('home', { products: productos });
+		});
 	},
 
 	carrito: (req, res) => {

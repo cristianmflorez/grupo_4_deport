@@ -20,7 +20,7 @@
 					data-bs-toggle="dropdown"
 					aria-expanded="false"
 				>
-					<%= locals.userLogged.name %>
+					<%= locals.userLogged.nombre %>
 				</button>
 				<ul class="dropdown-menu">
 					<li>
@@ -49,23 +49,7 @@
 				</a>
 			</li>
 			<% } %>
-
-			<li class="list-group-item border border-0 pt-2">
-				<select class="form-select" aria-label="Default select example">
-					<option selected>Tu ubicación</option>
-					<option value="Argentina">Argentina</option>
-					<option value="Bolivia">Bolivia</option>
-					<option value="Brasil">Brasil</option>
-					<option value="Chile">Chile</option>
-					<option value="Colombia">Colombia</option>
-					<option value="Ecuador">Ecuador</option>
-					<option value="Paraguay">Paraguay</option>
-					<option value="Peru">Perú</option>
-					<option value="Uruguay">Uruguay</option>
-					<option value="Venezuela">Venezuela</option>
-				</select>
-			</li>
-
+			
 			<li class="list-group-item border border-0 fs-2 pt-0">
 				<a
 					href="/carrito"

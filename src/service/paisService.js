@@ -1,7 +1,7 @@
 const db = require('../database/models');
 
-async function ObtenerTablaPais() {
-	db.Pais.findAll();
-}
+function obtenerTablaPais() {
+	return db.Pais.findAll();
+};
 
-module.exports.ObtenerTablaPais = ObtenerTablaPais;
+module.exports = obtenerTablaPais;

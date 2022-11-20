@@ -1,9 +1,7 @@
 const db = require('../database/models');
 
-const tipoService = {
-    llamarTabla: () => {
-		db.Tipo.findAll();
-	}
-}
+function obtenerTablaTipo() {
+	return db.Tipo.findAll();
+};
 
-module.exports = tipoService;
+module.exports = obtenerTablaTipo;

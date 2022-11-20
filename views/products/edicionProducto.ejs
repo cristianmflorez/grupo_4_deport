@@ -5,8 +5,8 @@
 		<%-include('../partials/header') %> <%-include('../partials/nav') %>
 
 		<main class="d-flex justify-content-around mx-auto flex-wrap">
-			<form class="w-75" action="<%=producto.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
-				<h2 class="p-3 text-center">Editar: <%=producto.name%></h2>
+			<form class="w-75" action="<%=producto.idProductos%>?_method=PUT" method="POST" enctype="multipart/form-data">
+				<h2 class="p-3 text-center">Editar: <%=producto.nombre%></h2>
 
 				<div class="mb-3">
 					<label for="name" class="form-label text-primary"
@@ -17,7 +17,7 @@
 						name="name"
 						class="form-control <%= (locals.errors && errors.name) ? 'is-invalid' : null %>"
 						id="name"
-						value="<%= (locals.errors && errors.name) ? oldData.name : producto.name %>"
+						value="<%= (locals.errors && errors.name) ? oldData.name : producto.nombre %>"
 					/>
 					<% if (locals.errors && errors.name) { %>
 						<p style="color: red">
@@ -36,7 +36,7 @@
 							name="price"
 							class="form-control <%= (locals.errors && errors.price) ? 'is-invalid' : null %>"
 							id="price"
-							value="<%= (locals.errors && errors.price) ? oldData.price : producto.price %>"
+							value="<%= (locals.errors && errors.price) ? oldData.price : producto.precio %>"
 						/>
 						<% if (locals.errors && errors.price) { %>
 							<p style="color: red">
@@ -53,7 +53,7 @@
 							name="discount"
 							class="form-control <%= (locals.errors && errors.discount) ? 'is-invalid' : null %>"
 							id="discount"
-							value="<%= (locals.errors && errors.discount) ? oldData.discount : producto.discount %>"
+							value="<%= (locals.errors && errors.discount) ? oldData.discount : producto.descuento %>"
 						/>
 						<% if (locals.errors && errors.discount) { %>
 							<p style="color: red">
@@ -72,7 +72,7 @@
 						class="form-control <%= (locals.errors && errors.description) ? 'is-invalid' : null %>"
 						name="description"
 						id="description"						
-					><%= (locals.errors && errors.description) ? oldData.description : producto.description %>
+					><%= (locals.errors && errors.description) ? oldData.description : producto.descripcion %>
 					</textarea>
 					<% if (locals.errors && errors.description) { %>
 						<p style="color: red">
@@ -86,14 +86,14 @@
 						<strong>Especificaciones</strong>
 					</label>
 					<textarea
-						class="form-control <%= (locals.errors && errors.description) ? 'is-invalid' : null %>"
+						class="form-control <%= (locals.errors && errors.specification) ? 'is-invalid' : null %>"
 						name="specification"
 						id="specification"
-					><%= locals.oldData && oldData.description ? oldData.description : null %>
+					><%= locals.oldData && oldData.specification ? oldData.specification : producto.especificacion %>
 					</textarea>
-					<% if (locals.errors && errors.description) { %>
+					<% if (locals.errors && errors.specification) { %>
 						<p style="color: red">
-							<%= errors.description.msg %> 
+							<%= errors.specification.msg %> 
 						</p>
 					<% } %>
 				</div>
@@ -110,13 +110,11 @@
 							id="category"
 						>
 							<option disabled selected>Selecciona un deporte</option>
-							<% let deportes = ['Fútbol', 'Basketball', 'Tenis', 'Volleyball', 'Natación', 'Otros'] %> 
-							<% let deportesBackend = ['futbol', 'basketball', 'tenis', 'volleyball', 'natacion', 'otros'] %> 
-							<% for (let i=0; i<deportes.length; i++) { %> 
+							<% for (let c of categorias) { %> 
 								<option
-								value="<%= deportesBackend[i] %>"
-								<%= (locals.oldData && (deportesBackend[i] === oldData.category)) || (!(locals.errors && errors.category) && (deportesBackend[i] === producto.category)) ? 'selected' : null %> 
-								> <%= deportes[i] %> 
+								value="<%= c.idCategorias %>"
+								<%= (locals.oldData && c.idCategorias == oldData.category) || (!(locals.errors && errors.category) && (c.idCategorias == producto.Categorias_idCategorias)) ? 'selected' : null %> 
+								> <%= c.nombre %> 
 								</option>
 							<% } %> 
 						</select>
@@ -138,13 +136,11 @@
 							aria-label="select example"
 						>
 							<option disabled selected>Tipo de producto</option>
-							<% let tipos = ['Vestuario', 'Guayos', 'Canilleras', 'Guantes', 'Balones', 'Otros', 'Jerseys', 'Zapatillas', 'Implementos'] %>  
-							<% let tiposBackend = ['vestuario', 'guayos', 'canilleras', 'guantes', 'balones', 'otros', 'jerseys', 'zapatillas', 'implementos'] %> 
-							<% for (let i=0; i<tipos.length; i++) { %> 
+							<% for (let t of tipos) { %> 
 								<option
-								value="<%= tiposBackend[i] %>"
-								<%= (locals.oldData && (tiposBackend[i] === oldData.type)) || (!(locals.errors && errors.type) && (tiposBackend[i] === producto.type)) ? 'selected' : null %> 
-								> <%= tipos[i] %> 
+								value="<%= t.idTipos %>"
+								<%= (locals.oldData && t.idTipos == oldData.type) || (!(locals.errors && errors.type) && t.idTipos == producto.Tipos_idTipos) ? 'selected' : null %> 
+								> <%= t.nombre %> 
 								</option>
 							<% } %> 
 						</select>
@@ -165,13 +161,13 @@
 						<input
 							type="number"
 							name="cantidad"
-							class="form-control <%= (locals.errors && errors.price) ? 'is-invalid' : null %>"
+							class="form-control <%= (locals.errors && errors.cantidad) ? 'is-invalid' : null %>"
 							id="cantidad"
-							value="<%= locals.oldData && oldData.price ? oldData.price : null %>"
+							value="<%= locals.oldData && oldData.cantidad ? oldData.cantidad : producto.cantidad %>"
 						/>
-						<% if (locals.errors && errors.price) { %>
+						<% if (locals.errors && errors.cantidad) { %>
 							<p style="color: red">
-								<%= errors.price.msg %> 
+								<%= errors.cantidad.msg %> 
 							</p>
 						<% } %>
 					</div>
@@ -182,13 +178,13 @@
 						<input
 							type="number"
 							name="talla"
-							class="form-control <%= (locals.errors && errors.discount) ? 'is-invalid' : null %>"
+							class="form-control <%= (locals.errors && errors.talla) ? 'is-invalid' : null %>"
 							id="talla"
-							value="<%= locals.oldData && oldData.discount ? oldData.discount : null %>"
+							value="<%= locals.oldData && oldData.talla ? oldData.talla : producto.talla %>"
 						/>
-						<% if (locals.errors && errors.discount) { %>
+						<% if (locals.errors && errors.talla) { %>
 							<p style="color: red">
-								<%= errors.discount.msg %> 
+								<%= errors.talla.msg %> 
 							</p>
 						<% } %>
 					</div>
@@ -203,13 +199,13 @@
 							id="color"
 						>
 							<option disabled selected>Color del producto...</option>
-							<% //for (const c of colores) { %>
+							<% for (const c of colores) { %>
 								<option
-									value="<%=// c.id %>"
-									<%= //locals.oldData && (c.nombre == oldData.pais) ? 'selected' : "" %> 
-								> <%= //c.nombre %> 
+									value="<%= c.idColores %>"
+									<%= (locals.oldData && (c.idColores == oldData.color)) || (!(locals.errors && errors.type)) && c.idColores == producto.Colores_idColores ? 'selected' : "" %> 
+								> <%= c.nombre %> 
 								</option>
-							<%//} %>  
+							<% } %>  
 						</select>
 						<% if (locals.errors && errors.color) { %>
 							<p style="color: red">
@@ -230,12 +226,11 @@
 						id="pais"
 					>
 						<option disabled selected>Disponible en...</option>
-						<% let paises = ['Argentina', 'Bolivia', 'Brasil', 'Chile', 'Colombia', 'Ecuador', 'Paraguay', 'Peru', 'Uruguay', 'Venezuela'] %> 
-						<% for (const p of paises) { %>
+						<% for (let p of paises) { %>
 							<option
-								value="<%= p %>"
-								<%= (locals.oldData && (p === oldData.pais)) || (!(locals.errors && errors.pais) && (p === producto.pais)) ? 'selected' : null %> 
-							> <%= p %> 
+								value="<%= p.idPaises %>"
+								<%= (locals.oldData && (p.idPaises == oldData.pais)) ||  p.idPaises == relacionProductoPais[0].dataValues.Paises_idPaises ? 'selected' : null %> 
+							> <%= p.nombre %> 
 							</option>
 						<% } %>
 					</select>
@@ -268,11 +263,11 @@
 						Editar producto
 					</button>
 					<button class="btn btn-secondary col-3 w-auto mt-2" type="reset">
-						Cancelar
+						Borrar cambios
 					</button>
 				</div>
 			</form>
-			<form action="/products/delete/<%=producto.id%>?_method=delete" method="post" class="w-75 d-flex flex-column flex-md-row">
+			<form action="/products/delete/<%=producto.idProductos%>?_method=delete" method="post" class="w-75 d-flex flex-column flex-md-row">
 				<button type="submit" class="btn btn-danger col-3 w-auto mt-2 mb-5">
 					Eliminar producto
 				</button>

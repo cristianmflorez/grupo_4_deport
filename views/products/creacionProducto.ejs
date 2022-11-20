@@ -108,14 +108,14 @@
 							aria-label="select example"
 							id="category"
 						>
-							<option disabled selected>Selecciona un deporte</option>
-							<% //for (const c of categorias) { %>
-								<option
-									value="<%=// c.id %>"
-									<%= //locals.oldData && (c.nombre == oldData.category) ? 'selected' : "" %> 
-								> <%= //c.nombre %> 
+						<option disabled selected >Selecciona un deporte</option>
+						<% for (let c of categorias) { %>
+							<option
+							value="<%= c.idCategorias %>"
+									<%= locals.oldData && (c.idCategorias == oldData.category) ? 'selected' : "" %> 
+								> <%= c.nombre %> 
 								</option>
-							<%//} %>
+							<% } %>
 						</select>
 						<% if (locals.errors && errors.category) { %>
 							<p style="color: red">
@@ -134,13 +134,13 @@
 							id="type"
 						>
 							<option disabled selected>Tipo de producto</option>
-							<% //for (const t of tipos) { %>
+							<% for (let t of tipos) { %>
 								<option
-									value="<%=// t.id %>"
-									<%= //locals.oldData && (t.nombre == oldData.category) ? 'selected' : "" %> 
-								> <%= //t.nombre %> 
+									value="<%= t.idTipos %>"
+									<%= locals.oldData && (t.idTipos == oldData.type) ? 'selected' : "" %> 
+								> <%= t.nombre %> 
 								</option>
-							<%//} %>
+							<%} %>
 						</select>
 						<% if (locals.errors && errors.type) { %>
 							<p style="color: red">
@@ -197,13 +197,13 @@
 							id="color"
 						>
 							<option disabled selected>Color del producto...</option>
-							<% //for (const c of colores) { %>
+							<% for (let c of colores) { %>
 								<option
-									value="<%=// c.id %>"
-									<%= //locals.oldData && (c.nombre == oldData.pais) ? 'selected' : "" %> 
-								> <%= //c.nombre %> 
+									value="<%= c.idColores %>"
+									<%= locals.oldData && (c.idColores == oldData.color) ? 'selected' : "" %> 
+								> <%= c.nombre %> 
 								</option>
-							<%//} %>  
+							<%} %>  
 						</select>
 						<% if (locals.errors && errors.color) { %>
 							<p style="color: red">
@@ -224,9 +224,10 @@
 						id="pais"
 					>
 						<option disabled selected>Disponible en...</option>
-						<% for (const p of paises) { %>
+						<% for (let p of paises) { %>
 							<option
-								value="<%= p.id %>"
+								value="<%= p.idPaises %>"
+								<%= locals.oldData && (p.idPaises == oldData.pais) ? 'selected' : "" %> 
 							> <%= p.nombre %> 
 							</option>
 						<%} %>  

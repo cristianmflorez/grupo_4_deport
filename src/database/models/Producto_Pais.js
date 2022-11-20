@@ -2,7 +2,7 @@ module.exports = (sequelize, Datatypes) => {
     const Producto_Pais = sequelize.define(
         "Producto_Pais",
         {
-            idFavoritos: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
+            idProductos_Paises: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
             Productos_idProductos: {type: Datatypes.INTEGER},
             Paises_idPaises: {type: Datatypes.INTEGER}
         },
@@ -23,7 +23,7 @@ module.exports = (sequelize, Datatypes) => {
 
         Producto_Pais.belongsTo(modelos.Pais, {   
             as: "pais",
-            foreignKey: "Usuarios_idUsuarios"
+            foreignKey: "Paises_idPaises"
         });
 
     };

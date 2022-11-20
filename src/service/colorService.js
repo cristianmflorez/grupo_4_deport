@@ -1,9 +1,7 @@
 const db = require('../database/models');
 
-const colorService = {
-    llamarTabla: () => {
-		db.Color.findAll();
-	}
-}
+function obtenerTablaColor() {
+	return db.Color.findAll();
+};
 
-module.exports = colorService;
+module.exports = obtenerTablaColor;

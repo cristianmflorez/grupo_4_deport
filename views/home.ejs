@@ -86,25 +86,25 @@
 				</div>
 
 				<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 p-3 m-auto">
-					<% let cantidad = 7; for (let i=0; i<=cantidad; i++){%>
+					<% for(let p of products) {%>
 
 					<div class="col mt-3">
 						<div
 							class="card h-100 shadow m-1 p-0 d-flex justify-content-between"
 						>
-							<a href="/products/detalle/<%=products[i].id%>"
+							<a href="/products/detalle/<%=p.idProductos%>"
 								><img
-									src="/imagenes/products/<%=products[i].image%>"
+									src="/imagenes/products/<%=p.imagen%>"
 									class="card-img-top"
 									alt="..."
 							/></a>
 							<div class="card-body" style="max-height: 150px">
-								<h5 class="card-title"><%=products[i].name%></h5>
-								<p class="card-text">$<%=products[i].price%></p>
+								<h5 class="card-title"><%=p.nombre%></h5>
+								<p class="card-text">$<%=p.precio%></p>
 								<p
 									class="card-text text-success d-flex justify-content-between"
 								>
-									<%=products[i].discount%>% OFF
+									<%=p.descuento%>% OFF
 									<button type="button" class="btn btn-outline-success">
 										Comprar
 									</button>

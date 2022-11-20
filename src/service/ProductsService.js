@@ -1,13 +1,71 @@
 const db = require('../database/models');
-const categorias = require('../service/categoriaService');
-const paises = require('../service/paisService');
-const tipos = require('../service/tipoService');
-const colores = require('../service/colorService');
-const productos_paises = require('../service/producto_paisService');
 
-const productService = {
-	crearProducto: async (datos, foto) => {
-		db.Producto.create({
+function buscarTodosProductos() {
+	return db.Producto.findAll();
+}
+
+function crearProducto(datos, foto) {
+	return db.Producto.create({
+		nombre: datos.name.trim(),
+		precio: parseInt(datos.price.trim()),
+		descripcion: datos.description.trim(),
+		especificacion: datos.specification.trim(),
+		descuento: parseInt(datos.discount.trim()),
+		cantidad: datos.cantidad.trim(),
+		imagen: foto,
+		talla: datos.talla.trim(),
+		Categorias_idCategorias: datos.category,
+		Tipos_idTipos: datos.type,
+		Colores_idColores: datos.color
+	});
+}
+
+function buscarProductoId(id) {
+	return db.Producto.findOne({
+		where: { idProductos: id },
+		include: [
+			{ association: 'categoria' },
+			{ association: 'color' },
+			{ association: 'tipo' }
+		]
+	});
+}
+
+function buscarProductoCategoria(nombreCategoria) {
+	let id = verificarCategoria(nombreCategoria);
+	return db.Producto.findAll({
+		where: {
+			Categorias_idCategorias: id
+		}
+	});
+}
+
+function verificarCategoria(nombreCategoria) {
+	switch (nombreCategoria) {
+		case 'tenis':
+			return 1;
+		case 'futbol':
+			return 2;
+		case 'basketball':
+			return 3;
+		case 'volleyball':
+			return 4;
+		case 'natacion':
+			return 5;
+		default:
+			return 6;
+	}
+}
+
+function borrarProducto(id) {
+	return db.Producto.destroy({
+		where: { idProductos: id }
+	});
+}
+
+function editarProducto(id, datos, foto) {
+	return db.Producto.update(
+		{
 			nombre: datos.name.trim(),
 			precio: parseInt(datos.price.trim()),
 			descripcion: datos.description.trim(),
@@ -16,71 +74,21 @@ const productService = {
 			cantidad: datos.cantidad.trim(),
 			imagen: foto,
 			talla: datos.talla.trim(),
-			Categorias_idCategorias: datos.categoria,
-			Tipos_idTipos: datos.tipo,
+			Categorias_idCategorias: datos.category,
+			Tipos_idTipos: datos.type,
 			Colores_idColores: datos.color
-		}).then((producto) => {
-			productos_paises.crear(producto, datos.pais);
-		});
-	},
-	buscarProductoId: (id) => {
-		db.Producto.findByPk(id).then((producto) => {
-			return producto;
-		});
-	},
-	buscarProductoCategoria: (categoria) => {
-		db.Producto.findAll({
-			include: [{ association: 'categoria' }, { association: 'imagen' }],
-			where: {
-				Categorias_idCategorias: categoria
-			}
-		}).then((productos) => {
-			return productos;
-		});
-	},
-	borrarProducto: (id) => {
-		db.Producto.destroy({
+		},
+		{
 			where: { idProductos: id }
-		});
-	},
-	buscarImagenProducto: (id) => {
-		db.Producto.findAll({
-			where: { idProductos: id }
-		}).then((producto) => {
-			return producto.imagen;
-		});
-	},
-	editarProducto: (id, datos, foto) => {
-		db.Producto.update(
-			{
-				nombre: datos.name.trim(),
-				precio: parseInt(datos.price.trim()),
-				descripcion: datos.description.trim(),
-				especificacion: datos.specifications.trim(),
-				descuento: parseInt(datos.discount.trim()),
-				cantidad: datos.cantidad.trim(),
-				talla: datos.talla.trim(),
-				imagen: foto,
-				Categorias_idCategorias: datos.categoria,
-				Tipos_idTipos: datos.tipo,
-				Colores_idColores: datos.color
-			},
-			{
-				where: { idProductos: id }
-			}
-		).then((producto) => {
-			productos_paises.crear(producto, datos.pais);
-		});
-	},
-	llamarOtrasTablasRelacionada: () => {
-		const paises = paises.llamarTabla;
-		const colores = colores.llamarTabla;
-		const categorias = categorias.llamarTabla;
-		const tipos = tipos.llamarTabla;
+		}
+	);
+}
 
-		Promise.all([paises, colores, categorias, tipos]).then(() => {
-			return [paises, colores, categorias, tipos];
-		});
-	}
+module.exports = {
+	buscarTodosProductos,
+	crearProducto,
+	buscarProductoId,
+	buscarProductoCategoria,
+	borrarProducto,
+	editarProducto
 };
-module.exports = productService;

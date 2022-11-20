@@ -2,6 +2,7 @@ const users = require('./../data/users.json');
 const path = require('path');
 const fs = require('fs');
 const bcryptjs = require('bcryptjs');
+const obtenerTablaPais = require('../service/paisService');
 
 //importar modelo usuarios
 const User = require('../../models/User');
@@ -12,66 +13,36 @@ const usersService = require('../service/usersService');
 const paisService = require('../service/paisService');
 
 const usersController = {
+	//Listo
 	login: (req, res) => {
 		res.render('./users/login');
 	},
 
 	loginProcess: (req, res) => {
-		//TODO: Quitar codigo al subir registros al servidor
-		let userToLogin = User.findByField('email', req.body.correo.trim());
-		//TODO
-
-		// let userToLogin = usersService.buscarUsuarioEmail(req.body.correo.trim());
-		
+		let userToLogin = usersService.buscarUsuarioEmail(req.body.correo.trim());
 		let errors = validationResult(req);
 		if (errors.isEmpty()) {
-			if (userToLogin) {
-				//TODO: Quitar codigo al subir registros al servidor
-				if (userToLogin.email === users[0].email) {
-					if (req.body.password.trim() === userToLogin.password) {
-						delete userToLogin.password;
-						req.session.userLogged = userToLogin;
+			userToLogin.then((usuario) => {
+				let isOkThePassword = bcryptjs.compareSync(
+					req.body.password.trim(),
+					usuario.password
+				);
+				if (isOkThePassword) {
+					delete usuario.password;
+					req.session.userLogged = usuario;
 
-						return res.redirect('/users/perfil');
-					} else {
-						return res.render('./users/login', {
-							errors: {
-								password: {
-									msg: 'Credenciales inválidas'
-								}
-							},
-							oldData: req.body
-						});
-					}
+					return res.redirect('/');
 				} else {
-				//TODO
-
-					let isOkThePassword = bcryptjs.compareSync(
-						req.body.password.trim(),
-						userToLogin.password
-					);
-					if (isOkThePassword) {
-						delete userToLogin.password;
-						req.session.userLogged = userToLogin;
-
-						return res.redirect('/users/perfil');
-					} else {
-						return res.render('./users/login', {
-							errors: {
-								password: {
-									msg: 'Credenciales inválidas'
-								}
-							},
-							oldData: req.body
-						});
-					}
+					return res.render('./users/login', {
+						errors: {
+							password: {
+								msg: 'Credenciales inválidas'
+							}
+						},
+						oldData: req.body
+					});
 				}
-			} else {
-				res.render('./users/login', {
-					errors: errors.mapped(),
-					oldData: req.body
-				});
-			}
+			});
 		} else {
 			res.render('./users/login', {
 				errors: errors.mapped(),
@@ -81,7 +52,9 @@ const usersController = {
 	},
 
 	perfil: (req, res) => {
-		res.render('./users/perfil');
+		obtenerTablaPais().then((paises) => {
+			res.render('./users/perfil', { paises });
+		});
 	},
 
 	editar: (req, res) => {
@@ -134,39 +107,18 @@ const usersController = {
 		}
 	},
 
+	//Listo
 	registro: (req, res) => {
-		res.render('./users/registro');
-
-		// paisService.llamarTabla.then((paises) =>{
-		// 	res.render('./users/registro', {paises});
-		// })
+		obtenerTablaPais().then((paises) => {
+			res.render('./users/registro', { paises });
+		});
 	},
 
+	//Listo
 	crear: (req, res) => {
 		let errors = validationResult(req);
 		if (errors.isEmpty()) {
-
-			//TODO: Quitar codigo al subir registros al servidor
-			let newUser = {
-				id: users[users.length - 1].id + 1,
-				email: req.body.correo.trim(),
-				name: req.body.nombre.trim(),
-				tel: req.body.telefono.trim(),
-				password: bcryptjs.hashSync(req.body.password.trim(), 12),
-				address: req.body.direccion.trim(),
-				country: req.body.pais.trim(),
-				img: req.file ? req.file.filename : 'default.png',
-				admin: 0
-			};
-			users.push(newUser);
-			fs.writeFileSync(
-				path.join(__dirname, '/../data/users.json'),
-				JSON.stringify(users, null, ' '),
-				'utf-8'
-			);
-			//TODO
-
-			// usersService.crearUsuario(req.body, req.file.filename, 0);
+			usersService.crearUsuario(req.body, 0);
 			res.redirect('/');
 		} else {
 			res.render('./users/registro', {
@@ -177,7 +129,6 @@ const usersController = {
 	},
 
 	delete: (req, res) => {
-
 		//TODO: Quitar codigo al subir registros al servidor
 		let idUser = req.params.id;
 		let newUsers = users.filter((u) => u.id != idUser);

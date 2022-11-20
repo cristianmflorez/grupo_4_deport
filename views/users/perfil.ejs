@@ -6,31 +6,37 @@
 
 		<main class="container">
 			<h2 class="p-3 text-center">Perfil</h2>
-			<form action="/users/perfil/<%= locals.userLogged.id %>?_method=put" method="post" enctype="multipart/form-data">
+			<form
+				action="/users/perfil/<%= locals.userLogged.idUsuarios %>?_method=put"
+				method="post"
+				enctype="multipart/form-data"
+			>
 				<% if (locals.userLogged) { %>
-					<div class="mb-3 text-center">
-						<img src="/imagenes/users/<%= locals.userLogged.img %>" alt="imagen de perfil" class="img-thumbnail w-25 h-25">
-					</div>
-					<div class="mb-3 text-center">
-						<label for="avatar" class="form-label text-primary">
-							<strong>Imagen (opcional)</strong>
-						</label>
-						<input
-							id="avatar"
-							type="file"
-							name="avatar"
-							class="form-control w-25 mx-auto"
-							aria-label="file example"
-						/>
-						<% if (locals.errors && errors.avatar) { %>
-							<p style="color: red">
-								<%= errors.avatar.msg %> 
-							</p>
-						<% } %>
-					</div>
+				<div class="mb-3 text-center">
+					<img
+						src="/imagenes/users/<%= locals.userLogged.imagen %>"
+						alt="imagen de perfil"
+						class="img-thumbnail w-25 h-25"
+					/>
+				</div>
+				<div class="mb-3 text-center">
+					<label for="avatar" class="form-label text-primary">
+						<strong>Imagen (opcional)</strong>
+					</label>
+					<input
+						id="avatar"
+						type="file"
+						name="avatar"
+						class="form-control w-25 mx-auto"
+						aria-label="file example"
+					/>
+					<% if (locals.errors && errors.avatar) { %>
+					<p style="color: red"><%= errors.avatar.msg %></p>
+					<% } %>
+				</div>
 				<% } %>
 
-                <div class="mb-3">
+				<div class="mb-3">
 					<label for="nombre" class="form-label text-primary"
 						><strong>Nombre completo</strong></label
 					>
@@ -38,12 +44,9 @@
 						type="text"
 						class="form-control <%= (locals.errors && errors.nombre) ? 'is-invalid' : null %>"
 						id="nombre"
-                        <% if (locals.userLogged) { %>
-                            value="<%= locals.userLogged.name %> "
-                        <% } else { %>  
-                            value="<%= locals.oldData && oldData.nombre ? oldData.nombre : null %>"
-                        <% } %>
+						placeholder="Nombre Apellido"
 						name="nombre"
+						value="<%= locals.userLogged.nombre %>"
 					/>
 					<% if (locals.errors && errors.nombre) { %>
 						<p style="color: red">
@@ -60,12 +63,9 @@
 						type="text"
 						class="form-control <%= (locals.errors && errors.correo) ? 'is-invalid' : null %>"
 						id="correo"
-                        <% if (locals.userLogged) { %>
-                            value="<%= locals.userLogged.email %> "
-                        <% } else { %>  
-						    value="<%= locals.oldData && oldData.correo ? oldData.correo : null %>"
-                        <% } %>
-                        name="correo"
+						placeholder="test@gmail.com"
+						name="correo"
+						value="<%= locals.userLogged.email %>"
 					/>
 					<% if (locals.errors && errors.correo) { %>
 						<p style="color: red">
@@ -76,18 +76,15 @@
 
 				<div class="mb-3">
 					<label for="telefono" class="form-label text-primary"
-						><strong>Teléfono</strong></label
-					>
+						><strong>Teléfono</strong>
+					</label>
 					<input
 						type="tel"
 						class="form-control <%= (locals.errors && errors.telefono) ? 'is-invalid' : null %>"
 						id="telefono"
-                        <% if (locals.userLogged) { %>
-                            value="<%= locals.userLogged.tel %> "
-                        <% } else { %>
-						    value="<%= locals.oldData && oldData.telefono ? oldData.telefono : null %>"
-                        <% } %> 
-                        name="telefono"
+						placeholder="1112341234"
+						name="telefono"
+						value="<%= locals.oldData && oldData.telefono ? oldData.telefono : null %>"
 					/>
 					<% if (locals.errors && errors.telefono) { %>
 						<p style="color: red">
@@ -98,19 +95,15 @@
 
 				<div class="mb-3">
 					<label for="direccion" class="form-label text-primary"
-						><strong>Dirección</strong></label
-					>
+						><strong>Dirección</strong>
+					</label>
 					<input
 						type="text"
 						class="form-control <%= (locals.errors && errors.direccion) ? 'is-invalid' : null %>"
 						id="direccion"
-						minlength="4"
-                        <% if (locals.userLogged) { %>
-                            value="<%= locals.userLogged.address %> "
-                        <% } else { %>
-						    value="<%= locals.oldData && oldData.direccion ? oldData.direccion : null %>"
-                        <% } %> 
-                        name="direccion"
+						placeholder="calle 123, ciudad"
+						name="direccion"
+						value="<%= locals.userLogged.direccion %>"
 					/>
 					<% if (locals.errors && errors.direccion) { %>
 						<p style="color: red">
@@ -119,36 +112,32 @@
 					<% } %>
 				</div>
 
-                <div class="mb-3">
+				<div class="mb-3">
 					<label for="correo" class="form-label text-primary"
-						><strong>País</strong></label
-					>
+						><strong>País</strong>
+					</label>
 					<select
 						class="form-select <%= (locals.errors && errors.pais) ? 'is-invalid' : null %>"
 						aria-label="Default select example"
 						name="pais"
 					>
 						<option disabled>Tu ubicación</option>
-						<option value="Argentina" <%= locals.userLogged.country == "Argentina"? "selected" : "" %> >Argentina</option>
-						<option value="Bolivia" <%= locals.userLogged.country == "Bolivia"? "selected" : "" %> >Bolivia</option>
-						<option value="Brazil" <%= locals.userLogged.country == "Brazil"? "selected" : "" %> >Brasil</option>
-						<option value="Chile" <%= locals.userLogged.country == "Chile"? "selected" : "" %> >Chile</option>
-						<option value="Colombia" <%= locals.userLogged.country == "Colombia"? "selected" : "" %> >Colombia</option>
-						<option value="Ecuador" <%= locals.userLogged.country == "Ecuador"? "selected" : "" %> >Ecuador</option>
-						<option value="Paraguay" <%= locals.userLogged.country == "Paraguay"? "selected" : "" %> >Paraguay</option>
-						<option value="Peru" <%= locals.userLogged.country == "Peru"? "selected" : "" %> >Perú</option>
-						<option value="Uruguay" <%= locals.userLogged.country == "Uruguay"? "selected" : "" %> >Uruguay</option>
-						<option value="Venezuela" <%= locals.userLogged.country == "Venezuela"? "selected" : "" %> >Venezuela</option>
+						<% for ( let p of paises) { %>
+							<option value="<%= p.idPaises %>"
+								<%= locals.userLogged.pais == p.idPaises ? "selected" : "" %>
+								> <%= p.nombre %>
+							</option>
+						<% } %>
 					</select>
 				</div>
-                
+
 				<div class="mb-3 d-flex justify-content-between">
 					<a href="/" class="btn btn-secondary col-4">Volver</a>
 					<button type="submit" class="btn btn-secondary col-4">Guardar</button>
 				</div>
 			</form>
 			<form
-				action="/users/delete/<%= locals.userLogged.id %>?_method=delete"
+				action="/users/delete/<%= locals.userLogged.idUsuarios %>?_method=delete"
 				method="post"
 				class="mb-3 d-flex justify-content-end"
 			>

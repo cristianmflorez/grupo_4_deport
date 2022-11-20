@@ -1,9 +1,7 @@
 const db = require('../database/models');
 
-const categoriaService = {
-    llamarTabla: () => {
-		db.Categoria.findAll();
-	}
-}
+function obtenerTablaCategoria() {
+	return db.Categoria.findAll();
+};
 
-module.exports = categoriaService;
+module.exports = obtenerTablaCategoria;

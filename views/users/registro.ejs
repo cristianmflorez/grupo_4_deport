@@ -149,12 +149,11 @@
 						id="pais"
 					>
 						<option disabled selected>Tu ubicación</option>
-						<% let paises = ['Argentina', 'Bolivia', ' Brazil', 'Chile', 'Colombia', 'Ecuador', 'Paraguay', 'Peru', 'Uruguay', 'Venezuela'] %> 
-						<% for (const p of paises) { %>
+						<% for (let p of paises) { %>
 							<option
-								value="<%= p %>"
-								<%= locals.oldData && (p === oldData.pais) ? 'selected' : null %> 
-							> <%= p  %> 
+								value="<%= p.idPaises %>"
+								<%= locals.oldData && (p.idPaises === oldData.pais) ? 'selected' : null %> 
+							> <%= p.nombre  %> 
 							</option>
 						<% } %>  
 					</select>

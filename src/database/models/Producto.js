@@ -5,7 +5,7 @@ module.exports = (sequelize, Datatypes) => {
 			idProductos: {
 				type: Datatypes.INTEGER,
 				primaryKey: true,
-				autoIncrement: true
+				autoIncrement: true,
 			},
 			nombre: { type: Datatypes.STRING(100) },
 			precio: { type: Datatypes.FLOAT },
