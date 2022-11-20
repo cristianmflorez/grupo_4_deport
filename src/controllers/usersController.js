@@ -4,10 +4,7 @@ const fs = require('fs');
 const bcryptjs = require('bcryptjs');
 const obtenerTablaPais = require('../service/paisService');
 
-//importar modelo usuarios
-const User = require('../../models/User');
 const { localsName } = require('ejs');
-
 const { validationResult } = require('express-validator');
 const usersService = require('../service/usersService');
 const paisService = require('../service/paisService');
