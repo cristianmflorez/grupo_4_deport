@@ -11,7 +11,6 @@
 				method="post"
 				enctype="multipart/form-data"
 			>
-				<% if (locals.userLogged) { %>
 				<div class="mb-3 text-center">
 					<img
 						src="/imagenes/users/<%= locals.userLogged.imagen %>"
@@ -31,10 +30,9 @@
 						aria-label="file example"
 					/>
 					<% if (locals.errors && errors.avatar) { %>
-					<p style="color: red"><%= errors.avatar.msg %></p>
+						<p style="color: red"><%= errors.avatar.msg %></p>
 					<% } %>
 				</div>
-				<% } %>
 
 				<div class="mb-3">
 					<label for="nombre" class="form-label text-primary"
@@ -84,7 +82,7 @@
 						id="telefono"
 						placeholder="1112341234"
 						name="telefono"
-						value="<%= locals.oldData && oldData.telefono ? oldData.telefono : null %>"
+						value="<%= locals.userLogged.telefono %>"
 					/>
 					<% if (locals.errors && errors.telefono) { %>
 						<p style="color: red">

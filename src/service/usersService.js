@@ -14,31 +14,32 @@ function buscarUsuarioId(id) {
 }
 
 function crearUsuario(datos, administrador) {
+	let foto = 'default.png';
+	datos.avatar ? foto = datos.avatar : '';
 	return db.Usuario.create({
 		nombre: datos.nombre.trim(),
 		email: datos.correo.trim(),
 		telefono: datos.telefono.trim(),
 		password: bcryptjs.hashSync(datos.password.trim(), 12),
 		direccion: datos.direccion.trim(),
-		imagen: datos.foto,
+		imagen: foto,
 		admin: administrador,
 		Paises_idPaises: datos.pais
 	});
 }
 
 function borrarUsuario(id) {
-	db.Usuario.destroy({
+	return db.Usuario.destroy({
 		where: { idUsuarios: id }
 	});
 }
 
 function editarUsuario(id, datos, foto) {
-	db.Usuario.update(
+	return db.Usuario.update(
 		{
 			nombre: datos.nombre.trim(),
 			email: datos.correo.trim(),
 			telefono: datos.telefono.trim(),
-			password: bcryptjs.hashSync(datos.password.trim(), 12),
 			direccion: datos.direccion.trim(),
 			imagen: foto,
 			Paises_idPaises: datos.pais
