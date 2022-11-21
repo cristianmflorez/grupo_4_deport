@@ -1,13 +1,9 @@
-const users = require('./../data/users.json');
-const path = require('path');
 const fs = require('fs');
 const bcryptjs = require('bcryptjs');
 const obtenerTablaPais = require('../service/paisService');
 
-const { localsName } = require('ejs');
 const { validationResult } = require('express-validator');
 const usersService = require('../service/usersService');
-const paisService = require('../service/paisService');
 
 const usersController = {
 	login: (req, res) => {

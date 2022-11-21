@@ -1,6 +1,5 @@
 const { body } = require('express-validator');
 const path = require('path');
-const User = require('../../models/User');
 const usersService = require('../service/usersService');
 
 const validacionesRegistro = [
