@@ -1,4 +1,4 @@
-const productsService = require('./service/productsService');
+import * as productsService from '../service/productsService';
 
 const mainController = {
 	home: (req, res) => {
