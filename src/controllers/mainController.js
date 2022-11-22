@@ -1,8 +1,8 @@
-import { buscarTodosProductos } from '../service/productsService';
+const productsService = require('../service/productsService');
 
 const mainController = {
 	home: (req, res) => {
-		buscarTodosProductos().then((productos) => {
+		productsService.buscarTodosProductos().then((productos) => {
 			res.render('home', { products: productos });
 		});
 	},
@@ -12,4 +12,4 @@ const mainController = {
 	}
 };
 
-export default mainController;
+module.exports = mainController;
