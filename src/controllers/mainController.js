@@ -1,4 +1,4 @@
-import * as productsService from '../service/productsService';
+import * as productsService from '../service/productsService.js';
 
 const mainController = {
 	home: (req, res) => {
