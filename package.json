@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Proyecto integrador curso Full stack DH",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon ./src/app.js"
   },
@@ -31,6 +32,5 @@
     "nodemon": "^2.0.19",
     "sequelize": "^6.25.5",
     "sequelize-cli": "^6.5.2"
-  },
-  "type": "module"
+  }
 }
