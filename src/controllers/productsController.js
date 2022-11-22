@@ -5,7 +5,7 @@ const productsFilePath = path.join(__dirname, '../data/productsJSON.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const { validationResult } = require('express-validator');
 
-const productsService = require('./../service/productsService');
+const productsService = require('../service/productsService');
 const producto_paisService = require('../service/producto_paisService');
 const obtenerTablaPais = require('../service/paisService');
 const obtenerTablaTipo = require('../service/tipoService');
