@@ -13,7 +13,6 @@ const obtenerTablaColor = require('../service/colorService');
 const obtenerTablaCategoria = require('../service/categoriaService');
 
 const productsController = {
-	//Listo
 	creacionProducto: (req, res) => {
 		let paises = obtenerTablaPais();
 		let colores = obtenerTablaColor();
@@ -35,7 +34,6 @@ const productsController = {
 		});
 	},
 
-	//Listo
 	crear: (req, res) => {
 		let errors = validationResult(req);
 		if (errors.isEmpty()) {
@@ -72,7 +70,6 @@ const productsController = {
 		}
 	},
 
-	//Listo DB falta Trello
 	detalle: (req, res) => {
 		let rand1 = Math.floor(Math.random() * products.length);
 		let rValue1 = products[rand1];
@@ -91,7 +88,6 @@ const productsController = {
 		});
 	},
 
-	//Listo falta imagen default
 	edicionProducto: (req, res) => {
 		let productoEditar = productsService.buscarProductoId(req.params.id);
 		let relacionProductoPais =
@@ -127,7 +123,6 @@ const productsController = {
 		});
 	},
 
-	//Listo falta imagen default
 	editar: (req, res) => {
 		let errors = validationResult(req);
 		if (errors.isEmpty()) {
@@ -162,7 +157,6 @@ const productsController = {
 		}
 	},
 
-	//Listo
 	listadoProductos: (req, res) => {
 		let listado = productsService.buscarProductoCategoria(req.params.categoria);
 		let paises = obtenerTablaPais();
@@ -185,7 +179,6 @@ const productsController = {
 		});
 	},
 
-	//Listo
 	delete: (req, res) => {
 		producto_paisService.eliminarRelacionProductoPais(req.params.id);
 		setTimeout(() => {
