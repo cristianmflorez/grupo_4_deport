@@ -1,4 +1,4 @@
-const productsService = require('../service/productsService');
+const productsService = require('../service/ProductsService.mjs');
 
 const mainController = {
 	home: (req, res) => {
