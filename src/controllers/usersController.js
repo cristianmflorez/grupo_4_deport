@@ -50,13 +50,14 @@ const usersController = {
 		}
 	},
 
-	perfil: (req, res) => {
+	perfil:  (req, res) => {
 		obtenerTablaPais().then((paises) => {
+			console.log(req.session.userLogged);
 			res.render('./users/perfil', { paises });
 		});
 	},
 
-	editar: (req, res) => {
+	editar: async (req, res) => {
 		let errors = validationResult(req);
 		if (errors.isEmpty()) {
 			usersService.buscarUsuarioId(req.params.id).then((usuario) => {
@@ -67,11 +68,9 @@ const usersController = {
 				}
 			});
 			if (req.file) {
-				usersService
-					.editarUsuarioConImagen(req.params.id, req.body, req.file.filename)
-					.then((usuario) => {
-						req.session.userLogged = usuario;
-					});
+				await usersService
+					.editarUsuarioConImagen(req.params.id, req.body, req.file.filename);
+				req.session.userLogged.imagen = req.file.filename;
 			} else {
 				usersService.editarUsuarioSinImagen(req.params.id, req.body);
 			}
