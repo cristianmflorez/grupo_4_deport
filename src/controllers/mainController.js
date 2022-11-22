@@ -1,10 +1,10 @@
-const productsService = require('./../service/productsService');
+//const productsService = require('./../service/productsService');
 
 const mainController = {
 	home: (req, res) => {
-		productsService.buscarTodosProductos().then((productos) => {
-			res.render('home', { products: productos });
-		});
+		//productsService.buscarTodosProductos().then((productos) => {
+			res.render('home'/*, { products: productos }*/);
+		//});
 	},
 
 	carrito: (req, res) => {
