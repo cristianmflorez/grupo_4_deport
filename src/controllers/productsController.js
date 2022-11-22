@@ -13,6 +13,7 @@ const obtenerTablaColor = require('../service/colorService');
 const obtenerTablaCategoria = require('../service/categoriaService');
 
 const productsController = {
+
 	creacionProducto: (req, res) => {
 		let paises = obtenerTablaPais();
 		let colores = obtenerTablaColor();
