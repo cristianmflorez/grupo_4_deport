@@ -84,7 +84,7 @@ function editarProducto(id, datos, foto) {
 	);
 }
 
-module.exports = {
+exports = {
 	buscarTodosProductos,
 	crearProducto,
 	buscarProductoId,
