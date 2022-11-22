@@ -1,5 +1,5 @@
 function AdminMiddleware(req, res, next) {
-	if (req.session.userLogged == null || req.session.userLogged.admin !== 1) {
+	if (req.session.userLogged == null || req.session.userLogged.admin == 0) {
 		return res.redirect('../../');
 	}
 	next();

@@ -1,136 +1,131 @@
-const users = require('./../data/users.json');
-const path = require('path');
 const fs = require('fs');
 const bcryptjs = require('bcryptjs');
+const obtenerTablaPais = require('../service/paisService');
 
-//importar modelo usuarios
-const User = require('../../models/User');
-const { localsName } = require('ejs');
+const { validationResult } = require('express-validator');
+const usersService = require('../service/usersService');
 
 const usersController = {
 	login: (req, res) => {
 		res.render('./users/login');
 	},
 
-	//----AÑADÍ NAME A CAMPOS CORREO Y CONTRASEÑA DEL HTML LOGIN ()
 	loginProcess: (req, res) => {
-		let userToLogin = User.findByField('email', req.body.correo);
+		let userToLogin = usersService.buscarUsuarioEmail(req.body.correo.trim());
+		let errors = validationResult(req);
+		if (errors.isEmpty()) {
+			userToLogin.then((usuario) => {
+				if (usuario) {
+					let isOkThePassword = bcryptjs.compareSync(
+						req.body.password.trim(),
+						usuario.password
+					);
+					if (isOkThePassword) {
+						delete usuario.password;
+						req.session.userLogged = usuario;
 
-		if (userToLogin) {
-			/*-----cuando esté hasheado el password
-			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
-			if (isOkThePassword) {
-				delete userToLogin.password;
-				req.session.userLogged = userToLogin;
-
-				return res.redirect('/users/perfil');
-			} 
-			-------------------*/
-
-			//para borrar cuando esté hasheado
-			if (req.body.password === userToLogin.password) {
-				delete userToLogin.password;
-				req.session.userLogged = userToLogin;
-
-				if(req.body.remember_user) {
-					res.cookie('userEmail', req.body.email, {maxAge: 60*60*24*30 }) //30 dias
+						return res.redirect('/');
+					} else {
+						return res.render('./users/login', {
+							errors: {
+								password: {
+									msg: 'Credenciales inválidas'
+								}
+							},
+							oldData: req.body
+						});
+					}
+				} else {
+					res.render('./users/login', {
+						errors: errors.mapped(),
+						oldData: req.body
+					});
 				}
-
-				return res.redirect('/');
-			}
-			//---------------------------------
-
-			//si la contraseña es incorrecta - COMPLEMENTAR CON VALIDACIONES
-			return res.render('./users/login');
+			});
+		} else {
+			res.render('./users/login', {
+				errors: errors.mapped(),
+				oldData: req.body
+			});
 		}
-
-		//si el correo es incorrecto - COMPLEMENTAR CON VALIDACIONES
-		return res.render('./users/login');
 	},
 
-	perfil: (req, res) => {
-		res.render('./users/perfil');
+	perfil:  (req, res) => {
+		obtenerTablaPais().then((paises) => {
+			console.log(req.session.userLogged);
+			res.render('./users/perfil', { paises });
+		});
 	},
 
-	editar: (req, res) => {
-		let imagenAntigua;
-		let idUser = req.params.id;
-		for (const u of users) {
-			if(u.id == idUser){
-				imagenAntigua = u.img;
-	
-				u.name = req.body.nombre;
-				u.email = req.body.correo;
-				u.tel = req.body.telefono;
-				u.address = req.body.direccion;
-				u.country = req.body.pais;
-				u.img = req.file ? req.file.filename : u.img;	
+	editar: async (req, res) => {
+		let errors = validationResult(req);
+		if (errors.isEmpty()) {
+			usersService.buscarUsuarioId(req.params.id).then((usuario) => {
+				if (usuario.imagen != 'default.png') {
+					fs.unlinkSync(
+						__dirname + '/../../public/imagenes/users/' + usuario.imagen
+					);
+				}
+			});
+			if (req.file) {
+				await usersService
+					.editarUsuarioConImagen(req.params.id, req.body, req.file.filename);
+				req.session.userLogged.imagen = req.file.filename;
+			} else {
+				usersService.editarUsuarioSinImagen(req.params.id, req.body);
 			}
+			res.redirect('/');
+		} else {
+			obtenerTablaPais().then((paises) => {
+				res.render('./users/perfil', {
+					paises,
+					errors: errors.mapped(),
+					oldData: req.body
+				});
+			});
 		}
-
-		fs.writeFileSync(
-			path.join(__dirname, './../data/users.json'),
-			JSON.stringify(users, null, ' '),
-			'utf-8'
-		);
-
-		if (imagenAntigua && imagenAntigua != 'default.png') {
-			fs.unlinkSync(
-				__dirname + '/../../public/imagenes/users/' + imagenAntigua
-			);
-		}
-
-		req.session.userLogged = User.findByPk(idUser);
-
-		res.redirect('/');
 	},
 
 	registro: (req, res) => {
-		res.render('./users/registro');
+		obtenerTablaPais().then((paises) => {
+			res.render('./users/registro', { paises });
+		});
 	},
 
 	crear: (req, res) => {
-		let newUser = {
-			id: users[users.length - 1].id + 1,
-			email: req.body.correo,
-			name: req.body.nombre,
-			tel: req.body.telefono,
-			password: bcryptjs.hashSync(req.body.password, 12),
-			address: req.body.direccion,
-			country: req.body.pais,
-			img: 'default.png',
-
-			//Campo para definir si es admin o no
-			admin: 0
-		};
-		users.push(newUser);
-		fs.writeFileSync(
-			path.join(__dirname, '/../data/users.json'),
-			JSON.stringify(users, null, ' '),
-			'utf-8'
-		);
-		res.redirect('/');
+		let errors = validationResult(req);
+		if (errors.isEmpty()) {
+			if (req.file) {
+				usersService.crearUsuarioConImagen(req.body, 0, req.file.filename);
+			} else {
+				usersService.crearUsuarioSinImagen(req.body, 0);
+			}
+			res.redirect('/');
+		} else {
+			obtenerTablaPais().then((paises) => {
+				res.render('./users/registro', {
+					paises,
+					errors: errors.mapped(),
+					oldData: req.body
+				});
+			});
+		}
 	},
 
 	delete: (req, res) => {
-		let idUser = req.params.id;
-		let newUsers = users.filter((u) => u.id != idUser);
-		let deleteImg = '';
-		for (u in users) {
-			if (u.id == idUser && u.img != 'default.png') {
-				deleteImg = u.img;
-				break;
+		usersService.buscarUsuarioId(req.params.id).then((usuario) => {
+			if (usuario.imagen != 'default.png') {
+				fs.unlinkSync(
+					__dirname + '/../../public/imagenes/users/' + usuario.imagen
+				);
 			}
-		}
-		fs.writeFileSync(
-			path.join(__dirname, '/../data/users.json'),
-			JSON.stringify(newUsers, null, ' '),
-			'utf-8'
-		);
-		if (deleteImg != '') {
-			fs.unlinkSync(__dirname + '/../../public/imagenes/users/' + deleteImg);
-		}
-		res.redirect('/');
+		});
+		setTimeout(() => {
+			usersService.borrarUsuario(req.params.id);
+		}, '1000');
+		res.clearCookie('userEmail');
+		req.session.destroy();
+		return res.redirect('/');
 	},
 
 	logout: (req, res) => {

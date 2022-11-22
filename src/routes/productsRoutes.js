@@ -5,13 +5,16 @@ const uploadFile = require('./../middleware/multerProducts');
 
 const adminMiddleware = require('./../middleware/adminMiddleware');
 
+const {validacionesCreacionProducto, validacionesEdicionProducto} = require('../middleware/productsValidations');
+
+
 router.get('/listadoProductos/:categoria', productsController.listadoProductos);
 
 //Crear producto
 
 router.get('/creacionProducto', adminMiddleware, productsController.creacionProducto);
 
-router.post('/creacionProducto', uploadFile.single('image'), productsController.crear);
+router.post('/creacionProducto', uploadFile.single('image'), validacionesCreacionProducto, productsController.crear);
 
 //Detalle producto
 
@@ -21,7 +24,7 @@ router.get('/detalle/:id', productsController.detalle);
 
 router.get('/edicionProducto/:id', adminMiddleware, productsController.edicionProducto);
 
-router.put('/edicionProducto/:id', uploadFile.single('image'), productsController.editar);
+router.put('/edicionProducto/:id', uploadFile.single('image'), validacionesEdicionProducto, productsController.editar);
 
 //Eliminar producto
 

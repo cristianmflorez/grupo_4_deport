@@ -5,150 +5,240 @@
 		<%-include('../partials/header') %> <%-include('../partials/nav') %>
 
 		<main class="d-flex justify-content-around mx-auto flex-wrap">
-			<form class="w-75" action="<%=producto.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
-				<h2 class="p-3 text-center">Editar: <%=producto.name%></h2>
+			<form class="w-75" action="<%=producto.idProductos%>?_method=PUT" method="POST" enctype="multipart/form-data">
+				<h2 class="p-3 text-center">Editar: <%=producto.nombre%></h2>
 
 				<div class="mb-3">
-					<label for="titleArticle" class="form-label text-primary"
+					<label for="name" class="form-label text-primary"
 						><strong>Nombre/Referencia del artículo</strong></label
 					>
 					<input
 						type="text"
 						name="name"
-						class="form-control"
-						id="titleArticle"
-						value="<%=producto.name%>"
-						required
-					>
+						class="form-control <%= (locals.errors && errors.name) ? 'is-invalid' : null %>"
+						id="name"
+						value="<%= (locals.errors && errors.name) ? oldData.name : producto.nombre %>"
+					/>
+					<% if (locals.errors && errors.name) { %>
+						<p style="color: red">
+							<%= errors.name.msg %> 
+						</p>
+					<% } %>
 				</div>
 
 				<div class="mb-3 d-flex justify-content-between flex-column flex-sm-row">
 					<div>
-						<label for="priceArticle" class="form-label text-primary">
+						<label for="price" class="form-label text-primary">
 							<strong>Precio $</strong>
 						</label>
-					<input
-						type="number"
-						name="price"
-						class="form-control"
-						id="priceArticle"
-						value="<%=producto.price%>"
-						required
+						<input
+							type="number"
+							name="price"
+							class="form-control <%= (locals.errors && errors.price) ? 'is-invalid' : null %>"
+							id="price"
+							value="<%= (locals.errors && errors.price) ? oldData.price : producto.precio %>"
 						/>
+						<% if (locals.errors && errors.price) { %>
+							<p style="color: red">
+								<%= errors.price.msg %> 
+							</p>
+						<% } %>
 					</div>
 					<div>
-						<label for="nameArticle" class="form-label text-primary">
+						<label for="discount" class="form-label text-primary">
 							<strong>Descuento %</strong>
 						</label>
 						<input
 							type="number"
 							name="discount"
-							class="form-control"
-							id="nameArticle"
-							value="<%=producto.discount%>"
-							required
+							class="form-control <%= (locals.errors && errors.discount) ? 'is-invalid' : null %>"
+							id="discount"
+							value="<%= (locals.errors && errors.discount) ? oldData.discount : producto.descuento %>"
 						/>
+						<% if (locals.errors && errors.discount) { %>
+							<p style="color: red">
+								<%= errors.discount.msg %> 
+							</p>
+						<% } %>
 					</div>
 				</div>
 
 				<div class="mb-3">
-					<label for="descriptionTextarea" class="form-label text-primary">
+					<label for="description" class="form-label text-primary">
 						<strong>Descripción</strong>
 					</label>
 					<textarea
-						class="form-control"
+						type="text"
+						class="form-control <%= (locals.errors && errors.description) ? 'is-invalid' : null %>"
 						name="description"
-						id="descriptionTextarea"
-						required><%=producto.description%></textarea>
+						id="description"						
+					><%= (locals.errors && errors.description) ? oldData.description : producto.descripcion %>
+					</textarea>
+					<% if (locals.errors && errors.description) { %>
+						<p style="color: red">
+							<%= errors.description.msg %> 
+						</p>
+					<% } %>
+				</div>
+
+				<div class="mb-3">
+					<label for="specification" class="form-label text-primary">
+						<strong>Especificaciones</strong>
+					</label>
+					<textarea
+						class="form-control <%= (locals.errors && errors.specification) ? 'is-invalid' : null %>"
+						name="specification"
+						id="specification"
+					><%= locals.oldData && oldData.specification ? oldData.specification : producto.especificacion %>
+					</textarea>
+					<% if (locals.errors && errors.specification) { %>
+						<p style="color: red">
+							<%= errors.specification.msg %> 
+						</p>
+					<% } %>
 				</div>
 
 				<div class="mb-3 d-flex justify-content-between flex-column flex-md-row">
 					<div>
-						<label for="materialArticle" class="form-label text-primary">
-							<strong>Material</strong>
-						</label>
-						<input
-							type="text"
-							name="material"
-							class="form-control"
-							id="materialArticle"
-							value="<%=producto.specifications[0]%>"
-							required
-						/>
-					</div>
-
-					<div>
-						<div>
-							<label for="weightArticle" class="form-label text-primary">
-								<strong>Peso</strong>
-							</label>
-							<input
-								type="text"
-								name="weight"
-								class="form-control"
-								id="weightArticle"
-								value="<%=producto.specifications[1]%>"
-								required
-							/>
-						</div>
-					</div>
-
-					<div>
-						<label for="originArticle" class="form-label text-primary">
-							<strong>Origen</strong>
-						</label>
-						<input
-							type="text"
-							name="origin"
-							class="form-control"
-							id="originArticle"
-							value="<%=producto.specifications[2]%>"
-							required
-						/>
-					</div>
-				</div>
-
-				<div class="mb-3 d-flex justify-content-between flex-column flex-md-row">
-					<div>
-						<label for="" class="form-label text-primary">
+						<label for="category" class="form-label text-primary">
 							<strong>Categoría</strong>
 						</label>
-						<select class="form-select" name="category" required aria-label="select example">
-							<option value="">Selecciona un deporte</option>
-							<option value="futbol" <%=producto.category=="futbol"? "selected" : ""%>> Fútbol</option>
-							<option value="basketball" <%=producto.category=="basketball"? "selected" : ""%>>Basketball</option>
-							<option value="tenis" <%=producto.category=="tenis"? "selected" : ""%>>Tenis</option>
-							<option value="voleyball" <%=producto.category=="voleyball"? "selected" : ""%>>Voleyball</option>
-							<option value="natacion" <%=producto.category=="natacion"? "selected" : ""%>>Natación</option>
-							<option value="Otros" <%=producto.category=="Otros"? "selected" : ""%>>Otros</option>
+						<select 
+							class="form-select <%= (locals.errors && errors.category) ? 'is-invalid' : null %>" 
+							name="category" 
+							aria-label="select example"
+							id="category"
+						>
+							<option disabled selected>Selecciona un deporte</option>
+							<% for (let c of categorias) { %> 
+								<option
+								value="<%= c.idCategorias %>"
+								<%= (locals.oldData && c.idCategorias == oldData.category) || (!(locals.errors && errors.category) && (c.idCategorias == producto.Categorias_idCategorias)) ? 'selected' : null %> 
+								> <%= c.nombre %> 
+								</option>
+							<% } %> 
 						</select>
+						<% if (locals.errors && errors.category) { %>
+							<p style="color: red">
+								<%= errors.category.msg %> 
+							</p>
+						<% } %>
 					</div>
+
 					<div>
-						<label for="" class="form-label text-primary">
+						<label for="type" class="form-label text-primary">
 							<strong>Tipo</strong>
 						</label>
-						<select class="form-select" name="type" required aria-label="select example">
-							<option value="">Selecciona una categoría</option>
-							<option value="vestuario" <%=producto.type=="vestuario"? "selected" : ""%>>Vestuario</option>
-							<option value="zapatillas" <%=producto.type=="zapatillas"? "selected" : ""%>>Zapatillas</option>
-							<option value="implementos" <%=producto.type=="implementos"? "selected" : ""%>>Implementos</option>
+						<select 
+							class="form-select <%= (locals.errors && errors.type) ? 'is-invalid' : null %>" 
+							name="type" 
+							id="type"
+							aria-label="select example"
+						>
+							<option disabled selected>Tipo de producto</option>
+							<% for (let t of tipos) { %> 
+								<option
+								value="<%= t.idTipos %>"
+								<%= (locals.oldData && t.idTipos == oldData.type) || (!(locals.errors && errors.type) && t.idTipos == producto.Tipos_idTipos) ? 'selected' : null %> 
+								> <%= t.nombre %> 
+								</option>
+							<% } %> 
 						</select>
+						<% if (locals.errors && errors.type) { %>
+							<p style="color: red">
+								<%= errors.type.msg %> 
+							</p>
+						<% } %>
 					</div>
 					
 				</div>
 
+				<div class="mb-3 d-flex justify-content-between flex-column flex-sm-row">
+					<div>
+						<label for="cantidad" class="form-label text-primary">
+							<strong>Cantidad</strong>
+						</label>
+						<input
+							type="number"
+							name="cantidad"
+							class="form-control <%= (locals.errors && errors.cantidad) ? 'is-invalid' : null %>"
+							id="cantidad"
+							value="<%= locals.oldData && oldData.cantidad ? oldData.cantidad : producto.cantidad %>"
+						/>
+						<% if (locals.errors && errors.cantidad) { %>
+							<p style="color: red">
+								<%= errors.cantidad.msg %> 
+							</p>
+						<% } %>
+					</div>
+					<div>
+						<label for="talla" class="form-label text-primary">
+							<strong>Talla</strong>
+						</label>
+						<input
+							type="number"
+							name="talla"
+							class="form-control <%= (locals.errors && errors.talla) ? 'is-invalid' : null %>"
+							id="talla"
+							value="<%= locals.oldData && oldData.talla ? oldData.talla : producto.talla %>"
+						/>
+						<% if (locals.errors && errors.talla) { %>
+							<p style="color: red">
+								<%= errors.talla.msg %> 
+							</p>
+						<% } %>
+					</div>
+					<div>
+						<label for="color" class="form-label text-primary">
+							<strong>Color (en inglés)</strong>
+						</label>
+						<select
+							class="form-select <%= (locals.errors && errors.color) ? 'is-invalid' : null %>"
+							aria-label="Default select example"
+							name="color"
+							id="color"
+						>
+							<option disabled selected>Color del producto...</option>
+							<% for (const c of colores) { %>
+								<option
+									value="<%= c.idColores %>"
+									<%= (locals.oldData && (c.idColores == oldData.color)) || (!(locals.errors && errors.type)) && c.idColores == producto.Colores_idColores ? 'selected' : "" %> 
+								> <%= c.nombre %> 
+								</option>
+							<% } %>  
+						</select>
+						<% if (locals.errors && errors.color) { %>
+							<p style="color: red">
+								<%= errors.color.msg %> 
+							</p>
+						<% } %>
+					</div>
+				</div>
+
 				<div class="mb-3">
-					<label for="colorArticle" class="form-label text-primary">
-						<strong>Color (en inglés)</strong>
-					</label>
-					<input
-						type="text"
-						name="color"
-						class="form-control"
-						id="colorArticle"
-						value="<%=producto.color%>"
-						required
-					/>
+					<label for="pais" class="form-label text-primary"
+						><strong>País</strong></label
+					>
+					<select
+						class="form-select <%= (locals.errors && errors.pais) ? 'is-invalid' : null %>"
+						aria-label="Default select example"
+						name="pais"
+						id="pais"
+					>
+						<option disabled selected>Disponible en...</option>
+						<% for (let p of paises) { %>
+							<option
+								value="<%= p.idPaises %>"
+								<%= (locals.oldData && (p.idPaises == oldData.pais)) ||  p.idPaises == relacionProductoPais[0].dataValues.Paises_idPaises ? 'selected' : null %> 
+							> <%= p.nombre %> 
+							</option>
+						<% } %>
+					</select>
+					<% if (locals.errors && errors.pais) { %>
+						<p style="color: red">
+							<%= errors.pais.msg %> 
+						</p>
+					<% } %>
 				</div>
 
 				<div class="mb-3">
@@ -161,6 +251,11 @@
 						class="form-control"
 						aria-label="file example"
 					/>
+					<% if (locals.errors && errors.image) { %>
+						<p style="color: red">
+							<%= errors.image.msg %> 
+						</p>
+					<% } %>
 				</div>
 
 				<div class="d-flex justify-content-between flex-column flex-md-row mt-5">
@@ -168,11 +263,11 @@
 						Editar producto
 					</button>
 					<button class="btn btn-secondary col-3 w-auto mt-2" type="reset">
-						Cancelar
+						Borrar cambios
 					</button>
 				</div>
 			</form>
-			<form action="/products/delete/<%=producto.id%>?_method=delete" method="post" class="w-75 d-flex flex-column flex-md-row">
+			<form action="/products/delete/<%=producto.idProductos%>?_method=delete" method="post" class="w-75 d-flex flex-column flex-md-row">
 				<button type="submit" class="btn btn-danger col-3 w-auto mt-2 mb-5">
 					Eliminar producto
 				</button>
