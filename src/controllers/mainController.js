@@ -1,4 +1,4 @@
-const productsService = require(__dirname + '/../service/productsService');
+const productsService = require(__dirname + '/../service/productsService.js');
 
 const mainController = {
 	home: (req, res) => {
