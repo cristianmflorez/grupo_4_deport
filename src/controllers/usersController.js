@@ -66,11 +66,15 @@ const usersController = {
 					);
 				}
 			});
-			usersService
-				.editarUsuario(req.params.id, req.body, req.file.filename)
-				.then((usuario) => {
-					req.session.userLogged.imagen = usuario.imagen;
-				});
+			if (req.file) {
+				usersService
+					.editarUsuarioConImagen(req.params.id, req.body, req.file.filename)
+					.then((usuario) => {
+						req.session.userLogged = usuario;
+					});
+			} else {
+				usersService.editarUsuarioSinImagen(req.params.id, req.body);
+			}
 			res.redirect('/');
 		} else {
 			obtenerTablaPais().then((paises) => {
@@ -92,7 +96,11 @@ const usersController = {
 	crear: (req, res) => {
 		let errors = validationResult(req);
 		if (errors.isEmpty()) {
-			usersService.crearUsuario(req.body, 0);
+			if (req.file) {
+				usersService.crearUsuarioConImagen(req.body, 0, req.file.filename);
+			} else {
+				usersService.crearUsuarioSinImagen(req.body, 0);
+			}
 			res.redirect('/');
 		} else {
 			obtenerTablaPais().then((paises) => {
