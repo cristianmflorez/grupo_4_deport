@@ -374,15 +374,14 @@
 			<section class="mx-3 w-75 d-md-block">
 				<div class="row">
 					<% if(productos.length < 1){ %>
-
-					<p2 class="my-5">No hay productos que coincidan</p2>
-
+						<p2 class="my-5">No hay productos que coincidan</p2>
 					<% }else{ for (let p of productos) { %>
+
 					<div class="col-12 col-sm-6 col-lg-4 mb-3">
 						<div
 							class="card h-100 shadow m-1 p-0 d-flex justify-content-between"
 						>
-							<a href="../detalle/<%=	p.idProductos %>"
+							<a href="/products/detalle/<%=	p.idProductos %>"
 								><img
 									src="/imagenes/products/<%= p.imagen %>"
 									class="card-img-top"
