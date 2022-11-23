@@ -5,17 +5,19 @@
 		<%-include('../partials/header') %> <%-include('../partials/nav') %>
 
 		<main
-			class="d-flex justify-content-around mx-auto p-3 flex-column"
-			style="background-color: #eee"
+			class="d-flex justify-content-around mx-auto p-3 container-fluid flex-column bg-light"
 		>
-			<section class="d-flex justify-content-evenly">
-				<img
-					src="/imagenes/products/<%= producto.imagen %>"
-					class="w-75"
-					alt= "<%= producto.nombre %>"
-				/>
+			<section class="d-flex justify-content-evenly row flex-wrap  my-2">
+				<div class="col-12 col-md-8 bg-white d-flex justify-content-center">
+					<img
+						src="/imagenes/products/<%= producto.imagen %>"
+						class="m-auto"
+						style = "max-height: 800px;"
+						alt= "<%= producto.nombre %>"
+					/>
+				</div>
 
-				<div>
+				<div class="col-12 col-md-4">
 					<div
 						style="
 							--bs-breadcrumb-divider: url(
@@ -33,24 +35,22 @@
 						</ol>
 					</div>
 	
-					<div class="d-flex justify-content-between align-items-center mb-3">
-						<div class="d-flex justify-content-left align-items-center">
-							<p class="my-0 me-3 fs-2 fw-bold"><%= producto.nombre %></p>
-							<a href="#">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="25"
-									height="25"
-									fill="rgb(255, 240, 0)"
-									class="bi bi-star"
-									viewBox="0 0 16 16"
-								>
-									<path
-										d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"
-									/>
-								</svg>
-							</a>
-						</div>
+					<div class="d-flex justify-content-between align-items-center my-1">
+						<p class="my-0 me-3 fs-2 fw-bold"><%= producto.nombre %></p>
+						<a href="#">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="25"
+								height="25"
+								fill="rgb(255, 240, 0)"
+								class="bi bi-star"
+								viewBox="0 0 16 16"
+							>
+								<path
+									d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"
+								/>
+							</svg>
+						</a>
 						<% if ((locals.isLogged) && (locals.userLogged.admin==1)) { %>
 							<button>
 								<a
@@ -64,8 +64,8 @@
 	
 					<p class="fs-3">$<%= producto.precio - ((producto.precio * producto.descuento) / 100) %></p>
 	
-					<div class="my-5">
-						<div class="text-center">
+					<div class="row">
+						<div class="text-center col-6">
 							<p class="fs-5">Color</p>
 							<ul
 								class="nav justify-content-center align-items-center mx-auto mb-1"
@@ -84,7 +84,7 @@
 							</ul>
 						</div>
 						
-						<div class="text-center">
+						<div class="text-center col-6">
 							<p class="fs-5">Talla</p>
 							<ul
 								class="nav justify-content-center align-items-center mx-auto mb-3"
@@ -118,8 +118,8 @@
 				</div>
 			</section>
 
-			<section class="mb-3">
-				<div class="accordion" id="accordionExample">
+			<section class="my-2 row">
+				<div class="accordion col-12 col-md-6" id="accordionExample">
 					<div class="accordion-item">
 						<h2 class="accordion-header" id="headingOne">
 							<button
@@ -142,6 +142,8 @@
 							<div class="accordion-body"><%= producto.descripcion %></div>
 						</div>
 					</div>
+				</div>
+				<div class="accordion col-12 col-md-6" id="accordionExample">
 					<div class="accordion-item">
 						<h2 class="accordion-header" id="headingTwo">
 							<button
@@ -169,7 +171,7 @@
 				</div>
 			</section>
 
-			<section class="mb-5">
+			<section class="row my-2">
 				<div class="accordion" id="accordionExample">
 					<div class="accordion-item">
 						<h2 class="accordion-header" id="headingThree">
@@ -457,7 +459,30 @@
 				</div>
 			</section>
 
-
+			<% if (random1 && random2 && random1) { %>
+				<section class="row">
+					<p2 class="fs-2 text-center">Tambien te puede interesar...</p2>
+					<div id="carouselExampleSlidesOnly" class="carousel slide col-12 col-md-4 m-auto" data-bs-ride="carousel">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+						<a href="/products/detalle/<%=random1.idProductos%>">
+							<img src="/imagenes/products/<%= random1.imagen %>" class="d-block w-100 img-thumbnail" alt="...">
+						</a>
+						</div>
+						<div class="carousel-item">
+						<a href="/products/detalle/<%=random2.idProductos%>">
+							<img src="/imagenes/products/<%= random2.imagen %>" class="d-block w-100 img-thumbnail" alt="...">
+						</a>
+						</div>
+						<div class="carousel-item">
+						<a href="/products/detalle/<%=random3.idProductos%>">
+							<img src="/imagenes/products/<%= random3.imagen %>" class="d-block w-100 img-thumbnail" alt="...">
+						</a>
+						</div>
+					</div>
+					</div>
+				</section>		
+			<% } %>
 		</main>
 
 		<%-include('../partials/footer') %>

@@ -84,7 +84,7 @@
 				>
 					<h2 class="p-3 w-100">Productos destacados</h2>
 				</div>
-				
+
 				<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 p-3 m-auto">
 					<% for(let p of products) {%>
 
@@ -100,22 +100,28 @@
 							/></a>
 							<div class="card-body" style="max-height: 150px">
 								<h5 class="card-title"><%=p.nombre%></h5>
-								<p class="card-text">$<%=p.precio%></p>
-								<p
-									class="card-text text-success d-flex justify-content-between"
-								>
-									<%=p.descuento%>% OFF
+								<p class="card-text">
+									$<%=p.precio - ((p.precio * p.descuento) / 100)%>
+								</p>
+								<div class="d-flex justify-content-evenly">
+									<p
+										class="card-text text-success d-flex justify-content-between"
+									>
+										<%=p.descuento%>% OFF
+									</p>
+									<p class="text-danger text-decoration-line-through">
+										$<%= p.precio %>
+									</p>
 									<button type="button" class="btn btn-outline-success">
 										Comprar
 									</button>
-								</p>
+								</div>
 							</div>
 						</div>
 					</div>
 
 					<% } %>
 				</div>
-
 			</section>
 
 			<section class="d-none d-md-block p-4 pe-1 m-2">

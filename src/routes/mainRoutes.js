@@ -6,4 +6,6 @@ router.get('/', mainController.home);
 
 router.get('/carrito', mainController.carrito);
 
+router.get('/buscar', mainController.buscar);
+
 module.exports = router;

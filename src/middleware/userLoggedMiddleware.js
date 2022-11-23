@@ -1,18 +1,17 @@
 const usersService = require('../service/usersService');
 
-function userLoggedMiddleware(req, res, next) {
+async function userLoggedMiddleware(req, res, next) {
 	res.locals.isLogged = false;
 
-	let emailInCookie = req.cookies.userEmail;
+	let idInCookie = req.cookies.userId;
 	
-	if (emailInCookie) {
-		usersService.buscarUsuarioEmail(emailInCookie).then((usuario) => {
+	if (idInCookie && req.session.userLogged == undefined) {
+		await usersService.buscarUsuarioId(idInCookie).then((usuario) => {
 			if (usuario) {
 				req.session.userLogged = usuario;
 			}
 		});
 	}
-	
 
 	if (req.session.userLogged) {
 		res.locals.isLogged = true;

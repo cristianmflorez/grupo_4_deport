@@ -23,7 +23,11 @@ const usersController = {
 					if (isOkThePassword) {
 						delete usuario.password;
 						req.session.userLogged = usuario;
-
+						if (req.body.remember_user != undefined) {
+							res.cookie('userId', usuario.idUsuarios, {
+								maxAge: 60000
+							});
+						}
 						return res.redirect('/');
 					} else {
 						return res.render('./users/login', {
@@ -50,9 +54,8 @@ const usersController = {
 		}
 	},
 
-	perfil:  (req, res) => {
+	perfil: (req, res) => {
 		obtenerTablaPais().then((paises) => {
-			console.log(req.session.userLogged);
 			res.render('./users/perfil', { paises });
 		});
 	},
@@ -68,8 +71,11 @@ const usersController = {
 				}
 			});
 			if (req.file) {
-				await usersService
-					.editarUsuarioConImagen(req.params.id, req.body, req.file.filename);
+				await usersService.editarUsuarioConImagen(
+					req.params.id,
+					req.body,
+					req.file.filename
+				);
 				req.session.userLogged.imagen = req.file.filename;
 			} else {
 				usersService.editarUsuarioSinImagen(req.params.id, req.body);
@@ -112,24 +118,22 @@ const usersController = {
 		}
 	},
 
-	delete: (req, res) => {
-		usersService.buscarUsuarioId(req.params.id).then((usuario) => {
+	delete: async (req, res) => {
+		await usersService.buscarUsuarioId(req.params.id).then((usuario) => {
 			if (usuario.imagen != 'default.png') {
 				fs.unlinkSync(
 					__dirname + '/../../public/imagenes/users/' + usuario.imagen
 				);
 			}
 		});
-		setTimeout(() => {
-			usersService.borrarUsuario(req.params.id);
-		}, '1000');
-		res.clearCookie('userEmail');
+		usersService.borrarUsuario(req.params.id);
+		res.clearCookie('userId');
 		req.session.destroy();
 		return res.redirect('/');
 	},
 
 	logout: (req, res) => {
-		res.clearCookie('userEmail');
+		res.clearCookie('userId');
 		req.session.destroy();
 		return res.redirect('/');
 	}

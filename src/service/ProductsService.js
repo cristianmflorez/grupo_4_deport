@@ -1,4 +1,5 @@
 const db = require('../database/models');
+const Op = db.Sequelize.Op;
 
 function buscarTodosProductos() {
 	return db.Producto.findAll();
@@ -63,7 +64,7 @@ function borrarProducto(id) {
 	});
 }
 
-function editarProducto(id, datos, foto) {
+function editarProductoConImagen(id, datos, foto) {
 	return db.Producto.update(
 		{
 			nombre: datos.name.trim(),
@@ -84,11 +85,52 @@ function editarProducto(id, datos, foto) {
 	);
 }
 
+function editarProductoSinImagen(id, datos) {
+	return db.Producto.update(
+		{
+			nombre: datos.name.trim(),
+			precio: parseInt(datos.price.trim()),
+			descripcion: datos.description.trim(),
+			especificacion: datos.specification.trim(),
+			descuento: parseInt(datos.discount.trim()),
+			cantidad: datos.cantidad.trim(),
+			talla: datos.talla.trim(),
+			Categorias_idCategorias: datos.category,
+			Tipos_idTipos: datos.type,
+			Colores_idColores: datos.color
+		},
+		{
+			where: { idProductos: id }
+		}
+	);
+}
+
+function buscarProductoRandom(id1, id2, id3) {
+	return db.Producto.findOne({
+		where: {
+			idProductos: {
+				[Op.and]: [{ [Op.ne]: id1 }, { [Op.ne]: id2 }, { [Op.ne]: id3 }]
+			}
+		}
+	});
+}
+
+function buscarProductoNombre(nombre) {
+	return db.Producto.findAll({
+		where: {
+			nombre: { [Op.like]: '%' + nombre + '%' }
+		}
+	});
+}
+
 module.exports = {
 	buscarTodosProductos,
 	crearProducto,
 	buscarProductoId,
 	buscarProductoCategoria,
 	borrarProducto,
-	editarProducto
+	editarProductoConImagen,
+	editarProductoSinImagen,
+	buscarProductoRandom,
+	buscarProductoNombre
 };

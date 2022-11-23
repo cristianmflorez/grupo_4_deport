@@ -1,8 +1,4 @@
-const path = require('path');
 const fs = require('fs');
-
-const productsFilePath = path.join(__dirname, '../data/productsJSON.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const { validationResult } = require('express-validator');
 
 const productsService = require('../service/ProductsService.js');
@@ -13,7 +9,6 @@ const obtenerTablaColor = require('../service/colorService');
 const obtenerTablaCategoria = require('../service/categoriaService');
 
 const productsController = {
-
 	creacionProducto: (req, res) => {
 		let paises = obtenerTablaPais();
 		let colores = obtenerTablaColor();
@@ -35,10 +30,10 @@ const productsController = {
 		});
 	},
 
-	crear: (req, res) => {
+	crear: async (req, res) => {
 		let errors = validationResult(req);
 		if (errors.isEmpty()) {
-			productsService
+			await productsService
 				.crearProducto(req.body, req.file.filename)
 				.then((ultimoProducto) => {
 					producto_paisService.crearProductoPais(
@@ -71,21 +66,36 @@ const productsController = {
 		}
 	},
 
-	detalle: (req, res) => {
-		let rand1 = Math.floor(Math.random() * products.length);
-		let rValue1 = products[rand1];
-		let rand2 = Math.floor(Math.random() * products.length);
-		let rValue2 = products[rand2];
-		let rand3 = Math.floor(Math.random() * products.length);
-		let rValue3 = products[rand3];
+	detalle: async (req, res) => {
+		let idProducto = req.params.id;
+		let listadoProductos = await productsService.buscarTodosProductos();
+		let producto = await productsService.buscarProductoId(idProducto);
+		let rValue1;
+		let rValue2;
+		let rValue3;
+		if (listadoProductos.length > 3) {
+			rValue1 = await productsService.buscarProductoRandom(
+				idProducto,
+				idProducto,
+				idProducto
+			);
+			rValue2 = await productsService.buscarProductoRandom(
+				idProducto,
+				rValue1.idProductos,
+				idProducto
+			);
+			rValue3 = await productsService.buscarProductoRandom(
+				idProducto,
+				rValue1.idProductos,
+				rValue2.idProductos
+			);
+		}
 
-		productsService.buscarProductoId(req.params.id).then((producto) => {
-			res.render('./products/detalle', {
-				producto: producto,
-				random1: rValue1,
-				random2: rValue2,
-				random3: rValue3
-			});
+		res.render('./products/detalle', {
+			producto: producto,
+			random1: rValue1,
+			random2: rValue2,
+			random3: rValue3
 		});
 	},
 
@@ -124,15 +134,25 @@ const productsController = {
 		});
 	},
 
-	editar: (req, res) => {
+	editar: async (req, res) => {
 		let errors = validationResult(req);
 		if (errors.isEmpty()) {
-			productsService.buscarProductoId(req.params.id).then((producto) => {
-				fs.unlinkSync(
-					__dirname + '/../../public/imagenes/products/' + producto.imagen
+			if (req.file) {
+				await productsService
+					.buscarProductoId(req.params.id)
+					.then((producto) => {
+						fs.unlinkSync(
+							__dirname + '/../../public/imagenes/products/' + producto.imagen
+						);
+					});
+				await productsService.editarProductoConImagen(
+					req.params.id,
+					req.body,
+					req.file.filename
 				);
-			});
-			productsService.editarProducto(req.params.id, req.body, req.body.imagen);
+			} else {
+				productsService.editarProductoSinImagen(req.params.id, req.body);
+			}
 			producto_paisService.editarProductoPais(req.params.id, req.body.pais);
 			res.redirect('/');
 		} else {
@@ -180,18 +200,14 @@ const productsController = {
 		});
 	},
 
-	delete: (req, res) => {
-		producto_paisService.eliminarRelacionProductoPais(req.params.id);
-		setTimeout(() => {
-			productsService.buscarProductoId(req.params.id).then((producto) => {
-				fs.unlinkSync(
-					__dirname + '/../../public/imagenes/products/' + producto.imagen
-				);
-			});
-		}, '1000');
-		setTimeout(() => {
-			productsService.borrarProducto(req.params.id);
-		}, '1000');
+	delete: async (req, res) => {
+		await producto_paisService.eliminarRelacionProductoPais(req.params.id);
+		await productsService.buscarProductoId(req.params.id).then((producto) => {
+			fs.unlinkSync(
+				__dirname + '/../../public/imagenes/products/' + producto.imagen
+			);
+		});
+		await productsService.borrarProducto(req.params.id);
 		res.redirect('/');
 	}
 };

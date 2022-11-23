@@ -68,11 +68,12 @@
 					></a>
 				</li>
 			</ul>
-			<form class="d-flex d-flex justify-content-end" role="search">
+			<form class="d-flex d-flex justify-content-end" role="search" action="/buscar" method="get">
 				<input
 					class="form-control me-2"
 					type="search"
-					placeholder="Buscar"
+					placeholder="Buscar producto"
+					name="producto"
 					aria-label="Search"
 				/>
 				<button class="btn" type="submit">Buscar</button>
@@ -80,36 +81,33 @@
 			<ul
 				class="d-flex d-sm-none justify-content-around navbar-nav w-100 mb-2 mb-lg-0"
 			>
-				
-					<% if (locals.isLogged) { %>
-						<li class="nav-item pt-3">
-							<a
-								href="/users/perfil"
-								class="list-group-item list-group-item-action border border-0 pt-3"
-							>
-								Mi perfil
-							</a>
-						</li>
-						<li class="nav-item pt-3">
-							<a
-								href="/users/logout"
-								class="list-group-item list-group-item-action border border-0 pt-3"
-							>
-								Cerrar sesión
-							</a>
-						</li>
-					<% } else { %>
-						<li class="nav-item pt-3">
-							<a
-								href="/users/login"
-								class="list-group-item list-group-item-action border border-0 pt-1"
-							>
-								Ingresar/Registrarse
-							</a>
-						</li>
-						
-					<% } %>
-
+				<% if (locals.isLogged) { %>
+					<li class="nav-item pt-3">
+						<a
+							href="/users/perfil"
+							class="list-group-item list-group-item-action border border-0 pt-3"
+						>
+							Mi perfil
+						</a>
+					</li>
+					<li class="nav-item pt-3">
+						<a
+							href="/users/logout"
+							class="list-group-item list-group-item-action border border-0 pt-3"
+						>
+							Cerrar sesión
+						</a>
+					</li>
+				<% } else { %>
+					<li class="nav-item pt-3">
+						<a
+							href="/users/login"
+							class="list-group-item list-group-item-action border border-0 pt-1"
+						>
+							Ingresar/Registrarse
+						</a>
+					</li>
+				<% } %>
 			</ul>
 		</div>
 	</div>
