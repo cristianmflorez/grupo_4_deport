@@ -63,14 +63,14 @@ const usersController = {
 	editar: async (req, res) => {
 		let errors = validationResult(req);
 		if (errors.isEmpty()) {
-			usersService.buscarUsuarioId(req.params.id).then((usuario) => {
-				if (usuario.imagen != 'default.png') {
-					fs.unlinkSync(
-						__dirname + '/../../public/imagenes/users/' + usuario.imagen
-					);
-				}
-			});
 			if (req.file) {
+				usersService.buscarUsuarioId(req.params.id).then((usuario) => {
+					if (usuario.imagen != 'default.png') {
+						fs.unlinkSync(
+							__dirname + '/../../public/imagenes/users/' + usuario.imagen
+						);
+					}
+				});
 				await usersService.editarUsuarioConImagen(
 					req.params.id,
 					req.body,
@@ -78,7 +78,7 @@ const usersController = {
 				);
 				req.session.userLogged.imagen = req.file.filename;
 			} else {
-				usersService.editarUsuarioSinImagen(req.params.id, req.body);
+				await usersService.editarUsuarioSinImagen(req.params.id, req.body);
 			}
 			res.redirect('/');
 		} else {
