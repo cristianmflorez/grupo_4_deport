@@ -7,8 +7,6 @@ const cookies = require('cookie-parser');
 const session = require('express-session');
 const userLoggedMiddleware = require('./middleware/userLoggedMiddleware');
 
-const port = process.env.PORT || 3005;
-
 const mainRoutes = require('./routes/mainRoutes');
 const usersRoutes = require('./routes/usersRoutes');
 const productsRoutes = require('./routes/productsRoutes');
@@ -43,6 +41,4 @@ app.use((req, res, next) => {
 	res.status(404).render('errorPage');
 });
 
-app.listen(port, function () {
-	console.log('corriendo en puerto 3005...');
-});
+module.exports = app;
