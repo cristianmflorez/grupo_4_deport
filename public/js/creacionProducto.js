@@ -9,10 +9,18 @@ let cantidad = document.getElementById('cantidad');
 let talla = document.getElementById('talla');
 let color = document.getElementById('color');
 let pais = document.getElementById('pais');
+let avatar = document.getElementById('avatar');
 
 let formulario = document.getElementById('formulario');
 
 let arreglo = [];
+
+avatar.addEventListener("change", function(e){
+    let extension = avatar.value.substring(avatar.value.lastIndexOf('.'), avatar.value.length);
+    if((extension != '.png') && (extension != '.jpg') && (extension != '.jpeg')){
+        swal("Debes seleccionar una imagen en formato .png .jpg o .jpeg: ", "", "warning");
+    }
+})
 
 formulario.addEventListener("submit", function(e){
     e.preventDefault();
@@ -59,6 +67,11 @@ formulario.addEventListener("submit", function(e){
 
     if(pais.value == "0"){
         arreglo.push(" Pais");
+    }
+
+    let extension = avatar.value.substring(avatar.value.lastIndexOf('.'), avatar.value.length);
+    if((extension != '.png') && (extension != '.jpg') && (extension != '.jpeg')){
+        arreglo.push(" Imagen");
     }
 
     if(arreglo.length>0){

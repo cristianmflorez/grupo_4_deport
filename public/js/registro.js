@@ -11,6 +11,13 @@ let formulario = document.getElementById('formulario');
 
 let arreglo = [];
 
+avatar.addEventListener("change", function(e){
+    let extension = avatar.value.substring(avatar.value.lastIndexOf('.'), avatar.value.length);
+    if((extension != '.png') && (extension != '.jpg') && (extension != '.jpeg')){
+        swal("Debes seleccionar una imagen en formato .png .jpg o .jpeg: ", "", "warning");
+    }
+})
+
 formulario.addEventListener("submit", function(e){
     e.preventDefault();
 
@@ -43,13 +50,19 @@ formulario.addEventListener("submit", function(e){
         arreglo.push(" País");
     }
 
+    let extension = avatar.value.substring(avatar.value.lastIndexOf('.'), avatar.value.length);
+    if((extension != '.png') && (extension != '.jpg') && (extension != '.jpeg')){
+        arreglo.push(" Avatar");
+    }
+
     if(arreglo.length>0){
         swal("Debes diligenciar correctamente los campos: "+arreglo, "", "warning");
         arreglo = [];
         return;
     }
 
-    console.log(pais); 
+    
+    console.log(extension);
 
     formulario.submit();
 })
