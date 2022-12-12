@@ -8,7 +8,7 @@
 			<h2 class="p-3 text-center mx-auto" style="max-width: 65vw">
 				Regístrate
 			</h2>
-			<form action="/users/registro" method="POST" enctype="multipart/form-data">
+			<form action="/users/registro" method="POST" enctype="multipart/form-data" id="formulario">
 				<div class="mb-3 mx-auto" style="max-width: 65vw">
 					<label for="nombre" class="form-label text-primary"
 						><strong>Nombre completo</strong></label
@@ -308,5 +308,8 @@
 			dataTransfer.items.add(myFile);
 			fileInput.files = dataTransfer.files;
 		</script>
+
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script src="/js/registro.js"></script>
 	</body>
 </html>

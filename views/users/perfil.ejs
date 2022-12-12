@@ -10,6 +10,7 @@
 				action="/users/perfil/<%= locals.userLogged.idUsuarios %>?_method=put"
 				method="post"
 				enctype="multipart/form-data"
+				id="formulario"
 			>
 				<div class="mb-3 text-center">
 					<img
@@ -146,5 +147,8 @@
 		</main>
 
 		<%- include('./../partials/footer') %>		
+
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script src="/js/perfil.js"></script>
 	</body>
 </html>

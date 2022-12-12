@@ -5,7 +5,7 @@
 		<%-include('../partials/header') %> <%-include('../partials/nav') %>
 
 		<main class="d-flex justify-content-around mx-auto flex-wrap">
-			<form class="w-75" action="<%=producto.idProductos%>?_method=PUT" method="POST" enctype="multipart/form-data">
+			<form class="w-75" action="<%=producto.idProductos%>?_method=PUT" method="POST" enctype="multipart/form-data" id="formulario">
 				<h2 class="p-3 text-center">Editar: <%=producto.nombre%></h2>
 
 				<div class="mb-3">
@@ -275,5 +275,7 @@
 		</main>
 
 		<%-include('../partials/footer') %>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script src="/js/edicionProducto.js"></script>
 	</body>
 </html>
