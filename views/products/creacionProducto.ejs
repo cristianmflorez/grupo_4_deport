@@ -108,7 +108,7 @@
 							aria-label="select example"
 							id="category"
 						>
-						<option disabled selected >Selecciona un deporte</option>
+						<option value="0" disabled selected >Selecciona un deporte</option>
 						<% for (let c of categorias) { %>
 							<option
 							value="<%= c.idCategorias %>"
@@ -133,7 +133,7 @@
 							aria-label="select example"
 							id="type"
 						>
-							<option disabled selected>Tipo de producto</option>
+							<option value="0" disabled selected>Tipo de producto</option>
 							<% for (let t of tipos) { %>
 								<option
 									value="<%= t.idTipos %>"
@@ -196,7 +196,7 @@
 							name="color"
 							id="color"
 						>
-							<option disabled selected>Color del producto...</option>
+							<option value="0" disabled selected>Color del producto...</option>
 							<% for (let c of colores) { %>
 								<option
 									value="<%= c.idColores %>"
@@ -223,7 +223,7 @@
 						name="pais"
 						id="pais"
 					>
-						<option disabled selected>Disponible en...</option>
+						<option value="0" disabled selected>Disponible en...</option>
 						<% for (let p of paises) { %>
 							<option
 								value="<%= p.idPaises %>"

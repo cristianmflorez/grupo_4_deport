@@ -20,23 +20,27 @@ formulario.addEventListener("submit", function(e){
     } 
 
     if(nombre.value.length<1){
-        arreglo.push("Nombre");
+        arreglo.push(" Nombre");
     }
 
     if(password.value.length<6){
-        arreglo.push("Contraseña");
+        arreglo.push(" Contraseña");
     }
 
     if(passwordConfirm.value.length<6 || passwordConfirm.value!==password.value){
-        arreglo.push("Confirmar contraseña");
+        arreglo.push(" Confirmar contraseña");
     }
 
     if(telefono.value.length<7){
-        arreglo.push("Teléfono");
+        arreglo.push(" Teléfono");
     }
 
     if(direccion.value.length<1){
-        arreglo.push("Dirección");
+        arreglo.push(" Dirección");
+    }
+
+    if(pais.value == "0"){
+        arreglo.push(" País");
     }
 
     if(arreglo.length>0){
@@ -44,6 +48,8 @@ formulario.addEventListener("submit", function(e){
         arreglo = [];
         return;
     }
+
+    console.log(pais); 
 
     formulario.submit();
 })
