@@ -61,8 +61,5 @@ formulario.addEventListener("submit", function(e){
         return;
     }
 
-    
-    console.log(extension);
-
     formulario.submit();
 })

@@ -35,7 +35,7 @@
 					<% } %>
 					<li><hr class="dropdown-divider" /></li>
 					<li>
-						<a href="/users/logout" class="dropdown-item"> Cerrar sesión </a>
+						<button href="" class="cerrar dropdown-item"> Cerrar sesión </button>
 					</li>
 				</ul>
 			</li>
@@ -49,13 +49,17 @@
 				</a>
 			</li>
 			<% } %>
-			
+
 			<li class="list-group-item border border-0 fs-2 pt-0">
 				<a
 					href="/carrito"
-					class="list-group-item list-group-item-action border border-0 pt-0"
+					type="button"
+					class="btn btn-outline-secondary position-relative"
 				>
 					<i class="bi bi-cart4"></i>
+					<span
+						class="botonCarrito position-absolute top-0 start-100 translate-middle p-2 rounded-circle"
+					></span>
 				</a>
 			</li>
 		</ul>
