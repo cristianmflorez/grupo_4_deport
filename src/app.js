@@ -10,6 +10,7 @@ const userLoggedMiddleware = require('./middleware/userLoggedMiddleware');
 const mainRoutes = require('./routes/mainRoutes');
 const usersRoutes = require('./routes/usersRoutes');
 const productsRoutes = require('./routes/productsRoutes');
+const apiRoutes = require('./routes/apiRoutes');
 
 app.use(session({
 	secret: "Shhh, It's a secret",
@@ -36,6 +37,8 @@ app.use('/', mainRoutes);
 app.use('/users', usersRoutes);
 
 app.use('/products', productsRoutes);
+
+app.use('/api', apiRoutes);
 
 app.use((req, res, next) => {
 	res.status(404).render('errorPage');

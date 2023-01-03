@@ -51,13 +51,18 @@
 					<label for="password" class="form-label text-primary"
 						><strong>Contraseña</strong></label
 					>
-					<input
-						type="password"
-						class="form-control <%= (locals.errors && errors.password) ? 'is-invalid' : null %>"
-						id="password"
-						name="password"
-						value="<%= locals.oldData && oldData.password ? oldData.password : null %>"
-					/>
+					<div class="input-group">
+						<input
+							type="password"
+							class="form-control <%= (locals.errors && errors.password) ? 'is-invalid' : null %>"
+							id="password"
+							name="password"
+							value="<%= locals.oldData && oldData.password ? oldData.password : null %>"
+						/>
+						<button class="btn btn-outline-dark" type="button" onclick="mostrarContrasena()">
+							<i class="bi bi-eye"></i>
+						</button>
+					</div>
 					<% if (locals.errors && errors.password) { %>
 						<p style="color: red">
 							<%= errors.password.msg %> 
@@ -69,13 +74,18 @@
 					<label for="passwordConfirm" class="form-label text-primary"
 						><strong>Confirmar contraseña</strong></label
 					>
-					<input
-						type="password"
-						class="form-control <%= (locals.errors && errors.passwordConfirm) ? 'is-invalid' : null %>"
-						id="passwordConfirm"
-						name="passwordConfirm"
-						value="<%= locals.oldData && oldData.passwordConfirm ? oldData.passwordConfirm : null %>"
-					/>
+					<div class="input-group">
+						<input
+							type="password"
+							class="form-control <%= (locals.errors && errors.passwordConfirm) ? 'is-invalid' : null %>"
+							id="passwordConfirm"
+							name="passwordConfirm"
+							value="<%= locals.oldData && oldData.passwordConfirm ? oldData.passwordConfirm : null %>"
+						/>
+						<button class="btn btn-outline-dark" type="button" onclick="mostrarContrasenaConfirm()">
+							<i class="bi bi-eye"></i>
+						</button>
+					</div>
 					<% if (locals.errors && errors.passwordConfirm) { %>
 						<p style="color: red">
 							<%= errors.passwordConfirm.msg %> 
@@ -311,5 +321,23 @@
 
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		<script src="/js/registro.js"></script>
+		<script>
+			function mostrarContrasena(){
+				var tipo = document.getElementById("password");
+				if(tipo.type == "password"){
+					tipo.type = "text";
+				}else{
+					tipo.type = "password";
+				}
+			}
+			function mostrarContrasenaConfirm(){
+				var tipo = document.getElementById("passwordConfirm");
+				if(tipo.type == "password"){
+					tipo.type = "text";
+				}else{
+					tipo.type = "password";
+				}
+			}
+		</script>
 	</body>
 </html>

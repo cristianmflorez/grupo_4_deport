@@ -37,7 +37,7 @@
 							id="password" 
 							name="password"
 						/>
-						<button class="btn btn-outline-dark" type="button">
+						<button class="btn btn-outline-dark" type="button" onclick="mostrarContrasena()">
 							<i class="bi bi-eye"></i>
 						</button>
 					</div>
@@ -73,5 +73,15 @@
 
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		<script src="/js/login.js"></script>
+		<script>
+			function mostrarContrasena(){
+				var tipo = document.getElementById("password");
+				if(tipo.type == "password"){
+					tipo.type = "text";
+				}else{
+					tipo.type = "password";
+				}
+			}
+		</script>
 	</body>
 </html>

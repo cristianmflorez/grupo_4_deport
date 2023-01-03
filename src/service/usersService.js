@@ -1,6 +1,10 @@
 const db = require('../database/models');
 const bcryptjs = require('bcryptjs');
 
+function buscarTodosUsuarios() {
+	return db.Usuario.findAll();
+}
+
 function buscarUsuarioEmail(correo) {
 	return db.Usuario.findOne({
 		where: {
@@ -77,6 +81,7 @@ function editarUsuarioSinImagen(id, datos) {
 }
 
 module.exports = {
+	buscarTodosUsuarios,
 	buscarUsuarioEmail,
 	buscarUsuarioId,
 	crearUsuarioSinImagen,
