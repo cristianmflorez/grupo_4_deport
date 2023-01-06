@@ -7,6 +7,7 @@ const authMiddleware = require('./../middleware/authMiddleware');
 router.get('/', mainController.home);
 
 router.get('/carrito', authMiddleware, mainController.carrito);
+router.post('/carrito', mainController.compra);
 
 router.get('/buscar', mainController.buscar);
 

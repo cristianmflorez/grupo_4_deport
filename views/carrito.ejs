@@ -1,47 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%-include( './partials/head') %>
-<body>
+	<%-include( './partials/head') %>
+	<body>
+		<%-include( './partials/header') %> <%-include( './partials/nav') %>
 
-    <%-include( './partials/header') %>
+		<main class="container">
+			<h2 class="p-3 text-center">Tu carrito de compras.</h2>
+		</main>
 
-    <%-include( './partials/nav') %>
+		<section
+			class="d-flex flex-column flex-sm-row justify-content-center"
+			style="background-color: #eee"
+		>
+			<div class="detalleCompra py-1 mt-2 w-100"></div>
 
-    <main class="container">
-        <h2 class="p-3 text-center">Tu carrito de compras.</h2>
+			<form action="/carrito" method="post" class="text-center">
+				<aside
+					class="shop my-3 m-1 p-3 border border-secondary w-auto rounded-1"
+				>
+					<div class="shop__header">
+						<h3 class="shop__title">Resumen de Carrito</h3>
+						<p class="shop__text">
+							<a class="button js-toggle-cart" href="#" title="View cart"> </a>
+						</p>
+					</div>
 
-    </main>
+					<div class="shop__products m-3">
+						<div class="products"></div>
+					</div>
 
-    <section class="d-flex flex-column flex-sm-row justify-content-center" style="background-color: #eee;">
-        <div class="detalleCompra py-1 mt-2 w-100">
-        </div>
+					<div
+						class="products__total m-3 d-flex justify-content-between align-items-center"
+					>
+						<p class="products__total-info text-capitalize fw-bold">Total</p>
+						<p class="precioTotal fw-bold text-success"></p>
+					</div>
+				</aside>
 
-        <aside class="shop my-3 m-1 p-3 border border-secondary  w-auto rounded-1">
-            <div class="shop__header">
-                <h3 class="shop__title">Resumen de Carrito</h3>
-                <p class="shop__text">
-                    <a class="button js-toggle-cart" href="#" title="View cart">
-                    </a>
-                </p>
-            </div>
+                <input type="text" class="local d-none" name="local"></input>
 
-            <div class="shop__products m-3">
-                <div class="products">
-                    
-                </div>
-            </div>
+				<button type="submit" class="btn btn-success mb-3 btn-lg btnCompra d-none">
+					Comprar
+				</button>
+			</form>
+		</section>
 
-            <div class="products__total  m-3 d-flex justify-content-between align-items-center">
-                <p class="products__total-info text-capitalize fw-bold">Total</p>
-                <p class="precioTotal fw-bold text-success"></p>
-            </div>
-        </aside>
-    </section>
+		<div class="lightbox js-lightbox js-toggle-cart"></div>
 
-    <div class="lightbox js-lightbox js-toggle-cart"></div>
-    
-    <%-include( './partials/footer') %>
-    <script src="/js/detalleCompra.js"></script>
-</body>
-
+		<%-include( './partials/footer') %>
+		<script src="/js/detalleCompra.js"></script>
+	</body>
 </html>

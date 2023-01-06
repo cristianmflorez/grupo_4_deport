@@ -14,6 +14,20 @@ const mainController = {
 		res.render('carrito');
 	},
 
+	compra: async (req, res) => {
+		let localString = JSON.parse(req.body.local);
+		let localJson = JSON.parse(localString.carrito);
+		let dato;
+		for (const p of localJson) {
+			await productsService.buscarProductoId(p.idProductos).then((producto) => {
+				dato = producto.cantidad;
+				dato -= p.cantidad;
+				productsService.editarProductoCantidad(p.idProductos, dato);
+			});
+		}
+		res.redirect('/');
+	},
+
 	buscar: (req, res) => {
 		let listado = productsService.buscarProductoNombre(req.query.producto);
 		let paises = obtenerTablaPais();
@@ -28,7 +42,7 @@ const mainController = {
 		]) {
 			res.render('./products/listadoProductos', {
 				productos: rListado,
-				nombreCategoria: "Resultado de la busqueda",
+				nombreCategoria: 'Resultado de la busqueda',
 				paises: rPaises,
 				colores: rColores,
 				tipos: rTipos

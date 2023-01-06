@@ -2,6 +2,8 @@ const detalleCompra = document.querySelector('.detalleCompra');
 const elementosCarrito = JSON.parse(localStorage.getItem('carrito'));
 const precioTotal = document.querySelector('.precioTotal');
 const products = document.querySelector('.products');
+const btnCompra = document.querySelector('.btnCompra');
+const local = document.querySelector('.local');
 
 window.addEventListener('load', () => {
     let sumador = 0;
@@ -31,16 +33,21 @@ window.addEventListener('load', () => {
         '<div class="products__item d-flex justify-content-between align-items-center">'
         +    '<div class="product">'
         +        '<p class="product__title fw-bold mb-1">Producto ' + iterador + '</p>'
-        +        '<p class="product__text">' + p.nombre + '<p>'
+        +        '<p class="product__text">' + p.nombre + ' <b>X' + p.cantidad + '</b><p>'
         +    '</div>'
         +    '<p class="product__price fw-bold text-success">'
-        +        '$' + p.precioFinal
+        +        '$' + p.precioFinal*p.cantidad
         +    '</p>'
-        +'</div>';
+        +'</div>'
 
-        sumador += parseFloat(p.precioFinal);
+        sumador += parseFloat(p.precioFinal*p.cantidad);
         iterador++;
     }
 
     precioTotal.innerText += '$' + sumador;
+
+    if (elementosCarrito != null && elementosCarrito.length >= 1) {
+        btnCompra.classList.remove('d-none');
+        local.value = JSON.stringify(localStorage);
+    }
 });

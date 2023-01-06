@@ -9,12 +9,14 @@ const idProductos = document.querySelector('.idProductos').innerHTML;
 const imagen = document.querySelector('.imagen').innerHTML;
 const nombre = document.querySelector('.nombre').innerHTML;
 const precioFinal = document.querySelector('.precioFinal').innerHTML;
+const cantidad = document.querySelector('.cantidad');
 const carrito = document.querySelector('.carrito');
 
 let elemento = {
 	idProductos: idProductos,
 	nombre: nombre,
 	imagen: imagen,
+	cantidad: null,
 	precioFinal: precioFinal
 };
 
@@ -33,7 +35,6 @@ if (localStorage.getItem('carrito') != null) {
 
 carrito.addEventListener('click', () => {
 	let agregarTrue = carrito.classList.contains('agregarTrue');
-
 	if (agregarTrue) {
 		agregarLocalStorage();
 		carrito.innerText = 'Quitar del carrito';
@@ -47,6 +48,7 @@ carrito.addEventListener('click', () => {
 });
 
 function agregarLocalStorage() {
+	elemento.cantidad = cantidad.selectedOptions[0].value;
 	elementosCarrito.push(elemento);
 	localStorage.setItem('carrito', JSON.stringify(elementosCarrito));
 }

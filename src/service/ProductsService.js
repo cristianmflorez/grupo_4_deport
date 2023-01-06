@@ -123,6 +123,17 @@ function buscarProductoNombre(nombre) {
 	});
 }
 
+function editarProductoCantidad(id, dato) {
+	return db.Producto.update(
+		{
+			cantidad: dato,
+		},
+		{
+			where: { idProductos: id }
+		}
+	);
+}
+
 module.exports = {
 	buscarTodosProductos,
 	crearProducto,
@@ -132,5 +143,6 @@ module.exports = {
 	editarProductoConImagen,
 	editarProductoSinImagen,
 	buscarProductoRandom,
-	buscarProductoNombre
+	buscarProductoNombre,
+	editarProductoCantidad
 };
