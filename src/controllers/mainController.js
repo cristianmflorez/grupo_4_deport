@@ -1,7 +1,10 @@
-const productsService = require('../service/ProductsService');
+const productsService = require('../service/productsService');
 const obtenerTablaPais = require('../service/paisService');
 const obtenerTablaTipo = require('../service/tipoService');
 const obtenerTablaColor = require('../service/colorService');
+const detalleVentaService = require('../service/detalleVentaService');
+const ventaService = require('../service/ventaService');
+var moment = require('moment');
 
 const mainController = {
 	home: (req, res) => {
@@ -25,6 +28,19 @@ const mainController = {
 				productsService.editarProductoCantidad(p.idProductos, dato);
 			});
 		}
+
+		await detalleVentaService
+			.crearDetalleVenta(moment().format('YYYY-MM-DD'), req.body.monto)
+			.then((ultimoDetalle) => {
+				for (const p of localJson) {
+					ventaService.crearVenta(
+						p.cantidad,
+						p.idProductos,
+						req.body.usuario,
+						ultimoDetalle.idDetallesVenta
+					);
+				}
+			});
 		res.redirect('/');
 	},
 

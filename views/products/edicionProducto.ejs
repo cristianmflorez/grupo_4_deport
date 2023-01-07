@@ -217,21 +217,25 @@
 
 				<div class="mb-3">
 					<label for="pais" class="form-label text-primary"
-						><strong>País</strong></label
+						><strong>Disponible en...</strong></label
 					>
-					<select
-						class="form-select <%= (locals.errors && errors.pais) ? 'is-invalid' : null %>"
-						aria-label="Default select example"
-						name="pais"
-						id="pais"
-					>
-						<option disabled selected>Disponible en...</option>
-						<% for (let p of paises) { %>
-							<option
-								value="<%= p.idPaises %>"
-								<%= (locals.oldData && (p.idPaises == oldData.pais)) ||  p.idPaises == relacionProductoPais[0].dataValues.Paises_idPaises ? 'selected' : null %> 
-							> <%= p.nombre %> 
-							</option>
+						<% for (let p of paises) { 
+							let escogido;
+							for (let index = 0; index < relacionProductoPais.length; index++) {
+								if (p.idPaises == relacionProductoPais[index].dataValues.Paises_idPaises) {
+									escogido = 'ok';
+									break;
+								}else{
+									escogido = null;
+								}
+							}
+						%>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="<%= p.idPaises %>" id="checkbox-<%= p.idPaises %>" <%= (locals.oldData && (p.idPaises == oldData.pais)) || escogido ? 'checked' : null %> >
+								<label class="form-check-label" for="checkbox-<%= p.idPaises %>">
+									<%= p.nombre %> 
+								</label>
+							</div>
 						<% } %>
 					</select>
 					<% if (locals.errors && errors.pais) { %>

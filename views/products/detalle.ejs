@@ -119,10 +119,19 @@
 							<% } %> 
 						</select>
 						
-						<% if (!locals.isLogged) { %>
+						<% 
+						// for (let index = 0; index < array.length; index++) {
+						// 	const element = array[index];
+							
+						// }
+						
+						if (!locals.isLogged) { %>
 							<span class="d-inline-block w-50" tabindex="0" data-bs-toggle="popover" data-bs-trigger= "hover focus" data-bs-content= "Debes iniciar sesion">
 						<% }else if (producto.cantidad == 0) { %>
 							<span class="d-inline-block w-50" tabindex="0" data-bs-toggle="popover" data-bs-trigger= "hover focus" data-bs-content= "No hay stock">
+					// 	<% 
+					// }else if (!escogido){ %>
+					// 		<span class="d-inline-block w-50" tabindex="0" data-bs-toggle="popover" data-bs-trigger= "hover focus" data-bs-content= "No esta disponible en tu pais">
 						<% }else{ %>
 							<span>
 						<% } %>

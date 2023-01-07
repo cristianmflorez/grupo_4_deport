@@ -3,13 +3,13 @@ module.exports = (sequelize, Datatypes) => {
         "DetalleVenta",
         {
             idDetallesVenta: {type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true},
-            fecha: {type: Datatypes.DATE},
+            fecha: {type: Datatypes.DATEONLY},
             monto: {type: Datatypes.FLOAT},
         },
         {
             camelCase: false, 
             timestamps: false,
-            tableName: "Detallesventa"
+            tableName: "DetallesVenta"
         }  
     );
 

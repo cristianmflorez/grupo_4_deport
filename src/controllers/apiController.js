@@ -1,6 +1,8 @@
 const productsService = require('../service/ProductsService');
 const usersService = require('../service/usersService');
 const obtenerTablaCategoria = require('../service/categoriaService');
+const detalleVentaService = require('../service/detalleVentaService');
+const ventaService = require('../service/ventaService');
 
 const apiController = {
 	userList: (req, res) => {
@@ -112,7 +114,7 @@ const apiController = {
 		});
 	},
 
-	categoriesList: async (req, res) => {
+	categoriesList: (req, res) => {
 		obtenerTablaCategoria().then((categorias) => {
 			let requestedInfo = [];
 			for (let index = 0; index < categorias.length; index++) {
@@ -124,7 +126,6 @@ const apiController = {
 							countByCategory: productos.length,
 							data: productos
 						});
-						console.log(requestedInfo);
 						if (index == categorias.length - 1) {
 							return res.json({
 								data: requestedInfo,
@@ -135,7 +136,31 @@ const apiController = {
 			}
 		});
 	},
-	purchasesList: (req, res) => {}
+	purchasesList: (req, res) => {
+		detalleVentaService.buscarTodoDetalleVenta().then((detalles) => {
+			let montoTotalVentas = 0;
+			var cantidadTotalVentas = 0;
+			for (let index = 0; index < detalles.length; index++) {
+				montoTotalVentas += parseFloat(detalles[index].monto);
+				ventaService
+					.buscarVentasDetalleVenta(detalles[index].idDetallesVenta)
+					.then((ventas) => {
+						for (let i = 0; i < ventas.length; i++) {
+							cantidadTotalVentas += parseInt(ventas[i].cantidad);
+						}
+						if (index == detalles.length - 1) {
+							return res.json({
+								data: {
+									montoTotalVentas: montoTotalVentas,
+									cantidadTotalVentas: cantidadTotalVentas
+								},
+								status: 200
+							});
+						}
+					});
+			}
+		});
+	}
 };
 
 module.exports = apiController;

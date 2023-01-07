@@ -36,10 +36,12 @@ const productsController = {
 			await productsService
 				.crearProducto(req.body, req.file.filename)
 				.then((ultimoProducto) => {
-					producto_paisService.crearProductoPais(
-						ultimoProducto.idProductos,
-						req.body.pais
-					);
+					for (let index = 0; index < req.body.pais.length; index++) {
+						producto_paisService.crearProductoPais(
+							ultimoProducto.idProductos,
+							req.body.pais[index]
+						);
+					}
 				});
 			res.redirect('/');
 		} else {

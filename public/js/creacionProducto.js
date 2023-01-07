@@ -65,9 +65,9 @@ formulario.addEventListener("submit", function(e){
         arreglo.push(" Color");
     }
 
-    if(pais.value == "0"){
-        arreglo.push(" Pais");
-    }
+    // if(pais.value == "0"){
+    //     arreglo.push(" Pais");
+    // }
 
     let extension = avatar.value.substring(avatar.value.lastIndexOf('.'), avatar.value.length);
     if((extension != '.png') && (extension != '.jpg') && (extension != '.jpeg')){

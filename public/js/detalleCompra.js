@@ -5,6 +5,7 @@ const products = document.querySelector('.products');
 const btnCompra = document.querySelector('.btnCompra');
 const formCompra = document.querySelector('.formCompra');
 const local = document.querySelector('.local');
+const monto = document.querySelector('.monto');
 
 window.addEventListener('load', () => {
     let sumador = 0;
@@ -51,6 +52,7 @@ window.addEventListener('load', () => {
     if (elementosCarrito != null && elementosCarrito.length >= 1) {
         btnCompra.classList.remove('d-none');
         local.value = JSON.stringify(localStorage);
+        monto.value = sumador;
     }
 });
 
