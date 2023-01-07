@@ -12,6 +12,10 @@ const usersRoutes = require('./routes/usersRoutes');
 const productsRoutes = require('./routes/productsRoutes');
 const apiRoutes = require('./routes/apiRoutes');
 
+const cors = require('cors');
+
+app.use(cors());
+
 app.use(session({
 	secret: "Shhh, It's a secret",
 	resave: false,
