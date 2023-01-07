@@ -1,6 +1,11 @@
 const botonCarrito = document.querySelector('.botonCarrito');
+const limpiarCarrito = document.querySelector('.limpiarCarrito');
 
 window.addEventListener('load', () => {
+	if (limpiarCarrito.innerHTML != 'true') {
+        localStorage.clear();
+    }
+
 	if (
 		localStorage.getItem('carrito') != null &&
 		JSON.parse(localStorage.getItem('carrito')).length > 0
@@ -14,10 +19,3 @@ window.addEventListener('load', () => {
 		botonCarrito.classList.remove('border-light');
 	}
 });
-
-const cerrar = document.querySelector('.cerrar');
-
-cerrar.addEventListener('click', () => {
-	localStorage.clear();
-	window.location.href='/users/logout';
-})

@@ -57,9 +57,11 @@
 					class="btn btn-outline-secondary position-relative"
 				>
 					<i class="bi bi-cart4"></i>
-					<span
-						class="botonCarrito position-absolute top-0 start-100 translate-middle p-2 rounded-circle"
-					></span>
+					<% if (locals.isLogged) { %>
+						<span
+							class="botonCarrito position-absolute top-0 start-100 translate-middle p-2 rounded-circle"
+						></span>
+					<% } %> 
 				</a>
 			</li>
 		</ul>
