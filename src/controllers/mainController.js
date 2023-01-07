@@ -1,9 +1,9 @@
-const productsService = require('../service/ProductsService');
 const obtenerTablaPais = require('../service/paisService');
 const obtenerTablaTipo = require('../service/tipoService');
 const obtenerTablaColor = require('../service/colorService');
 const detalleVentaService = require('../service/detalleVentaService');
 const ventaService = require('../service/ventaService');
+const productsService = require('../service/ProductsService');
 var moment = require('moment');
 
 const mainController = {
