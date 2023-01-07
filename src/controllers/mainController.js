@@ -1,4 +1,4 @@
-const productsService = require('../service/productsService');
+const productsService = require('../service/ProductsService');
 const obtenerTablaPais = require('../service/paisService');
 const obtenerTablaTipo = require('../service/tipoService');
 const obtenerTablaColor = require('../service/colorService');
