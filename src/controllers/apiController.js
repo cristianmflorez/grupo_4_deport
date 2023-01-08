@@ -67,6 +67,8 @@ const apiController = {
 				oneProduct = {
 					idProductos: productos[index].idProductos,
 					nombre: productos[index].nombre,
+					precio: productos[index].precio,
+					descuento: productos[index].descuento,
 					descripcion: productos[index].descripcion,
 					Categorias_idCategorias: productos[index].Categorias_idCategorias,
 					detalle:
