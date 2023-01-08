@@ -14,6 +14,8 @@ const apiController = {
 					idUsuarios: usuarios[index].idUsuarios,
 					nombre: usuarios[index].nombre,
 					email: usuarios[index].email,
+					telefono: usuarios[index].telefono,
+					imagen: usuarios[index].imagen,
 					url: 'http://localhost:3005/api/users/' + usuarios[index].idUsuarios
 				};
 				requestedInfo.push(oneUser);
