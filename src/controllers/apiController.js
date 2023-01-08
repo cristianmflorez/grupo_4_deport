@@ -50,8 +50,8 @@ const apiController = {
 					telefono: usuarios[usuarios.length - 1].telefono,
 					direccion: usuarios[usuarios.length - 1].direccion,
 					imagen:
-						__dirname +
-						'../../public/imagenes/users/' +
+						'https://ill-gold-gorilla-gown.cyclic.app' +
+						'/imagenes/users/' +
 						usuarios[usuarios.length - 1].imagen
 				},
 				status: 200
@@ -70,7 +70,8 @@ const apiController = {
 					descripcion: productos[index].descripcion,
 					Categorias_idCategorias: productos[index].Categorias_idCategorias,
 					detalle:
-						'http://localhost:3005/api/products/' + productos[index].idProductos
+						'https://ill-gold-gorilla-gown.cyclic.app/api/products/' + productos[index].idProductos,
+					imagen:'https://ill-gold-gorilla-gown.cyclic.app'+'/imagenes/products/'+productos[index].imagen
 				};
 				requestedInfo.push(oneProduct);
 			}
@@ -89,7 +90,7 @@ const apiController = {
 					nombre: producto.nombre,
 					descripcion: producto.descripcion,
 					Categorias_idCategorias: producto.Categorias_idCategorias,
-					imagen: __dirname + '../public/imagenes/products/' + producto.imagen
+					imagen: 'https://ill-gold-gorilla-gown.cyclic.app' + '/imagenes/products/' + producto.imagen
 				},
 				status: 200
 			});
@@ -105,8 +106,8 @@ const apiController = {
 					Categorias_idCategorias:
 						productos[productos.length - 1].Categorias_idCategorias,
 					imagen:
-						__dirname +
-						'../public/imagenes/products/' +
+						'https://ill-gold-gorilla-gown.cyclic.app' +
+						'/imagenes/products/' +
 						productos[productos.length - 1].imagen
 				},
 				status: 200
