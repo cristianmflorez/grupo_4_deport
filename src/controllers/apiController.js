@@ -15,7 +15,7 @@ const apiController = {
 					nombre: usuarios[index].nombre,
 					email: usuarios[index].email,
 					telefono: usuarios[index].telefono,
-					imagen: usuarios[index].imagen,
+					imagen: 'https://ill-gold-gorilla-gown.cyclic.app/imagenes/users/'+usuarios[index].imagen,
 					url: 'http://localhost:3005/api/users/' + usuarios[index].idUsuarios
 				};
 				requestedInfo.push(oneUser);
