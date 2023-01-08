@@ -36,7 +36,7 @@ const apiController = {
 					email: usuario.email,
 					telefono: usuario.telefono,
 					direccion: usuario.direccion,
-					imagen: __dirname + '../public/imagenes/users/' + usuario.imagen
+					imagen: 'https://ill-gold-gorilla-gown.cyclic.app/imagenes/users/' + usuario.imagen
 				},
 				status: 200
 			});
