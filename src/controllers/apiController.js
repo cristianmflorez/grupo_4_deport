@@ -15,8 +15,8 @@ const apiController = {
 					nombre: usuarios[index].nombre,
 					email: usuarios[index].email,
 					telefono: usuarios[index].telefono,
-					imagen: 'https://ill-gold-gorilla-gown.cyclic.app/imagenes/users/'+usuarios[index].imagen,
-					url: 'http://localhost:3005/api/users/' + usuarios[index].idUsuarios
+					imagen: 'https://alls-ports.onrender.com/imagenes/users/'+usuarios[index].imagen,
+					url: 'https://alls-ports.onrender.com/api/users/' + usuarios[index].idUsuarios
 				};
 				requestedInfo.push(oneUser);
 			}
@@ -36,7 +36,7 @@ const apiController = {
 					email: usuario.email,
 					telefono: usuario.telefono,
 					direccion: usuario.direccion,
-					imagen: 'https://ill-gold-gorilla-gown.cyclic.app/imagenes/users/' + usuario.imagen
+					imagen: 'https://alls-ports.onrender.com/imagenes/users/' + usuario.imagen
 				},
 				status: 200
 			});
@@ -52,7 +52,7 @@ const apiController = {
 					telefono: usuarios[usuarios.length - 1].telefono,
 					direccion: usuarios[usuarios.length - 1].direccion,
 					imagen:
-						'https://ill-gold-gorilla-gown.cyclic.app' +
+						'https://alls-ports.onrender.com' +
 						'/imagenes/users/' +
 						usuarios[usuarios.length - 1].imagen
 				},
@@ -74,8 +74,8 @@ const apiController = {
 					descripcion: productos[index].descripcion,
 					Categorias_idCategorias: productos[index].Categorias_idCategorias,
 					detalle:
-						'https://ill-gold-gorilla-gown.cyclic.app/api/products/' + productos[index].idProductos,
-					imagen:'https://ill-gold-gorilla-gown.cyclic.app'+'/imagenes/products/'+productos[index].imagen
+						'https://alls-ports.onrender.com/api/products/' + productos[index].idProductos,
+					imagen:'https://alls-ports.onrender.com'+'/imagenes/products/'+productos[index].imagen
 				};
 				requestedInfo.push(oneProduct);
 			}
@@ -94,7 +94,7 @@ const apiController = {
 					nombre: producto.nombre,
 					descripcion: producto.descripcion,
 					Categorias_idCategorias: producto.Categorias_idCategorias,
-					imagen: 'https://ill-gold-gorilla-gown.cyclic.app' + '/imagenes/products/' + producto.imagen
+					imagen: 'https://alls-ports.onrender.com' + '/imagenes/products/' + producto.imagen
 				},
 				status: 200
 			});
@@ -110,7 +110,7 @@ const apiController = {
 					Categorias_idCategorias:
 						productos[productos.length - 1].Categorias_idCategorias,
 					imagen:
-						'https://ill-gold-gorilla-gown.cyclic.app' +
+						'https://alls-ports.onrender.com' +
 						'/imagenes/products/' +
 						productos[productos.length - 1].imagen
 				},
