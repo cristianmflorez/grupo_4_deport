@@ -72,8 +72,7 @@
 						class="form-control <%= (locals.errors && errors.description) ? 'is-invalid' : null %>"
 						name="description"
 						id="description"						
-					><%= (locals.errors && errors.description) ? oldData.description : producto.descripcion %>
-					</textarea>
+					><%= (locals.errors && errors.description) ? oldData.description : producto.descripcion %></textarea>
 					<% if (locals.errors && errors.description) { %>
 						<p style="color: red">
 							<%= errors.description.msg %> 
@@ -89,8 +88,7 @@
 						class="form-control <%= (locals.errors && errors.specification) ? 'is-invalid' : null %>"
 						name="specification"
 						id="specification"
-					><%= locals.oldData && oldData.specification ? oldData.specification : producto.especificacion %>
-					</textarea>
+					><%= locals.oldData && oldData.specification ? oldData.specification : producto.especificacion %></textarea>
 					<% if (locals.errors && errors.specification) { %>
 						<p style="color: red">
 							<%= errors.specification.msg %> 
