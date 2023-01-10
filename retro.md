@@ -55,3 +55,43 @@ Qué continuar haciendo:
 
 Qué hacer menos o Qué Dejar de hacer:
 - Codear en español y en inglés, debemos continuar todo en un solo idioma
+
+
+SPRINT 6
+
+Qué comenzar a hacer:
+- Perfeccionar detalles de la página
+
+Qué continuar haciendo:
+- Aportar ideas para mejoras futuras o como proyección del proyecto.
+- Realizar un código organizado y modularizado.
+
+
+Qué hacer menos o Qué Dejar de hacer:
+- Codear en español y en inglés, debemos continuar todo en un solo idioma.
+
+
+SPRINT 7
+
+Qué comenzar a hacer:
+- Buscar formas de mejorar las funcionalidades de validación, manejo de erroes y demás.
+
+Qué continuar haciendo:
+- Aportar ideas para mejoras futuras o como proyección del proyecto.
+- Preocuparnos por la armonía de la página web.
+
+
+Qué hacer menos o Qué Dejar de hacer:
+- Limitarnos a cumplir con lo que pide el sprint.
+
+
+SPRINT 8
+
+Qué comenzar a hacer:
+- Mejorar la aplicación teniendo en cuenta todas aquellas mejoras que se establecieron el los SPRINT anteriores.
+
+Qué continuar haciendo:
+- Un código prolijo y organizado.
+
+Qué hacer menos o Qué Dejar de hacer:
+- Conformarnos con un servidor para el deploy, ya que a veces se encuentran algunos que hacen que la aplicación no funcione debidamente.
