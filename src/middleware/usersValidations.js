@@ -64,7 +64,7 @@ const validacionesLogin = [
 		.custom((value) => {
 			usersService.buscarUsuarioEmail(value).then((usuario) => {
 				if (!usuario) {
-					throw new Error('El correo no está registrado');
+					console.log('El correo no está registrado');
 				}
 			});
 			return true;
