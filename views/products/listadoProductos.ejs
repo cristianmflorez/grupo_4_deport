@@ -222,8 +222,8 @@
 		<main
 			class="d-flex justify-content-center mx-auto p-3 ps-4 text-center" style="background-color: #eee"
 		>
-			<% if(productos.length >= 1){ %>
-				<section
+			<% if(productos.length >= 1 && nombreCategoria != "Resultado de la busqueda"){ %>
+				<!-- <section
 					class="d-none d-md-block p-3 w-25 border border-1 rounded mb-3"
 					style="background-color: white"
 				>
@@ -304,7 +304,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="accordion-item">
+							 <div class="accordion-item">
 								<h2 class="accordion-header" id="headingTwo">
 									<button
 										class="accordion-button collapsed"
@@ -345,10 +345,10 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> 
 						</div>
 					</section>
-				</section>
+				</section> -->
 			<% } %> 
 
 			<section class="mx-3 w-75 d-md-block">
@@ -373,12 +373,14 @@
 									$<%= p.precio - ((p.precio * p.descuento) / 100) %>
 								</p>
 								<div
-									class="card-text text-success d-flex justify-content-evenly"
+									class="card-text d-flex justify-content-evenly"
 								>
-									<p><%= p.descuento %>% OFF</p>
-									<p class="text-decoration-line-through text-danger">
-										$<%= p.precio %>
-									</p>
+									<% if (p.descuento > 0) { %>
+										<p class="text-success "><%= p.descuento %>% OFF</p>
+										<p class="text-decoration-line-through text-danger">
+											$<%= p.precio %>
+										</p>
+									<% } %>
 									<a href="/products/detalle/<%=	p.idProductos %>" type="button" class="btn btn-outline-success">
 										Ver
 									</a>
