@@ -32,10 +32,20 @@
 							Nuevo producto
 						</a>
 					</li>
+					<li>
+						<a
+							href="https://dashboard-allsports-dh.onrender.com/"
+							target="_blank"
+							class="dropdown-item"
+							>Dashboard</a
+						>
+					</li>
 					<% } %>
 					<li><hr class="dropdown-divider" /></li>
 					<li>
-						<a href="/users/logout" class="cerrar dropdown-item"> Cerrar sesión </a>
+						<a href="/users/logout" class="cerrar dropdown-item">
+							Cerrar sesión
+						</a>
 					</li>
 				</ul>
 			</li>
@@ -58,10 +68,10 @@
 				>
 					<i class="bi bi-cart4"></i>
 					<% if (locals.isLogged) { %>
-						<span
-							class="botonCarrito position-absolute top-0 start-100 translate-middle p-2 rounded-circle"
-						></span>
-					<% } %> 
+					<span
+						class="botonCarrito position-absolute top-0 start-100 translate-middle p-2 rounded-circle"
+					></span>
+					<% } %>
 				</a>
 			</li>
 		</ul>

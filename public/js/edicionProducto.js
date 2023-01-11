@@ -29,17 +29,17 @@ formulario.addEventListener("submit", function(e){
         arreglo.push(" Descripción");
     }
 
-    if(specification.value.trim().length<1){
-        arreglo.push(" Especificaciones");
-    }
+    // if(specification.value.trim().length<1){
+    //     arreglo.push(" Especificaciones");
+    // }
 
     if(cantidad.value.length<1){
         arreglo.push(" Cantidad");
     }
 
-    if(talla.value.length<1){
-        arreglo.push(" Talla");
-    }
+    // if(talla.value.length<1){
+    //     arreglo.push(" Talla");
+    // }
 
     if(arreglo.length>0){
         swal("Debes diligenciar los campos: "+arreglo, "", "warning");

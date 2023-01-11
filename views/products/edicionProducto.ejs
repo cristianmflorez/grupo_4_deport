@@ -229,7 +229,7 @@
 							}
 						%>
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="<%= p.idPaises %>" id="checkbox-<%= p.idPaises %>" <%= (locals.oldData && (p.idPaises == oldData.pais)) || escogido ? 'checked' : null %> >
+								<input class="form-check-input" type="checkbox" name="pais" value="<%= p.idPaises %>" id="checkbox-<%= p.idPaises %>" <%= (locals.oldData && (p.idPaises == oldData.pais)) || escogido ? 'checked' : null %> >
 								<label class="form-check-label" for="checkbox-<%= p.idPaises %>">
 									<%= p.nombre %> 
 								</label>
